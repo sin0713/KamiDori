@@ -28,6 +28,8 @@
 - 新しいコーヒー抽出レシピを探したい時
 
 ## 設計書
+- [画面遷移図](https://drive.google.com/file/d/1lPOZv6AnmNu5XinyaN_4h6v3Rsg4DpGX/view?usp=sharing)
+- [ER図](https://drive.google.com/file/d/1meMJgvL9fNRCWN4lBRAkJq98Nu5_OSHA/view?usp=sharing)
 
 
 
