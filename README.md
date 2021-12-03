@@ -30,8 +30,7 @@
 ## 設計書
 - [画面遷移図](https://drive.google.com/file/d/1lPOZv6AnmNu5XinyaN_4h6v3Rsg4DpGX/view?usp=sharing)
 - [ER図](https://drive.google.com/file/d/1meMJgvL9fNRCWN4lBRAkJq98Nu5_OSHA/view?usp=sharing)
-
-
+- [テーブル定義書](https://docs.google.com/spreadsheets/d/1hIklTfq5NO5BkwNDJA7cl5C_FpBazsKAzHIYvKtAu5A/edit?usp=sharing)
 
 ## チャレンジ要素一覧
 
