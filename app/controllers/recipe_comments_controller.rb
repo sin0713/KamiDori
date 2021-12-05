@@ -1,0 +1,2 @@
+class RecipeCommentsController < ApplicationController
+end
