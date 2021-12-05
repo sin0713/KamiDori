@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_05_071358) do
+ActiveRecord::Schema.define(version: 2021_12_05_151631) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 2021_12_05_071358) do
   end
 
   create_table "recipes", force: :cascade do |t|
-    t.integer "taist_id", null: false
     t.integer "roast", null: false
     t.string "bean", default: "", null: false
     t.string "tool", default: "", null: false
@@ -43,6 +42,7 @@ ActiveRecord::Schema.define(version: 2021_12_05_071358) do
     t.string "image_id", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2021_12_05_071358) do
     t.integer "rich", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "recipe_id"
   end
 
   create_table "users", force: :cascade do |t|
