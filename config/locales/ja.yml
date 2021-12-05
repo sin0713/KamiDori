@@ -1,0 +1,18 @@
+ja:
+  enums:
+    recipe:
+      roast:
+        light_roast: "ライトロースト"
+        cinnamon_roast: "シナモンロースト"
+        medium_roast: "ミディアムロースト"
+        high_roast: "ハイロースト"
+        city_roast: "シティロースト"
+        full_city_roast: "フルシティロースト"
+        french_roast: "フレンチロースト"
+        italian_roast: "イタリアンロースト"
+      grind_size:
+        fine: "極細挽き"
+        medium_fine: "細挽き"
+        medium: "中細挽き"
+        medium_coarse: "中挽き"
+        coarse: "粗挽き"
