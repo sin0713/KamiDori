@@ -1,0 +1,13 @@
+@import 'variables';
+
+.header-heading {
+  @include wrapper;
+
+
+  &__title {
+    @include title;
+    text-align: center;
+    color: #fff;
+  }
+}
+
