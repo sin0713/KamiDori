@@ -1,0 +1,48 @@
+@import 'variables';
+
+.new-recipe {
+  @include wrapper;
+
+   &__form {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__left-form {
+    width: 30%;
+  }
+
+  &__right-form {
+    width: 60%;
+  }
+
+  &__select-form {
+    position: relative;
+
+    &::before {
+    	position: absolute;
+    	top: 0.8em;
+    	right: 1.9em;
+    	width: 0;
+    	height: 0;
+    	padding: 0;
+    	content: '';
+    	border-left: 6px solid transparent;
+    	border-right: 6px solid transparent;
+    	border-top: 6px solid #666666;
+    	pointer-events: none;
+    }
+  }
+
+  &__select-box {
+    border: 2px solid #432;
+    border-radius: 5px;
+    width: 80%;
+    padding-left: 10px;
+
+
+    &:hover {
+      background-color: #432;
+    }
+  }
+}
