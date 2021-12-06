@@ -2,7 +2,6 @@
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 4%;
-
 }
 
 @mixin big-bg {
@@ -16,4 +15,8 @@
   text-transform: uppercase;
   font-weight: normal;
 
+}
+
+@mixin heading-border {
+  border-bottom: 3px #cf6032 solid;
 }

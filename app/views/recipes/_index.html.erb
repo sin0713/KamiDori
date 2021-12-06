@@ -1,0 +1,19 @@
+<div class="recipe-contents__main">
+  <% recipes.each do |recipe| %>
+    <div class="recipe-contents__items">
+      <%= attachment_image_tag recipe, :image, :fill, 80, 45, fallback: "coffee-cup-book2.jpg", size: "80x80", class:"recipe-contents__img" %>
+      <div class="recipe-contents__items-wrapper">
+        <div class="recipe-contents__tag">
+          <ul>
+            <li class="recipe-contents__list"><%= recipe.bean %></li>
+            <li class="recipe-contents__list"><%= recipe.tool %></li>
+            <li class="recipe-contents__list"><%= recipe.roast_i18n %></li>
+          </ul>
+        </div>
+        <div class="recipe-contents__date">
+          <%= recipe.created_at.strftime('%Y') %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

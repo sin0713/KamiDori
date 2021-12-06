@@ -1,0 +1,81 @@
+@import 'variables';
+
+.recipe-contents {
+  @include wrapper;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+
+  &__wrapper {
+    width: 74%;
+  }
+
+  &__heading {
+    @include heading-border;
+    display: inline-block;
+    padding: 0 8px 3px;
+    margin-bottom: 20px;
+  }
+
+  &__main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  &__items {
+    width: 30%;
+    padding: 3px;
+    background-color: #fff;
+  }
+
+  &__img {
+
+  }
+
+  &__items-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__tag {
+    width: 60%;
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__date {
+    width: 38%;
+  }
+
+
+
+  &__search-bar {
+    width: 28%;
+  }
+
+  &__search-heading {
+    margin-bottom: 10px;
+    @include heading-border;
+  }
+
+  &__search-sub-tit {
+    @include heading-border;
+
+  }
+
+  &__search-link {
+    display: block;
+    color: #432;
+
+    &:hover {
+      color:  #cf6032;
+    }
+  }
+
+  &__alert {
+    color: red;
+  }
+}

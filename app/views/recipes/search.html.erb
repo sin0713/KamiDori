@@ -1,2 +1,19 @@
-<h1>Recipes#search</h1>
-<p>Find me in app/views/recipes/search.html.erb</p>
+<div class="header-heading">
+  <h2 class="header-heading__title">Results</h2>
+</div>
+
+<div class="recipe-contents">
+  <div class="recipe-contents__wrapper">
+    <h2 class="recipe-contents__heading">Search Word: <%= @keyword %></h2>
+    <% if @recipes.count != 0 %>
+      <%= render 'index', recipes: @recipes %>
+    <% else %>
+      <h4 class="recipe-contents__alert">該当のレシピがありません。</h4>
+    <% end %>
+  </div>
+
+  <div class="recipe-contents__search-bar">
+   <%= render 'search_bar', beans: @beans, tools: @tools %>
+  </div>
+
+</div>
