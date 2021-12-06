@@ -3,6 +3,7 @@ class Recipe < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :recipe_comments, dependent: :destroy
   belongs_to :user
+  accepts_nested_attributes_for :taist
 
   attachment :image
 

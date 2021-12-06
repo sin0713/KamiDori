@@ -8,6 +8,8 @@
    <%= link_to tool, search_recipes_path(keyword: tool), method: :get,  class:"recipe-contents__search-link" %>
  <% end %>
  <h4 class="recipe-contents__search-sub-tit">Roasts</h4>
+ <!-- Recipe.roasts_i18n の中身は配列-->
  <% Recipe.roasts_i18n.each do |roast| %>
    <%= link_to roast[1], search_recipes_path(roast: roast[0]), method: :get,  class:"recipe-contents__search-link" %>
  <% end %>
+ 
