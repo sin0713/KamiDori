@@ -4,25 +4,69 @@
     <title>KamiDori</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
-    <% end %>
-    
-    <%= yield %>
+    <div class="header-wrapper">
+      <header class="header">
+        <h1>
+          <%= link_to image_tag("coffee-ilust.png", size: "63x50"), root_path, class:"header__logo" %>
+        </h1>
+
+          <nav class="nav">
+            <ul class="nav__main-nav">
+              <% if user_signed_in? %>
+                <li class="nav__nav-item">
+                  <%= link_to "Let's Pour", new_recipe_path, class:"nav__nav-link" %>
+                </li>
+                <li class="nav__nav-item">
+                  <%= link_to "My page", user_path(current_user), class:"nav__nav-link" %>
+                </li>
+                <li class="nav__nav-item">
+                  <%= link_to "Recipes", root_path, class:"nav__nav-link" %>
+                </li>
+                <li class="nav__nav-item">
+                  <%= link_to "Log out", destroy_user_session_path, method: :delete, class:"nav__nav-link" %>
+                </li>
+              <% else %>
+                <li class="nav__nav-item">
+                  <%= link_to "Top", root_path, class:"nav__nav-link" %>
+                </li>
+                <li class="nav__nav-item">
+                  <%= link_to "About", about_path, class:"nav__nav-link" %>
+                </li>
+                <li class="nav__nav-item">
+                  <%= link_to "Sign up", new_user_registration_path, class:"nav__nav-link" %>
+                </li>
+                <li class="nav__nav-item">
+                  <%= link_to "Log in", new_user_session_path, class:"nav__nav-link" %>
+                </li>
+              <% end %>
+            </ul>
+          </nav>
+      </header>
+      <div class="header-heading">
+        <h2 class="header-heading__title">Index</h2>
+      </div>
+    </div>
+
+
+    <main>
+      <%= yield %>
+    </main>
+
+    <footer>
+      <div class="footer">
+        <p class="footer__copy"><small>Copyrights &copy; 2021 PourPour All Rights Reserved. </small></p>
+      </div>
+    </footer>
+
+
+
+
+
   </body>
 </html>
