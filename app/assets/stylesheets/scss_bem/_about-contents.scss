@@ -1,0 +1,16 @@
+@import 'variables';
+
+.about-contents {
+  @include wrapper;
+  height: 500px;
+
+  &__heading {
+    font-size: 3rem;
+    margin-bottom: 30px;
+  }
+
+  &__span {
+    font-size: 1.5rem;
+  }
+
+}
