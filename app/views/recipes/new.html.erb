@@ -1,90 +1,13 @@
 <div class="header-heading">
-  <h2 class="header-heading__title">New Recipe</h2>
+  <h2 class="header-heading__title">New</h2>
 </div>
 
 <div class="new-recipe">
   <%= form_with model:@recipe, local: true, class:"new-recipe__form" do |f| %>
-  <div class="new-recipe__left-form">
-    <div class="new-recipe__img-form">
-      <h4>Image</h4>
-      <%= f.label :image, "Image"%>
-      <%= f.attachment_field :image, placeholder: "ファイルを選択"%>
+    <div class="new-recipe__left-form">
+      <%= render 'form', recipe: @recipe, taist: @taist, f: f %>
+
+      <%= f.submit '新規作成' %>
     </div>
-    <div class="new-recipe__taist-form">
-      <h4>Taists</h4>
-      <%= f.fields_for :taist do |s| %>
-      <div class="new-recipe__select-form">
-        <%= s.label :sour, "酸味"%>
-        <%= s.select :sour, options_for_select(1..5), {prompt: "選択してください"}, {class: "new-recipe__select-box"}%>
-      </div>
-      <div>
-        <%= s.label :bitter, "苦味"%>
-        <%= s.select :bitter, options_for_select(1..5)%>
-      </div>
-      <div>
-        <%= s.label :sweet, "甘味"%>
-        <%= s.select :sweet, options_for_select(1..5)%>
-      </div>
-      <div>
-        <%= s.label :flavor, "香り"%>
-        <%= s.select :flavor, options_for_select(1..5)%>
-      </div>
-      <div>
-        <%= s.label :rich, "コク"%>
-        <%= s.select :rich, options_for_select(1..5)%>
-      </div>
-        <%= s.hidden_field :recipe_id, value: @recipe.id %>
-      <% end %>
-    </div>
-  </div>
-  <div class="new-recipe__right-form">
-    <h4>Recipe</h4>
-    <div>
-      <%= f.label :bean, "コーヒー豆" %>
-      <%= f.text_field :bean, placeholder: "豆の産地"%>
-    </div>
-    <div>
-      <%= f.label :roast, "焙煎度" %>
-      <%= f.collection_select(:roast, Recipe.roasts_i18n, :first, :last, {}, {class: ""}) %>
-    </div>
-    <div>
-      <%= f.label :amount_of_beans, "コーヒー粉量" %>
-      <%= f.number_field :amount_of_beans %>
-    </div>
-    <div>
-      <%= f.label :grind_size, "挽目" %>
-      <%= f.collection_select(:grind_size, Recipe.grind_sizes_i18n, :first, :last, {}, {class: ""}) %>
-    </div>
-    <div>
-      <%= f.label :tool, "抽出器具" %>
-    <%= f.text_field :tool %>
-    </div>
-    <div>
-       <%= f.label :temperature, "お湯の温度" %>
-    <%= f.number_field :temperature %>
-    </div>
-    <div>
-      <%= f.label :pre_infusion_time, "蒸らし時間" %>
-    <%= f.number_field :pre_infusion_time %>
-    </div>
-    <div>
-      <%= f.label :extraction_time_minutes, "抽出時間 分" %>
-    <%= f.number_field :extraction_time_minutes %>
-    <%= f.label :extraction_time_seconds, "抽出時間 秒" %>
-    <%= f.number_field :extraction_time_seconds %>
-    </div>
-    <div>
-      <%= f.label :amount_of_extraction, "抽出量" %>
-    <%= f.number_field :amount_of_extraction %>
-    </div>
-    <div>
-      <%= f.label :introduction, "コツ・ポイント" %>
-    <%= f.text_area :introduction %>
-    </div>
-    <div>
-      <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.submit '新規作成' %>
-    </div>
-  </div>
 <% end %>
 </div>

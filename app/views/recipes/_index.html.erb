@@ -1,7 +1,9 @@
 <div class="recipe-contents__main">
   <% recipes.each do |recipe| %>
     <div class="recipe-contents__items">
-      <%= attachment_image_tag recipe, :image, :fill, 80, 45, fallback: "coffee-cup-book2.jpg", size: "80x80", class:"recipe-contents__img" %>
+      <%= link_to recipe_path(recipe) do %>
+        <%= attachment_image_tag recipe, :image, :fill, 80, 45, fallback: "coffee-cup-book2.jpg", size: "80x80", class:"recipe-contents__img" %>
+      <% end %>
       <div class="recipe-contents__items-wrapper">
         <div class="recipe-contents__tag">
           <ul>
