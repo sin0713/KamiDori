@@ -1,0 +1,35 @@
+@import 'variables';
+
+.comment {
+
+
+
+  &__wrapper {
+    @include flex-space;
+  }
+
+  &__img-wrapper {
+    width: 20%;
+  }
+
+  &__user-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+
+  &__contents {
+    width: 75%;
+  }
+
+  &__text-area {
+    border: 1px solid black;
+  }
+
+  &__detail {
+    border-top: 1px dotted #d2c8be;
+    padding-top: 5px;
+    margin-top: 5px;
+    text-align: right;
+  }
+}
