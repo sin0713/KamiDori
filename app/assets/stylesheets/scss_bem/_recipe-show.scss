@@ -57,11 +57,17 @@
   }
 
   &__recipe-introduction {
-    margin-left: 40%;
-    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  &__chart-heading {
+    @include heading-border;
+    font-size: 1.2rem;
+    display: inline-block;
   }
 
   &__chart {
+    width: 65%;
 
   }
 }
