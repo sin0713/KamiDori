@@ -1,0 +1,24 @@
+<div class="profile">
+    <h3 class="profile__heading">Profile</h3>
+    <div>
+      <%= attachment_image_tag user, :image, fallback: "coffee-cup-book2.jpg", class:"profile__img" %>
+    </div>
+
+    <table>
+      <tr>
+        <th>Name</th>
+        <td><%= user.name %></td>
+      </tr>
+      <tr>
+        <th>Follower</th>
+        <td><%= user.followers.count %></td>
+      </tr>
+    </table>
+    <div class="profile__introduction">
+      <h4>Introduction</h4>
+      <div class="profile__introduction-box">
+        <%= user.introduction %>
+      </div>
+    </div>
+  </div>
+</div>

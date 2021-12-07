@@ -18,6 +18,7 @@ class RecipesController < ApplicationController
     @user = User.find(current_user.id)
     @recipe = Recipe.find(params[:id])
     @taist = Taist.find_by(recipe_id: params[:id])
+    @recipe_comment = RecipeComment.new
   end
 
   def edit
