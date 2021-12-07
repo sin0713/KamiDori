@@ -1,0 +1,67 @@
+@import 'variables';
+
+.recipe-show {
+  @include wrapper;
+  @include flex-space;
+  margin-bottom: 50px;
+
+   &__content {
+    width: 74%;
+
+  }
+
+  &__wrapper {
+    @include flex-space;
+
+  }
+
+  &__wrapper-left {
+    width: 40%;
+
+  }
+
+  &__img {
+    width: 90%;
+    height: 250px;
+  }
+
+  &__wrapper-right {
+    width: 60%;
+  }
+
+  &__recipe-heading {
+    @include heading-border;
+    display: inline-block;
+    font-size: 1.2rem;
+  }
+
+  &__table {
+    border-collapse: collapse;
+  }
+
+  &__table-row {
+
+  }
+
+
+  &__recipe-items-tit {
+    width: 50%;
+     border-bottom: 1px solid black;
+     padding: 4px;
+
+  }
+
+  &__recipe-items {
+    width: 50%;
+     border-bottom: 1px solid black;
+  }
+
+  &__recipe-introduction {
+    margin-left: 40%;
+    margin-top: 30px;
+  }
+
+  &__chart {
+
+  }
+}

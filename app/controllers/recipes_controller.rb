@@ -15,6 +15,7 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @user = User.find(current_user.id)
     @recipe = Recipe.find(params[:id])
     @taist = Taist.find_by(recipe_id: params[:id])
   end
@@ -31,6 +32,14 @@ class RecipesController < ApplicationController
       redirect_to recipe_path(@recipe)
     else
       render :edit
+    end
+  end
+
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    if @recipe.destroy
+      flash[:notice] = 'レシピを削除しました'
+      redirect_to user_path(current_user)
     end
   end
 

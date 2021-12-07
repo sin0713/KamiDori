@@ -4,8 +4,7 @@
   @include wrapper;
 
    &__form {
-    display: flex;
-    justify-content: space-between;
+    @include flex-space;
   }
 
   &__left-form {

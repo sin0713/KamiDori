@@ -1,10 +1,105 @@
-<div>
-  <%= link_to '編集', edit_recipe_path(@recipe) %>
+<div class="header-heading">
+  <h2 class="header-heading__title">Recipe</h2>
 </div>
-<div>
-  <%= @taist.sour %>
-  <%= @taist.bitter %>
-  <%= @taist.sweet %>
-  <%= @taist.flavor %>
-  <%= @taist.rich %>
+
+<div class="recipe-show">
+  <div class="recipe-show__content">
+    <div class="recipe-show__wrapper">
+      <div class="recipe-show__wrapper-left">
+      <div>
+        <%= attachment_image_tag @recipe, :image, fallback: "coffee-cup-book2.jpg", class:"recipe-show__img" %>
+      </div>
+      <!--<% if @user.id == current_user.id %>-->
+        <div class="recipe-show__btn-wrapper">
+          <div class="recipe-show__destroy-btn">
+             <%= link_to '削除', recipe_path(@recipe), method: :delete, class:"recipe-show__btn",  data: {confirm: "削除しますか？"} %>
+          </div>
+          <div class="recipe-show__edit-btn">
+            <%= link_to '編集', edit_recipe_path(@recipe), class:"recipe-show__btn"%>
+          </div>
+        </div>
+      <!--<% end %>-->
+    </div>
+      <div class="recipe-show__wrapper-right">
+        <div class="recipe-show__recipe">
+          <h4 class="recipe-show__recipe-heading">Recipe</h4>
+          <table class="recipe-show__table">
+            <tr class="recipe-show__table-row">
+              <td class="recipe-show__recipe-items-tit">産地</td>
+              <td class="recipe-show__recipe-items"><%= @recipe.bean %></td>
+            </tr>
+            <tr  class="recipe-show__table-row">
+              <td class="recipe-show__recipe-items-tit">焙煎度</td>
+              <td class="recipe-show__recipe-items"><%= @recipe.roast_i18n %></td>
+            </tr>
+            <tr class="recipe-show__table-row">
+              <td class="recipe-show__recipe-items-tit">粉量</td>
+              <td class="recipe-show__recipe-items"><%= @recipe.amount_of_beans %>g</td>
+            </tr>
+            <tr class="recipe-show__table-row">
+              <td class="recipe-show__recipe-items-tit">挽目</td>
+              <td class="recipe-show__recipe-items"><%= @recipe.grind_size_i18n %></td>
+            </tr>
+            <tr class="recipe-show__table-row">
+              <td class="recipe-show__recipe-items-tit">抽出器具</td>
+              <td class="recipe-show__recipe-items"><%= @recipe.tool %></td>
+            </tr>
+            <tr class="recipe-show__table-row">
+              <td class="recipe-show__recipe-items-tit">お湯の温度</td>
+              <td class="recipe-show__recipe-items"><%= @recipe.temperature %>℃</td>
+            </tr>
+            <tr class="recipe-show__table-row">
+              <td class="recipe-show__recipe-items-tit">蒸らし時間</td>
+              <td class="recipe-show__recipe-items"><%= @recipe.pre_infusion_time %>秒</td>
+            </tr>
+            <tr class="recipe-show__table-row">
+              <td class="recipe-show__recipe-items-tit">抽出時間</td>
+              <td class="recipe-show__recipe-items"><%= @recipe.extraction_time_minutes %>分 <%= @recipe.extraction_time_seconds %>秒</td>
+            </tr>
+            <tr class="recipe-show__table-row">
+              <td class="recipe-show__recipe-items-tit">抽出量</td>
+              <td class="recipe-show__recipe-items"><%= @recipe.amount_of_extraction %>cc</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="recipe-show__recipe-introduction">
+        <h4>コツ・ポイント</h4>
+        <p><%= @recipe.introduction %></p>
+    </div>
+    <div class="recipe-show__chart">chart</div>
+    <div class="recipe-show__comment-wrapper">
+      <div class="recipe-show__comment-form">
+        <h4>このレシピにコメントする</h4>
+      </div>
+      <div class="recipe-show__comment-content">
+        <h4>コメント０件</h4>
+      </div>
+    </div>
+  </div>
+  <div class="profile">
+    <h3 class="profile__heading">Profile</h3>
+    <div>
+      <%= attachment_image_tag @user, :image, fallback: "coffee-cup-book2.jpg", class:"profile__img" %>
+    </div>
+
+    <table>
+      <tr>
+        <th>Name</th>
+        <td><%= @user.name %></td>
+      </tr>
+      <tr>
+        <th>Follower</th>
+        <td><%= @user.followers.count %></td>
+      </tr>
+    </table>
+    <div class="profile__introduction">
+      <h4>Introduction</h4>
+      <div class="profile__introduction-box">
+        <%= @user.introduction %>
+      </div>
+    </div>
+  </div>
 </div>
+
