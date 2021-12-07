@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
-    @recipe.build_taist
+    @taist = @recipe.build_taist
   end
 
   def create
@@ -16,9 +16,22 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    @taist = Taist.find_by(recipe_id: params[:id])
   end
 
   def edit
+    @recipe = Recipe.find(params[:id])
+    @taist = Taist.find_by(recipe_id: params[:id])
+  end
+
+  def update
+    @recipe = Recipe.find(params[:id])
+    if @recipe.update(recipe_params)
+      flash[:notice] = "レシピを更新しました"
+      redirect_to recipe_path(@recipe)
+    else
+      render :edit
+    end
   end
 
   def search
