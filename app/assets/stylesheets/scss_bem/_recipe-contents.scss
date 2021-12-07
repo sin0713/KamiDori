@@ -2,8 +2,7 @@
 
 .recipe-contents {
   @include wrapper;
-  display: flex;
-  justify-content: space-between;
+  @include flex-space;
   margin-bottom: 50px;
 
   &__wrapper {
@@ -34,8 +33,7 @@
   }
 
   &__items-wrapper {
-    display: flex;
-    justify-content: space-between;
+    @include flex-space
   }
 
   &__tag {
@@ -53,7 +51,7 @@
 
 
   &__search-bar {
-    width: 28%;
+    width: 26%;
   }
 
   &__search-heading {

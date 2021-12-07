@@ -19,4 +19,11 @@
 
 @mixin heading-border {
   border-bottom: 3px #cf6032 solid;
+  margin-bottom: 10px;
+  padding-right: 15%;
+}
+
+@mixin flex-space {
+  display: flex;
+  justify-content: space-between;
 }
