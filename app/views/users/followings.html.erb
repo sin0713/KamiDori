@@ -5,27 +5,7 @@
 <div class="follow">
   <div class="follow__wrapper-wrapper">
     <h3 class="follow__heading"><%= @user.name %>'s Follows</h3>
-    <% @users.each do |user| %>
-      <div class="follow__wrapper">
-        <div class="follow__img-wrapper">
-          <%= attachment_image_tag user, :image, fallback: "coffee-cup-book2.jpg", class:"follow__img" %>
-        </div>
-        <div class="follow__contents">
-          <div class="follow__contents-wrapper">
-            <div class="follow__name-wrapper">
-              <h5>Name</h5>
-              <div><%= user.name %>さん</div>
-            </div>
-            <div class="follow__details">
-              <div>レシピ投稿数：<%= user.recipes.count %></div>
-              <div>フォロワー：　<%= user.followers.count %></div>
-              <div>フォロー：　<%= user.followings.count %></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <hr></hr>
-    <% end %>
+    <%= render 'relationships/follow_index', users: @users %>
   </div>
   <%= render 'profile', user: @user %>
 </div>
