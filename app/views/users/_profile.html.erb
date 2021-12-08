@@ -4,25 +4,33 @@
       <%= attachment_image_tag user, :image, fallback: "coffee-cup-book2.jpg", class:"profile__img" %>
     </div>
 
-    <table>
-      <tr>
-        <th>Name</th>
-        <td><%= user.name %></td>
-      </tr>
-      <tr>
-        <th>Follower</th>
-        <td><%= user.followers.count %></td>
-      </tr>
-    </table>
-    <div class="profile__introduction">
-      <h4>Introduction</h4>
-      <div class="profile__introduction-box">
-        <%= user.introduction %>
-      </div>
+    <div class="profile__items-wrapper">
+      <h4 class="profile__items-heading">Name</h4>
+      <div class="profile__items"><%= user.name%></div>
     </div>
-    
-    <div class="">
-      <%= link_to 'favorites', favorites_recipes_path %>  
+    <div class="profile__items-wrapper">
+      <h4 class="profile__items-heading">
+        <%= link_to 'Follow', followings_user_path(user)%>
+      </h4>
+      <div class="profile__items"><%= user.followings.count %></div>
+    </div>
+    <div class="profile__items-wrapper">
+      <h4 class="profile__items-heading">
+        <%= link_to 'Follower', followers_user_path(user)%>
+      </h4>
+      <div class="profile__items"><%= user.followers.count %></div>
+    </div>
+
+
+
+    <div class="profile-btn">
+      <% if user == current_user %>
+        <a href="/users/<%= user.id %>/edit", class="fas fa-user-cog">プロフィール編集</a>
+      <% elsif user.is_followed_by?(current_user) %>
+        <%= link_to 'Unfollow', user_relationships_path(user), method: :delete, class: "" %>
+      <% else %>
+        <%= link_to 'Follow', user_relationships_path(user), method: :post, class: "" %>
+      <% end %>
     </div>
   </div>
 </div>
