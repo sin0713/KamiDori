@@ -9,7 +9,12 @@
       <div>
         <%= attachment_image_tag @recipe, :image, fallback: "coffee-cup-book2.jpg", class:"recipe-show__img" %>
       </div>
-      <!--<% if @user.id == current_user.id %>-->
+      <% if current_user.present? %>
+        <div class="recipe-show__favorite">
+          <%= render 'favorites/favorite_btn', recipe: @recipe %>
+        </div>
+      <% end %>
+      <!--<% if current_user.present? && @user.id == current_user.id %>-->
         <div class="recipe-show__btn-wrapper">
           <div class="recipe-show__destroy-btn">
              <%= link_to '削除', recipe_path(@recipe), method: :delete, class:"recipe-show__btn",  data: {confirm: "削除しますか？"} %>

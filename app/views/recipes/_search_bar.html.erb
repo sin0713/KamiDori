@@ -1,4 +1,5 @@
  <h3 class="recipe-contents__search-heading">Search</h3>
+ 
  <h4 class="recipe-contents__search-sub-tit">Beans</h4>
  <% beans.each do |bean| %>
    <%= link_to bean, search_recipes_path(keyword: bean), method: :get,  class:"recipe-contents__search-link" %>

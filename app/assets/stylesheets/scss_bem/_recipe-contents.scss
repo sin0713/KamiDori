@@ -20,16 +20,19 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+
   }
 
   &__items {
     width: 30%;
     padding: 3px;
-    background-color: #fff;
+    background: linear-gradient(0deg, #deb892, #e8dcd1);
+    position: relative;
   }
 
   &__img {
-
+    width: 100%;
+    height: 160px;
   }
 
   &__items-wrapper {
@@ -42,6 +45,12 @@
 
   &__list {
     list-style: none;
+  }
+
+  &__favorite-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 
   &__date {

@@ -12,6 +12,7 @@
 
   &__wrapper {
     @include flex-space;
+    position: relative;
 
   }
 
@@ -23,6 +24,16 @@
   &__img {
     width: 90%;
     height: 250px;
+  }
+
+  &__favorite {
+    position: absolute;
+    top: 213px;
+    left: 28%;
+
+    & a {
+      font-size: 1.0rem;
+    }
   }
 
   &__wrapper-right {
