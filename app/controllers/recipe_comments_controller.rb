@@ -6,12 +6,11 @@ class RecipeCommentsController < ApplicationController
     comment = current_user.recipe_comments.new(recipe_comment_params)
     comment.recipe_id = @recipe.id
     comment.save
-    redirect_to recipe_path(@recipe)
   end
 
   def destroy
+    @recipe = Recipe.find(params[:recipe_id])
     RecipeComment.find_by(id: params[:id]).destroy
-    redirect_to recipe_path(params[:recipe_id])
   end
 
 
