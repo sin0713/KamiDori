@@ -15,8 +15,8 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @user = User.find(current_user.id)
     @recipe = Recipe.find(params[:id])
+    @user = User.find(@recipe.user_id)
     @taist = Taist.find_by(recipe_id: params[:id])
     @recipe_comment = RecipeComment.new
   end

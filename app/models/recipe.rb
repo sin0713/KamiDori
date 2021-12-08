@@ -14,4 +14,8 @@ class Recipe < ApplicationRecord
   def self.search(keyword)
     where(["bean like? OR tool like?", "%#{keyword}%", "%#{keyword}%"])
   end
+
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end
 end
