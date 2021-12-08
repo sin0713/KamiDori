@@ -13,8 +13,8 @@
       <div class="recipe-contents__date">
         <%= recipe.created_at.strftime('%Y') %>
       </div>
-      <span class="recipe-contents__favorite-btn">
-        <%= render 'favorites/favorite_btn', recipe: recipe; %>
+      <span id="favorite_btn-<%= recipe.id %>" class="recipe-contents__favorite-btn">
+        <%= render 'favorites/favorite_btn', recipe: recipe %>
       </span>
     </div>
   </div>
