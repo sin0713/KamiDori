@@ -1,0 +1,16 @@
+<% recipe.recipe_comments.each do |recipe_comment| %>
+  <div class="comment__wrapper">
+    <div class="comment__img-wrapper">
+      <%= attachment_image_tag recipe.user, :image, fallback: "coffee-cup-book2.jpg", class:"comment__user-img" %>
+    </div>
+    <div class="comment__contents">
+      <p class="comment__text"><%= recipe_comment.comment %></p>
+      <div class="comment__detail">
+        <%= recipe_comment.created_at.strftime('%Y/%m/%d') %>
+        <span> | </span>
+        <%= link_to '削除', recipe_recipe_comment_path(recipe, recipe_comment), method: :delete, remote: true, class:"comment__btn-destroy" %>
+        <p><%= recipe_comment.user.name %>さん</p>
+      </div>
+    </div>
+  </div>
+<% end %>
