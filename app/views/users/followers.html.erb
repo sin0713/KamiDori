@@ -1,3 +1,15 @@
 <div class="header-heading">
   <h2 class="header-heading__title">Followers</h2>
 </div>
+
+<div class="header-heading">
+  <h2 class="header-heading__title">Followers</h2>
+</div>
+
+<div class="follow">
+  <div class="follow__wrapper-wrapper">
+    <h3 class="follow__heading"><%= @user.name %>'s Followers</h3>
+    <%= render 'relationships/follow_index', users: @users %>
+  </div>
+  <%= render 'profile', user: @user %>
+</div>

@@ -1,4 +1,16 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-<%= link_to 'follows', followings_user_path(@user) %>
+<div class="header-heading">
+  <h2 class="header-heading__title">Recipes</h2>
+</div>
+
+<div class="recipe-contents">
+  <div class="recipe-contents__wrapper">
+    <h2 class="recipe-contents__heading"><%= @user.name %>'s Recipes</h2>
+    <div class="recipe-contents__main">
+      <% @recipes.each do |recipe| %>
+        <%= render 'recipes/index', recipe: recipe %>
+      <% end %>
+    </div>
+  </div>
+  <%= render 'profile', user: @user %>
+</div>
 
