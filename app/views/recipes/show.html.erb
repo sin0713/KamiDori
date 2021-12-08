@@ -10,7 +10,7 @@
         <%= attachment_image_tag @recipe, :image, fallback: "coffee-cup-book2.jpg", class:"recipe-show__img" %>
       </div>
       <% if current_user.present? %>
-        <div class="recipe-show__favorite">
+        <div id="favorite_btn-<%= @recipe.id%>" class="recipe-show__favorite">
           <%= render 'favorites/favorite_btn', recipe: @recipe %>
         </div>
       <% end %>
@@ -80,10 +80,11 @@
       <h4>このレシピにコメントする</h4>
       <div class="comment__form">
         <%= form_with(model:[@recipe, @recipe_comment], remote: true) do |f| %>
-          <%= f.text_area :comment, rows:'3', placeholder: "コメントをここに", class:"comment__text-area" %>
+          <%= f.text_area :comment, rows:'3', placeholder: "コメントをここに", required: true, class:"comment__text-area" %>
           <%= f.submit "送信する" %>
         <% end %>
       </div>
+      <%= render 'layouts/error', model: @recipe_comment %>
       <h4 class="comment__count">コメント <%= @recipe.recipe_comments.count %>件</h4>
       <div id="comments_index">
         <%= render 'recipe_comments/comments_index', recipe: @recipe %>
