@@ -14,4 +14,9 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :follow
   
   attachment :image
+  
+  
+  def is_followed_by?(user)
+    reverse_of_relationships.find_by(follow_id: user.id).present?
+  end 
 end
