@@ -29,15 +29,17 @@
 
 
 
-    <div class="profile__btn-wrapper">
-      <% if user == current_user %>
-        <%= link_to '♥お気に入り一覧', favorites_recipes_path %>
-        <a href="/users/<%= user.id %>/edit", class="fas fa-user-cog">プロフィール編集</a>
-      <% elsif user.is_followed_by?(current_user) %>
-        <%= link_to 'Unfollow', user_relationships_path(user), method: :delete, class: "" %>
-      <% else %>
-        <%= link_to 'Follow', user_relationships_path(user), method: :post, class: "" %>
-      <% end %>
-    </div>
+    <% if user_signed_in? %>
+      <div class="profile__btn-wrapper">
+        <% if user == current_user %>
+          <%= link_to '♥お気に入り一覧', favorites_recipes_path %>
+          <a href="/users/<%= user.id %>/edit", class="fas fa-user-cog">プロフィール編集</a>
+        <% elsif user.is_followed_by?(current_user) %>
+          <%= link_to 'Unfollow', user_relationships_path(user), method: :delete, class: "" %>
+        <% else %>
+          <%= link_to 'Follow', user_relationships_path(user), method: :post, class: "" %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>

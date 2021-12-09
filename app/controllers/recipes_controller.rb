@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :search]
+
   def new
     @recipe = Recipe.new
     @taist = @recipe.build_taist
