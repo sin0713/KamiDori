@@ -52,11 +52,16 @@ class RecipesController < ApplicationController
 
     if params[:roast]
       @recipes = Recipe.where(roast: params[:roast])
-      if @recipes.present?
-        @keyword = @recipes[0].roast_i18n
-      else
-        # ハッシュのキー（params[:roast]）でハッシュの値を取得
-        @keyword = Recipe.roasts_i18n[params[:roast]]
+      # ハッシュのキー（params[:roast]）でハッシュの値を取得
+      @keyword = Recipe.roasts_i18n[params[:roast]]
+      unless @recipes.present?
+        render 'search'
+      end
+    elsif params[:grind_size]
+       @recipes = Recipe.where(grind_size: params[:grind_size])
+       # ハッシュのキー（params[:roast]）でハッシュの値を取得
+        @keyword = Recipe.grind_sizes_i18n[params[:grind_size]]
+      unless @recipes.present?
         render 'search'
       end
     else

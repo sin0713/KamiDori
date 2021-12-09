@@ -24,6 +24,18 @@ class Recipe < ApplicationRecord
   def self.search(keyword)
     where(["bean like? OR tool like?", "%#{keyword}%", "%#{keyword}%"])
   end
+  
+  def self.enum_search(params, category)
+    if params
+      @recipes = Recipe.where(category: params)
+      # ハッシュのキー（params[:roast]）でハッシュの値を取得
+      @keyword = Recipe.roasts_i18n[params[:roast]]
+      
+      unless @recipes.present?
+        render 'search'
+      end
+    end 
+  end 
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
