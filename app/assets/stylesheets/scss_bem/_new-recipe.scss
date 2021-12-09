@@ -7,21 +7,33 @@
     @include flex-space;
   }
 
-  &__left-form {
-    width: 30%;
+  &__form-heading {
+    @include heading-border;
+    display: inline-block;
+    margin-bottom: 30px;
   }
 
-  &__right-form {
-    width: 60%;
+  &__taist-form {
+    margin-top: 60px;
   }
+
+  &__left-form {
+    width: 40%;
+  }
+
+  &__img-field {
+    border: none;
+  }
+
 
   &__select-form {
     position: relative;
+    margin-bottom: 20px;
 
     &::before {
     	position: absolute;
-    	top: 0.8em;
-    	right: 1.9em;
+    	top: 40%;
+    	left: 81%;
     	width: 0;
     	height: 0;
     	padding: 0;
@@ -35,13 +47,82 @@
 
   &__select-box {
     border: 2px solid #432;
-    border-radius: 5px;
+    border-radius: 10px;
     width: 80%;
     padding-left: 10px;
+    padding-right: 10%;
+    @include focus;
+  }
 
+  &__right-form {
+    width: 50%;
+  }
+
+  &__form-wrapper {
+     @include flex-space;
+     margin-bottom: 20px;
+  }
+
+
+  &__form-content {
+    border: 2px solid #432;
+    border-radius: 10px;
+    width: 50%;
+
+    @include focus;
+  }
+
+  &__select-tag {
+    position: relative;
+     &::before {
+    	position: absolute;
+    	top: 40%;
+    	left: 93%;
+    	width: 0;
+    	height: 0;
+    	padding: 0;
+    	content: '';
+    	border-left: 6px solid transparent;
+    	border-right: 6px solid transparent;
+    	border-top: 6px solid #666666;
+    	pointer-events: none;
+    }
+  }
+
+
+  &__form-introduction {
+    border: 2px solid #432;
+    width: 100%;
+    height: 180px;
+    border-radius: 10px;
+    @include focus;
+  }
+
+  &__submit-wrapper {
+    position: relative;
+    margin-left: 20%;
+    width: 90%;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 14px;
+    left: 63%;
+    font-size: 1.1rem;
+    color: #fff;
+  }
+
+  &__form-submit {
+    color: #fff;
+    padding: 10px 58px 10px 20px;
+    background: linear-gradient(125deg, #db6d3e, #f1e9e9);
+    border-radius: 30px;
+    text-decoration: none;
+    display: inline-block;
+    width: 90%;
 
     &:hover {
-      background-color: #432;
+      box-shadow: 0 2px 3px 2px #8e4319;
     }
   }
 }
