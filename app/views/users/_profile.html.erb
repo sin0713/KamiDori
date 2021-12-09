@@ -18,7 +18,7 @@
       <h4 class="profile__items-heading">
         <%= link_to 'Follower', followers_user_path(user)%>
       </h4>
-      <div class="profile__items"><%= user.followers.count %></div>
+      <div id="followers-count" class="profile__items"><%= user.followers.count %></div>
     </div>
     <div class="profile__introduction">
       <h4>Introduction</h4>
@@ -27,18 +27,9 @@
       </div>
     </div>
 
-
-
     <% if user_signed_in? %>
       <div class="profile__btn-wrapper">
-        <% if user == current_user %>
-          <%= link_to '♥お気に入り一覧', favorites_recipes_path %>
-          <a href="/users/<%= user.id %>/edit", class="fas fa-user-cog">プロフィール編集</a>
-        <% elsif user.is_followed_by?(current_user) %>
-          <%= link_to 'Unfollow', user_relationships_path(user), method: :delete, class: "" %>
-        <% else %>
-          <%= link_to 'Follow', user_relationships_path(user), method: :post, class: "" %>
-        <% end %>
+        <%= render 'relationships/follow_btn', user: user %>
       </div>
     <% end %>
   </div>
