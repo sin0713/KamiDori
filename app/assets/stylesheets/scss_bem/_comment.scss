@@ -6,6 +6,13 @@
 
   &__wrapper {
     @include flex-space;
+
+  }
+
+  &__index {
+    background: #fff;
+    padding: 20px 10px;
+    border-radius: 5px;
   }
 
   &__img-wrapper {
@@ -23,7 +30,25 @@
   }
 
   &__text-area {
-    border: 1px solid black;
+    border: 1px solid #f0cfa3;
+    width: 100%;
+    border-radius: 5px;
+    background: #fff;
+  }
+
+  &__submit {
+     display: block;
+    width: 30%;
+    margin-left: auto;
+    margin-top: 5px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: rgba(133, 45, 15, 0.8);
+
+    &:hover {
+      background-color: rgba(133, 45, 15, 1);
+    }
+
   }
 
   &__detail {
@@ -31,5 +56,9 @@
     padding-top: 5px;
     margin-top: 5px;
     text-align: right;
+  }
+
+  &__btn-destroy {
+    color: red;
   }
 }

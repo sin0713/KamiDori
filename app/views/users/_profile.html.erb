@@ -1,7 +1,9 @@
 <div class="profile">
     <h3 class="profile__heading">Profile</h3>
     <div>
-      <%= attachment_image_tag user, :image, fallback: "coffee-cup-book2.jpg", class:"profile__img" %>
+      <%= link_to user_path(user) do %>
+        <%= attachment_image_tag user, :image, fallback: "coffee-cup-book2.jpg", class:"profile__img" %>
+      <% end %>
     </div>
 
     <div class="profile__items-wrapper">
@@ -10,13 +12,13 @@
     </div>
     <div class="profile__items-wrapper">
       <h4 class="profile__items-heading">
-        <%= link_to 'Follow', followings_user_path(user)%>
+        <%= link_to 'Follow', followings_user_path(user), class:"profile__follows-link"%>
       </h4>
       <div class="profile__items"><%= user.followings.count %></div>
     </div>
     <div class="profile__items-wrapper">
       <h4 class="profile__items-heading">
-        <%= link_to 'Follower', followers_user_path(user)%>
+        <%= link_to 'Follower', followers_user_path(user), class:"profile__follows-link"%>
       </h4>
       <div id="followers-count" class="profile__items"><%= user.followers.count %></div>
     </div>
