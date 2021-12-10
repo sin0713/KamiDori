@@ -2,6 +2,7 @@
 
 .new-recipe {
   @include wrapper;
+  @include background;
 
    &__form {
     @include flex-space;
@@ -113,12 +114,8 @@
   }
 
   &__form-submit {
-    color: #fff;
+    @include submit-btn;
     padding: 10px 58px 10px 20px;
-    background: linear-gradient(125deg, #db6d3e, #f1e9e9);
-    border-radius: 30px;
-    text-decoration: none;
-    display: inline-block;
     width: 90%;
 
     &:hover {
