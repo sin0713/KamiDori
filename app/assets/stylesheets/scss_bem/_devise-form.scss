@@ -1,6 +1,6 @@
 @import 'variables';
 
-.devise-form {
+.user-form {
     min-height: 100vh;
     background: #6b5750;
     padding: 60px;
@@ -16,8 +16,10 @@
   &__heading {
     @include heading-border;
     margin-top: 50px;
+    margin-bottom: 30px;
     padding-right: 0;
     display: inline-block;
+
   }
 
   &__field {
@@ -67,6 +69,33 @@
     display: inline-block;
     margin-top: 30px;
     width: 60%;
+  }
+
+  &__introduction {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 60%;
+    height: 200px;
+  }
+
+  &__img {
+    border: none;
+  }
+
+  &__submit-wrapper {
+    padding-bottom: 30px;
+  }
+
+  &__update {
+    @include submit-btn;
+    padding: 10px 40px;
+
+    margin-top: 20px;
+    width: 60%;
+
+     &:hover {
+      box-shadow: 0 2px 3px 2px #8e4319;
+    }
   }
 
 
