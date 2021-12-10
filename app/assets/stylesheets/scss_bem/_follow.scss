@@ -3,6 +3,8 @@
 .follow {
   @include wrapper;
   @include flex-space;
+  @include background;
+
 
 
   &__wrapper-wrapper {

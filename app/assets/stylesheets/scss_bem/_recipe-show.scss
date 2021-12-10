@@ -3,7 +3,7 @@
 .recipe-show {
   @include wrapper;
   @include flex-space;
-  margin-bottom: 50px;
+  @include background;
 
    &__content {
     width: 74%;

@@ -25,11 +25,10 @@ body{
     font-family: "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", sans-serif;
     line-height: 1.7;
     color: #432;
-    background-image: image-url('light-veneer.png');
-    background-size: cover;
+   
     position: relative;
     box-sizing: border-box;
-    padding-bottom: 100px;
+     //padding-bottom: 100px;
     min-height: 100vh;
 }
 
@@ -50,3 +49,4 @@ img {
 @import 'scss_bem/header-wrapper';
 @import 'scss_bem/header-heading';
 @import 'scss_bem/footer';
+@import 'scss_bem/error';
