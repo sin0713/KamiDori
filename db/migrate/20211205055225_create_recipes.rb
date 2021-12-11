@@ -12,9 +12,9 @@ class CreateRecipes < ActiveRecord::Migration[5.2]
       t.integer :grind_size, null: false
       t.integer :amount_of_beans, null: false
       t.integer :amount_of_extraction, null: false
-      t.text :introduction, default: ""
+      t.text :introduction
       t.string :image_id, default: ""
-      
+
       t.timestamps
     end
   end
