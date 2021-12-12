@@ -22,17 +22,18 @@
                   display: true,
                   text: ''
               },
-              scale:{
-                  ticks:{
-                      suggestedMin: 1,
-                      suggestedMax: 5,
-                      stepSize: 1,
-                      callback: function(value, index, values){
-
-                      }
-                    }
-                  }
+              scales: {
+                  r: {
+                  //グラフの最小値・最大値
+                      min: 0,
+                      max: 5,
+                      ticks: {
+                          beginAtZero: true,
+                          stepSize: 1
+                     },
+                },
               }
+            }
           });
 
       </script>
