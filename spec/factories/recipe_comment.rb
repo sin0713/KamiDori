@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :comment do
+  factory :recipe_comment do
     # アソシエーションを定義
     association :recipe
     association :user
