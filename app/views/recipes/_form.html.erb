@@ -27,7 +27,7 @@
         <%= s.label :rich, "コク"%>
         <%= s.select :rich, options_for_select(1..5), {prompt: "選択してください"}, {class: "new-recipe__select-box"}%>
       </div>
-        <%= s.hidden_field :recipe_id, value: recipe.id %>
+        <%= s.hidden_field :recipe_id, value: recipe.id, class:"new-recipe__recipe-id" %>
       <% end %>
     </div>
   </div>
@@ -51,15 +51,15 @@
     </div>
     <div class="new-recipe__form-wrapper">
       <%= f.label :tool, "抽出器具" %>
-    <%= f.text_field :tool, class:"new-recipe__form-content" %>
+      <%= f.text_field :tool, class:"new-recipe__form-content" %>
     </div>
     <div class="new-recipe__form-wrapper">
-       <%= f.label :temperature, "お湯の温度" %>
-    <%= f.number_field :temperature, class:"new-recipe__form-content" %>
+      <%= f.label :temperature, "お湯の温度" %>
+      <%= f.number_field :temperature, class:"new-recipe__form-content" %>
     </div>
     <div class="new-recipe__form-wrapper">
       <%= f.label :pre_infusion_time, "蒸らし時間" %>
-    <%= f.number_field :pre_infusion_time, class:"new-recipe__form-content"  %>
+      <%= f.number_field :pre_infusion_time, class:"new-recipe__form-content"  %>
     </div>
     <div class="new-recipe__form-wrapper">
       <%= f.label :extraction_time_minutes, "抽出時間(分)" %>
@@ -80,6 +80,6 @@
        <%= f.text_area :introduction, class:"new-recipe__form-introduction"%>
     </div>
     <div>
-      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.hidden_field :user_id, value: current_user.id, class:"new-recipe__user-id"%>
     </div>
     
