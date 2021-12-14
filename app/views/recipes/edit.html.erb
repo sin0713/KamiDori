@@ -7,7 +7,10 @@
     <div class="new-recipe__left-form">
       <%= render 'form', recipe: @recipe, taist: @taist, f: f %>
 
-      <%= f.submit '更新' %>
+      <div class="new-recipe__submit-wrapper">
+        <%= f.submit 'Update Recipe', class:"new-recipe__update-btn" %>
+        <i class="fas fa-mug-hot new-recipe__icon"></i>
+      </div>
     </div>
-<% end %>
+  <% end %>
 </div>

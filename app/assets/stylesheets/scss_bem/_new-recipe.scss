@@ -122,4 +122,15 @@
       box-shadow: 0 2px 3px 2px #8e4319;
     }
   }
+
+  &__update-btn {
+    @include submit-btn;
+    background: linear-gradient(125deg, #cbd5ee, #f1e9e9);
+    padding: 10px 58px 10px 20px;
+    width: 90%;
+
+    &:hover {
+      box-shadow: 0 2px 3px 2px #a2abcd;
+    }
+  }
 }
