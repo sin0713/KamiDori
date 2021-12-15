@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :recipe do
     association :user
-    bean { 0 }
-    roast { 'light_roast' }
-    tool { 'ハリオ' }
+    bean { "エチオピア" }
+    roast { 'medium_roast' }
+    tool { 'カリタ' }
     extraction_time_minutes { 2 }
     extraction_time_seconds { 30 }
     pre_infusion_time { 20 }
