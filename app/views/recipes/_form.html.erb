@@ -42,7 +42,7 @@
       <%= f.collection_select(:roast, Recipe.roasts_i18n, :first, :last, {selected: recipe.roast}, {class: "new-recipe__form-content new-recipe__form-roast"}) %>
     </div>
     <div class="new-recipe__form-wrapper">
-      <%= f.label :amount_of_beans, "コーヒー粉量" %>
+      <%= f.label :amount_of_beans, "コーヒー粉量(g)" %>
       <%= f.number_field :amount_of_beans, class:"new-recipe__form-content" %>
     </div>
     <div class="new-recipe__form-wrapper new-recipe__select-tag">
@@ -54,11 +54,11 @@
       <%= f.text_field :tool, class:"new-recipe__form-content" %>
     </div>
     <div class="new-recipe__form-wrapper">
-      <%= f.label :temperature, "お湯の温度" %>
+      <%= f.label :temperature, "お湯の温度(℃)" %>
       <%= f.number_field :temperature, class:"new-recipe__form-content" %>
     </div>
     <div class="new-recipe__form-wrapper">
-      <%= f.label :pre_infusion_time, "蒸らし時間" %>
+      <%= f.label :pre_infusion_time, "蒸らし時間(秒)" %>
       <%= f.number_field :pre_infusion_time, class:"new-recipe__form-content"  %>
     </div>
     <div class="new-recipe__form-wrapper">
@@ -70,7 +70,7 @@
       <%= f.number_field :extraction_time_seconds, class:"new-recipe__form-content"  %>
     </div>
     <div class="new-recipe__form-wrapper">
-      <%= f.label :amount_of_extraction, "抽出量" %>
+      <%= f.label :amount_of_extraction, "抽出量(cc)" %>
       <%= f.number_field :amount_of_extraction, class:"new-recipe__form-content"  %>
     </div>
     <div class="new-recipe__">

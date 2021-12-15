@@ -1,4 +1,4 @@
-<% recipe.recipe_comments.each do |recipe_comment| %>
+<% recipe.recipe_comments.includes(:user).each do |recipe_comment| %>
   <div class="comment__wrapper">
     <div class="comment__img-wrapper">
       <%= link_to user_path(recipe_comment.user) do %>
@@ -10,8 +10,10 @@
       <div class="comment__detail">
         <%= recipe_comment.created_at.strftime('%Y/%m/%d') %>
         <span> | </span>
-        <% if current_user.id == recipe_comment.user_id %>
-          <%= link_to '削除', recipe_recipe_comment_path(recipe, recipe_comment), method: :delete, remote: true, class:"comment__btn-destroy" %>
+        <% if user_signed_in? %>
+          <% if current_user.id == recipe_comment.user_id %>
+            <%= link_to '削除', recipe_recipe_comment_path(recipe, recipe_comment), method: :delete, remote: true, class:"comment__btn-destroy" %>
+          <% end %>
         <% end %>
         <p><%= recipe_comment.user.name %>さん</p>
       </div>
