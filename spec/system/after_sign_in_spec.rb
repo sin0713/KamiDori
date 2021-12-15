@@ -4,9 +4,12 @@ RSpec.describe "Recipe", type: :system do
     let!(:other_user) { create(:user) }
     let!(:recipe) { create(:recipe, user: user) }
     let!(:other_recipe) { create(:recipe, user: other_user) }
+    let!(:mocha_recipe) { create(:recipe, bean: "モカ") }
+    let!(:hario_recipe) { create(:recipe, tool: "ハリオ") }
+    let!(:light_roast_recipe) { create(:recipe, roast: "light_roast") }
+    let!(:fine_recipe) { create(:recipe, grind_size: "fine") }
     let!(:taist) { create(:taist, recipe: recipe) }
     let!(:other_taist) { create(:taist, recipe: other_recipe) }
-    let!(:recipe_comment) { create(:recipe_comment, recipe: recipe, user: user) }
     let!(:favorite) { create(:favorite, recipe: other_recipe, user: user) }
     let!(:tools) { ["ハリオ", "カリタ", "メリタ"] }
     let!(:beans) { ["モカ", "キリマンジャロ", "コロンビア", "コナ", "マンデリン", "グアテマラ", "ブラジル", "ケニア"] }
@@ -112,6 +115,39 @@ RSpec.describe "Recipe", type: :system do
           end
         end
       end
+      context '産地別検索のテスト' do
+        before do
+          click_link 'モカ'
+        end
+        it '検索ワードのレシピのみ表示される' do
+          expect(all('.recipe-contents__items').count).to eq 1
+        end
+      end
+       context '器具別別検索のテスト' do
+        before do
+          click_link 'ハリオ'
+        end
+        it '検索ワードのレシピのみ表示される' do
+          expect(all('.recipe-contents__items').count).to eq 1
+        end
+      end
+       context '焙煎度別検索のテスト' do
+        before do
+          click_link 'ライトロースト'
+        end
+        it '検索ワードのレシピのみ表示される' do
+          expect(all('.recipe-contents__items').count).to eq 1
+        end
+      end
+       context '挽目別検索のテスト' do
+        before do
+          click_link '極細挽き'
+        end
+        it '検索ワードのレシピのみ表示される' do
+          expect(all('.recipe-contents__items').count).to eq 1
+        end
+      end
+
     end
 
     describe '自分のレシピ詳細画面のテスト' do
@@ -154,6 +190,9 @@ RSpec.describe "Recipe", type: :system do
         it 'コメント送信ボタンは表示されているか' do
           expect(page).to have_button '送信する'
         end
+        it '他人のコメント削除ボタンは表示されない' do
+          expect(page).not_to have_link '削除'
+        end
       end
 
       context 'サイドバーの確認' do
@@ -192,17 +231,6 @@ RSpec.describe "Recipe", type: :system do
         end
         it 'リダイレクト先が、レシピ詳細画面になっているか' do
           expect(current_path).to eq user_path(user)
-        end
-      end
-
-      context 'コメント機能のテスト' do
-        it 'コメントが正常の投稿されること', js:true do
-          expect{
-            fill_in 'recipe_comment[comment]', with: "コメントテスト"
-            click_button '送信する'
-            # jsの方が処理が遅れるので、changeの処理を遅らせる
-            visit current_path
-          }.to change{RecipeComment.count}.by(1)
         end
       end
     end
@@ -244,6 +272,56 @@ RSpec.describe "Recipe", type: :system do
         it 'フォローボタンは表示されるか' do
            link = find('.profile__follow-btn')
            expect(link[:href]).to eq user_relationships_path(other_user)
+        end
+      end
+
+      context 'followのテスト', js:true do
+        before do
+          Relationship.create(follow_id: user.id, followed_id: other_user.id)
+          visit current_path
+          click_link 'Unfollow'
+        end
+
+        it '正しくUnfollowされるか' do
+          expect{user.followings.count}.to change(user.followings, :count).by(0)
+        end
+        it '正しくFollowされるか', js:true do
+          visit current_path
+          expect {
+            find('a.profile__follow-btn').click
+            sleep (3)
+          }.to change{ user.followings.count }.by(1)
+        end
+      end
+
+      context 'コメント機能のテスト', js:true do
+        before do
+          fill_in 'recipe_comment[comment]', with: "コメントテスト"
+          click_button '送信する'
+          visit current_path
+        end
+
+        it 'コメントが正常の投稿されること', js:true do
+         expect(RecipeComment.count).to eq 1
+        end
+        it 'コメントテストは表示されるか' do
+          expect(page).to have_content "コメントテスト"
+        end
+        it 'コメント投稿者の名前は表示されるか' do
+          expect(page).to have_content user.name
+        end
+        it 'コメント登校日は表示されるか' do
+          rc = user.recipe_comments.last
+          expect(page).to have_content rc.created_at.strftime('%Y/%m/%d')
+        end
+        it 'コメント投稿者の画像は表示されるか' do
+          expect(page).to have_selector 'img.comment__user-img'
+        end
+        it 'コメントが正常に削除されること', js:true do
+          expect {
+            click_link '削除'
+            visit current_path
+          }.to change{RecipeComment.count}.by(-1)
         end
       end
     end
@@ -383,6 +461,171 @@ RSpec.describe "Recipe", type: :system do
         @favorite_count = user.favorites.count
         expect(all('.recipe-contents__items').count).to eq @favorite_count
       end
+       context 'サイドバーの確認' do
+        it '自分の画像、名前、紹介文は表示されるか' do
+          expect(page).to have_selector 'img.attachment.user'
+          expect(page).to have_content user.name
+          expect(page).to have_content user.introduction
+        end
+        it 'フォロー数、フォロワー数は表示されるか' do
+          expect(page).to have_content user.followings.count
+          expect(page).to have_content user.followers.count
+        end
+        it 'フォロー一覧、フォロワー一覧リンクは表示されるか' do
+          expect(page).to have_link 'Follower', href: followers_user_path(user)
+          expect(page).to have_link 'Follow', href: followings_user_path(user)
+        end
+        it '自分の詳細画面のリンクの確認' do
+         link = find('#profile__user-link')
+         expect(link[:href]).to eq user_path(user)
+        end
+        it 'お気に入り一覧リンク確認' do
+          expect(page).to have_link 'お気に入り一覧', href: favorites_recipes_path
+        end
+        it 'ユーザー編集画面へのリンク確認' do
+          expect(page).to have_link 'プロフィール編集', href: edit_user_path(user)
+        end
+      end
     end
+    describe 'ユーザー編集画面のテスト' do
+      before do
+        visit edit_user_path(user)
+      end
+
+      context '表示の確認' do
+        it 'URLは正しいか' do
+          expect(current_path).to eq "/users/#{user.id}/edit"
+        end
+        it 'Edit Profileは表示されるか' do
+          expect(page).to have_content 'Edit Profile'
+        end
+        it 'nameフォームは表示されているか' do
+          expect(page).to have_field 'user[name]', with: user.name
+        end
+        it 'introductionフォームは表示されているか' do
+          expect(page).to have_field 'user[introduction]', with: user.introduction
+        end
+        it 'imageフォームは表示されているか' do
+          expect(page).to have_field 'user[image]'
+        end
+        it 'Updateボタンが表示されるか' do
+          expect(page).to have_button 'Update'
+        end
+      end
+
+      context '編集成功のテスト' do
+        before do
+          @old_user_name = user.name
+          @old_user_introduction = user.introduction
+          fill_in 'user[name]', with: Faker::Lorem.characters(number: 6)
+          fill_in 'user[introduction]', with: Faker::Lorem.characters(number: 20)
+          click_button 'Update'
+        end
+
+        it '投稿後のリダイレクト先は正しいか' do
+          expect(current_path).to eq user_path(user)
+          expect(page).to have_content 'プロフィールを更新しました'
+        end
+        it '名前と紹介文は更新されているか' do
+          expect(user.reload.name).not_to eq @old_user_name
+          expect(user.reload.introduction).not_to eq @old_user_introduction
+        end
+      end
+    end
+
+    describe 'ユーザー詳細画面のテスト' do
+      before do
+        visit user_path(user)
+      end
+
+      context '表示のテスト' do
+        it 'URLは正しいか' do
+          expect(current_path).to eq ("/users/#{user.id}")
+        end
+        it '名前の表示はあるか' do
+          expect(page).to have_content "#{user.name}'s Recipes"
+        end
+        it '自分の投稿が正しく表示されているか' do
+          @count = user.recipes.count
+          expect(all('.recipe-contents__items').count).to eq @count
+        end
+      end
+
+      context 'サイドバーの確認' do
+        it '自分の画像、名前、紹介文は表示されるか' do
+          expect(page).to have_selector 'img.attachment.user'
+          expect(page).to have_content user.name
+          expect(page).to have_content user.introduction
+        end
+        it 'フォロー数、フォロワー数は表示されるか' do
+          expect(page).to have_content user.followings.count
+          expect(page).to have_content user.followers.count
+        end
+        it 'フォロー一覧、フォロワー一覧リンクは表示されるか' do
+          expect(page).to have_link 'Follower', href: followers_user_path(user)
+          expect(page).to have_link 'Follow', href: followings_user_path(user)
+        end
+        it '自分の詳細画面のリンクの確認' do
+         link = find('#profile__user-link')
+         expect(link[:href]).to eq user_path(user)
+        end
+        it 'お気に入り一覧リンク確認' do
+          expect(page).to have_link 'お気に入り一覧', href: favorites_recipes_path
+        end
+        it 'ユーザー編集画面へのリンク確認' do
+          expect(page).to have_link 'プロフィール編集', href: edit_user_path(user)
+        end
+      end
+    end
+
+    describe '自分のフォロー一覧画面のテスト' do
+      before do
+        Relationship.create(follow_id: user.id, followed_id: other_user.id)
+        visit followings_user_path(user)
+      end
+      context '表示の確認' do
+        it 'URLのテスト' do
+          expect(current_path).to eq ("/users/#{user.id}/followings")
+        end
+        it 'フォローしたユーザーの名前が表示されているか' do
+          expect(page).to have_content other_user.name
+        end
+        it 'レシピ投稿数は表示されているか' do
+          expect(page).to have_content other_user.recipes.count
+        end
+        it 'フォロワー数は表示されているか' do
+          expect(page).to have_content other_user.followings.count
+        end
+        it 'フォロー数は表示されているか' do
+          expect(page).to have_content other_user.followers.count
+        end
+      end
+      context 'サイドバーの確認' do
+        it '自分の画像、名前、紹介文は表示されるか' do
+          expect(page).to have_selector 'img.attachment.user'
+          expect(page).to have_content user.name
+          expect(page).to have_content user.introduction
+        end
+        it 'フォロー数、フォロワー数は表示されるか' do
+          expect(page).to have_content user.followings.count
+          expect(page).to have_content user.followers.count
+        end
+        it 'フォロー一覧、フォロワー一覧リンクは表示されるか' do
+          expect(page).to have_link 'Follower', href: followers_user_path(user)
+          expect(page).to have_link 'Follow', href: followings_user_path(user)
+        end
+        it '自分の詳細画面のリンクの確認' do
+         link = find('#profile__user-link')
+         expect(link[:href]).to eq user_path(user)
+        end
+        it 'お気に入り一覧リンク確認' do
+          expect(page).to have_link 'お気に入り一覧', href: favorites_recipes_path
+        end
+        it 'ユーザー編集画面へのリンク確認' do
+          expect(page).to have_link 'プロフィール編集', href: edit_user_path(user)
+        end
+      end
+    end
+
   end
 end

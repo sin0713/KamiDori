@@ -1,7 +1,9 @@
 <% users.each do |user| %>
   <div class="follow__wrapper">
     <div class="follow__img-wrapper">
-      <%= attachment_image_tag user, :image, fallback: "coffee-cup-book2.jpg", class:"follow__img" %>
+      <%= link_to user_path(user) do %>
+        <%= attachment_image_tag user, :image, fallback: "coffee-cup-book2.jpg", class:"follow__img" %>
+      <% end %>
     </div>
     <div class="follow__contents">
       <div class="follow__contents-wrapper">
