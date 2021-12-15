@@ -16,7 +16,6 @@ class User < ApplicationRecord
   validates :password, presence: true
   validates :encrypted_password, presence: true
   validates :email, presence: true
-  validates :introduction, length: { in: 2..50 }
 
   attachment :image
 
