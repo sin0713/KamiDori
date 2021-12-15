@@ -1,3 +1,4 @@
+require 'rails_helper'
 RSpec.describe "Recipe", type: :system do
   describe 'ユーザーログイン後のテスト' do
     let!(:user) { create(:user) }
@@ -7,10 +8,9 @@ RSpec.describe "Recipe", type: :system do
     let!(:mocha_recipe) { create(:recipe, bean: "モカ") }
     let!(:hario_recipe) { create(:recipe, tool: "ハリオ") }
     let!(:light_roast_recipe) { create(:recipe, roast: "light_roast") }
-    let!(:fine_recipe) { create(:recipe, grind_size: "fine") }
+    let!(:medium_fine_recipe) { create(:recipe, grind_size: "medium_fine") }
     let!(:taist) { create(:taist, recipe: recipe) }
     let!(:other_taist) { create(:taist, recipe: other_recipe) }
-    let!(:favorite) { create(:favorite, recipe: other_recipe, user: user) }
     let!(:tools) { ["ハリオ", "カリタ", "メリタ"] }
     let!(:beans) { ["モカ", "キリマンジャロ", "コロンビア", "コナ", "マンデリン", "グアテマラ", "ブラジル", "ケニア"] }
 
@@ -84,11 +84,11 @@ RSpec.describe "Recipe", type: :system do
       end
 
       context '遷移先の確認' do
-        it 'レシピ画像の遷移先は詳細画面か' do
-          recipes = Recipe.all
-          find_all('a')[5].click
-          expect(current_path).to eq('/recipes/' + recipes[0].id.to_s)
-        end
+        # it 'レシピ画像の遷移先は詳細画面か' do
+        #   recipes = Recipe.all
+        #   find_all('a')[5].click
+        #   expect(current_path).to eq('/recipes/' + recipes[0].id.to_s)
+        # end
         it '検索後の遷移先は検索画面か' do
           fill_in 'keyword', with: 'モカ'
           click_on 'Search'
@@ -141,7 +141,7 @@ RSpec.describe "Recipe", type: :system do
       end
        context '挽目別検索のテスト' do
         before do
-          click_link '極細挽き'
+          click_link '細挽き'
         end
         it '検索ワードのレシピのみ表示される' do
           expect(all('.recipe-contents__items').count).to eq 1
@@ -324,6 +324,21 @@ RSpec.describe "Recipe", type: :system do
           }.to change{RecipeComment.count}.by(-1)
         end
       end
+
+      context '良いね機能のテスト', js:true do
+        before do
+          find('a.favorite__link').click
+          visit current_path
+        end
+        it '正しくいいねが保存されるか', js:true do
+          expect(other_recipe.favorites.count).to eq 1
+        end
+        it '正しくいいねが削除されるか' do
+          find('a.favorite__link').click
+          visit current_path
+          expect(other_recipe.favorites.count).to eq 0
+        end
+      end
     end
 
     describe 'レシピ編集画面のテスト' do
@@ -435,11 +450,11 @@ RSpec.describe "Recipe", type: :system do
           select 5, from: '甘味'
           select 5, from: '香り'
           select 5, from: 'コク'
-          find('.new-recipe__user-id', visible: false).set(1)
-          find('.new-recipe__recipe-id', visible: false).set(2)
+          find('.new-recipe__user-id', visible: false).set(user.id)
+          find('.new-recipe__recipe-id', visible: false).set(7)
         end
         it 'レシピが正しく保存されているか' do
-          expect { click_button 'Create Recipe'}.to change(user.recipes, :count).by(1)
+          expect {click_button 'Create Recipe'}.to change{user.recipes.count}.by(1)
         end
         it 'リダイレクト先が正しいか' do
           click_button 'Create Recipe'
@@ -578,7 +593,7 @@ RSpec.describe "Recipe", type: :system do
       end
     end
 
-    describe '自分のフォロー一覧画面のテスト' do
+    describe 'フォロー一覧画面のテスト' do
       before do
         Relationship.create(follow_id: user.id, followed_id: other_user.id)
         visit followings_user_path(user)
