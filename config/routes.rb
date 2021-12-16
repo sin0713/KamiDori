@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   resources :recipes, only: [:new, :create, :edit, :update, :show, :destroy] do
     resource :favorites, only: [:create, :destroy, :index]
-    collection do 
+    collection do
       get :favorites
     end
     resources :recipe_comments, only: [:create, :destroy]
@@ -24,5 +24,13 @@ Rails.application.routes.draw do
       get :search
     end
   end
+
+  resource :contacts, only: [:new, :create] do
+    collection do
+      get :confirm
+      post :back
+    end
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
