@@ -91,4 +91,17 @@
       box-shadow: 0px 0px 5px 4px #b6b3dc;
     }
   }
+
+  &__user-d-btn {
+    text-align: center;
+    display: block;
+    color: #fff;
+    background-color: rgba(255, 5, 5, 0.8);
+    border-radius: 5px;
+    margin-top: 20px;
+
+    &:hover {
+      background-color: rgba(255, 5, 5, 1.0);
+    }
+  }
 }

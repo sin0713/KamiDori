@@ -1,0 +1,12 @@
+<div class="confirmation">
+  <div class="confirmation__wrapper">
+
+    <p class="confirmation__text">本当に退会しますか？</p>
+    <p class="confirmation__text">※退会すると投稿したレシピもすべて削除されます。</p>
+    <div class="confirmation__btn-wrapper">
+      <%= link_to '退会する', user_path(@user), method: :delete, class:"confirmation__destroy-btn" %>
+      <%= link_to '退会しない', user_path(@user), class:"confirmation__back-btn" %>
+    </div>
+  </div>
+</div>
+

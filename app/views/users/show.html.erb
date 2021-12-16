@@ -11,6 +11,9 @@
       <% end %>
     </div>
   </div>
-  <%= render 'profile', user: @user %>
+  <div class="profile">
+    <%= render 'users/profile', user: @user %>
+    <%= link_to '退会する', confirmation_user_path(@user), class:"profile__user-d-btn" %>
+  </div>
 </div>
 

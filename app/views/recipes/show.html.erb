@@ -6,25 +6,25 @@
   <div class="recipe-show__content">
     <div class="recipe-show__wrapper">
       <div class="recipe-show__wrapper-left">
-      <div class="recipe-show__img-wrapper">
-        <%= attachment_image_tag @recipe, :image, fallback: "coffee-cup-book2.jpg", class:"recipe-show__img" %>
+        <div class="recipe-show__img-wrapper">
+          <%= attachment_image_tag @recipe, :image, fallback: "coffee-cup-book2.jpg", class:"recipe-show__img" %>
+        </div>
+        <% if current_user.present? %>
+          <div id="favorite_btn-<%= @recipe.id%>" class="recipe-show__favorite">
+            <%= render 'favorites/favorite_btn', recipe: @recipe %>
+          </div>
+        <% end %>
+        <% if current_user.present? && @user.id == current_user.id %>
+          <div class="recipe-show__btn-wrapper">
+            <div class="recipe-show__destroy">
+               <%= link_to 'Delete', recipe_path(@recipe), method: :delete, class:"recipe-show__destroy-btn",  data: {confirm: "削除しますか？"} %>
+            </div>
+            <div class="recipe-show__edit">
+              <%= link_to 'Edit', edit_recipe_path(@recipe), class:"recipe-show__edit-btn"%>
+            </div>
+          </div>
+        <% end %>
       </div>
-      <% if current_user.present? %>
-        <div id="favorite_btn-<%= @recipe.id%>" class="recipe-show__favorite">
-          <%= render 'favorites/favorite_btn', recipe: @recipe %>
-        </div>
-      <% end %>
-      <!--<% if current_user.present? && @user.id == current_user.id %>-->
-        <div class="recipe-show__btn-wrapper">
-          <div class="recipe-show__destroy">
-             <%= link_to 'Delete', recipe_path(@recipe), method: :delete, class:"recipe-show__destroy-btn",  data: {confirm: "削除しますか？"} %>
-          </div>
-          <div class="recipe-show__edit">
-            <%= link_to 'Edit', edit_recipe_path(@recipe), class:"recipe-show__edit-btn"%>
-          </div>
-        </div>
-      <!--<% end %>-->
-    </div>
       <div class="recipe-show__wrapper-right">
         <div class="recipe-show__recipe">
           <h4 class="recipe-show__recipe-heading">Recipe</h4>
@@ -91,6 +91,7 @@
       </div>
     </div>
   </div>
-
-  <%= render 'users/profile', user: @user %>
-
+  <div class="profile">
+    <%= render 'users/profile', user: @user %>
+  </div>
+</div>

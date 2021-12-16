@@ -11,5 +11,7 @@
     <h3 class="follow__heading"><%= @user.name %>'s Followers</h3>
     <%= render 'relationships/follow_index', users: @users %>
   </div>
-  <%= render 'profile', user: @user %>
+  <div class="profile">
+    <%= render 'users/profile', user: @user %>
+  </div>
 </div>

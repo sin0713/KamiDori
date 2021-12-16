@@ -15,8 +15,6 @@ class UsersController < ApplicationController
       flash[:notice] = 'プロフィールを更新しました'
       redirect_to user_path(@user)
     end
-
-
   end
 
   def followings
@@ -28,6 +26,18 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @users = @user.followers
   end
+
+  def confirmation
+    @user = User.find(params[:id])
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:alert] = '正常に退会できました'
+    redirect_to root_path
+  end
+
 
 
   private

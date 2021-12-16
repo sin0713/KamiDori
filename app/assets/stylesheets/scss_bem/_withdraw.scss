@@ -1,0 +1,65 @@
+@import 'variables';
+
+.confirmation {
+  min-height: 100vh;
+  background: #6b5750;
+  padding: 60px;
+
+
+  &__wrapper {
+    @include wrapper;
+
+    padding: 5% 20%;
+    text-align: center;
+    background-color: #fff;
+  }
+
+
+  &__text:nth-child(1) {
+    font-size: 2rem;
+    color: #757171;
+    font-weight: bold;
+  }
+
+  &__text:nth-child(2) {
+    color: red;
+
+  }
+
+  &__btn-wrapper {
+    width: 80%;
+    margin: 100px auto 0;
+    text-align: center;
+
+  }
+
+
+  &__destroy-btn {
+    color: #fff;
+    background-color: rgba(222, 19, 19, 0.8);
+    padding: 1% 5%;
+    display: block;
+    margin-bottom: 20px;
+    border-radius: 30px;
+
+    &:hover {
+      background-color: rgba(222, 19, 19, 1.0);
+    }
+  }
+
+  &__back-btn {
+    color: #fff;
+    background-color: rgba(32, 59, 140, 0.8);
+    padding: 1% 5%;
+    display: block;
+    border-radius: 30px;
+
+     &:hover {
+      background-color: rgba(32, 59, 140, 1.0);
+    }
+  }
+}
+
+
+
+
