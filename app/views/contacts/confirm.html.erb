@@ -1,0 +1,24 @@
+<div>
+  <div>お名前</div>
+  <div><%= @contact.name %></div>
+</div>
+
+<div>
+  <div>メッセージ</div>
+  <div><%= @contact.message %></div>
+</div>
+
+<%= form_with model: @contact, url: contacts_path, method: :post,  local: true do |f| %>
+  <%= f.hidden_field :name, value: @contact.name %>
+  <%= f.hidden_field :email, value: @contact.email %>
+  <%= f.hidden_field :message, value: @contact.message %>
+  <%= f.submit '送信'%>
+<% end %>
+
+<%= form_with model: @contact, url: back_contacts_path, local: true do |f| %>
+  <%= f.hidden_field :name, value: @contact.name %>
+  <%= f.hidden_field :email, value: @contact.email %>
+  <%= f.hidden_field :message, value: @contact.message %>
+  <%= f.submit '入力画面に戻る'%>
+<% end %>
+

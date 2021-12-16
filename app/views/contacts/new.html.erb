@@ -1,0 +1,17 @@
+<%= form_with model: @contact, url: confirm_contacts_path, method: :get,  local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :name, 'お名前*' %>
+    <%= f.text_field :name, autofocus: true, class: '' %>
+  </div>
+  <div class="contact">
+    <%= f.label :email, 'Eメール'%>
+    <%= f.email_field :email, placeholder: "メールアドレス"%>
+  </div>
+  <div>
+    <%= f.label :message, 'メッセージ*'%>
+    <%= f.text_field :message, placeholder: "お問い合わせ内容"%>
+  </div>
+  <div>
+    <%= f.submit '入力内容確認' %>
+  </div>
+<% end %>
