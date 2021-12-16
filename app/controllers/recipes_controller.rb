@@ -21,6 +21,7 @@ class RecipesController < ApplicationController
     @user = User.find(@recipe.user_id)
     @taist = Taist.find_by(recipe_id: params[:id])
     @recipe_comment = RecipeComment.new
+    @recipe_comments = @recipe.recipe_comments.includes(:user).page(params[:page]).per(5)
   end
 
   def edit

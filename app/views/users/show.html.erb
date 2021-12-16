@@ -9,11 +9,14 @@
       <% @recipes.each do |recipe| %>
         <%= render 'recipes/index', recipe: recipe %>
       <% end %>
+      <%= render 'layouts/kaminari', models: @recipes %>
     </div>
   </div>
   <div class="profile">
     <%= render 'users/profile', user: @user %>
-    <%= link_to '退会する', confirmation_user_path(@user), class:"profile__user-d-btn" %>
+    <% if current_user.id == @user.id %>
+      <%= link_to '退会する', confirmation_user_path(@user), class:"profile__user-d-btn" %>
+    <% end %>
   </div>
 </div>
 

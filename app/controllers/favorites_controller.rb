@@ -1,6 +1,6 @@
 class FavoritesController < ApplicationController
   before_action :authenticate_user!
- 
+
   def favorites
     @beans = ["モカ", "キリマンジャロ", "コロンビア", "コナ", "マンデリン", "グアテマラ", "ブラジル", "ケニア", "コスタリカ"]
     @tools = ["ハリオ", "カリタ", "メリタ",]

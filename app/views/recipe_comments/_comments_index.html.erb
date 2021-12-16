@@ -1,8 +1,8 @@
-<% recipe.recipe_comments.includes(:user).each do |recipe_comment| %>
+<% recipe_comments.each do |recipe_comment| %>
   <div class="comment__wrapper">
     <div class="comment__img-wrapper">
       <%= link_to user_path(recipe_comment.user) do %>
-        <%= attachment_image_tag recipe.user, :image, fallback: "coffee-cup-book2.jpg", class:"comment__user-img" %>
+        <%= attachment_image_tag recipe_comment.user, :image, fallback: "coffee-cup-book2.jpg", class:"comment__user-img" %>
       <% end %>
     </div>
     <div class="comment__contents">

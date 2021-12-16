@@ -8,8 +8,8 @@
     <div class="recipe-contents__main">
       <% @recipes.each do |recipe| %>
         <%= render 'recipes/index', recipe: recipe %>
-        
       <% end %>
+      <%= render 'layouts/kaminari', models: @recipes %>
     </div>
   </div>
 

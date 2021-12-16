@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @recipes = @user.recipes
+    @recipes = @user.recipes.page(params[:page]).per(12)
   end
 
   def edit
@@ -19,12 +19,12 @@ class UsersController < ApplicationController
 
   def followings
     @user = User.find(params[:id])
-    @users = @user.followings
+    @users = @user.followings.page(params[:page]).per(10)
   end
 
   def followers
     @user = User.find(params[:id])
-    @users = @user.followers
+    @users = @user.followers.page(params[:page]).per(10)
   end
 
   def confirmation

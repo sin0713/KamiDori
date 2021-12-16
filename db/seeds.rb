@@ -179,6 +179,35 @@
       flavor: 3
       )
   end
+  
+  20.times do 
+   Recipe.create!(
+    user_id: 1,
+    roast: 3,
+    bean: "ケニア",
+    tool: "ハリオv60",
+    extraction_time_minutes:  2,
+    extraction_time_seconds:  22,
+    pre_infusion_time:  15,
+    temperature:  88,
+    grind_size:  3,
+    amount_of_beans:  25,
+    amount_of_extraction:  300,
+    introduction: "フルーティな香りが際立ちます",
+    image: File.open("#{Rails.root}/app/assets/images/coffee-cup2.jpg")
+    )
+  end
+  
+  20.times do |n|
+    Taist.create!(
+      recipe_id: n + 10,
+      sour: 3,
+      bitter: 3,
+      rich: 3,
+      sweet: 3,
+      flavor: 3
+      )
+  end
 
 
 

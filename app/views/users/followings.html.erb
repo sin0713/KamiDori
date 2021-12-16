@@ -6,6 +6,7 @@
   <div class="follow__wrapper-wrapper">
     <h3 class="follow__heading"><%= @user.name %>'s Follows</h3>
     <%= render 'relationships/follow_index', users: @users %>
+    <%= render 'layouts/kaminari', models: @users %>
   </div>
    <div class="profile">
     <%= render 'users/profile', user: @user %>

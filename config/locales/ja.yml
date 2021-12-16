@@ -16,3 +16,10 @@ ja:
         medium: "中細挽き"
         medium_coarse: "中挽き"
         coarse: "粗挽き"
+
+  views:
+    pagination:
+      first: <i class="fas fa-angle-double-left"></i>
+      last: <i class="fas fa-angle-double-right"></i>
+      previous: <i class="fas fa-angle-left"></i>
+      next: <i class="fas fa-angle-right"></i>
