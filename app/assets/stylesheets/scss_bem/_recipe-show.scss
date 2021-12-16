@@ -1,0 +1,137 @@
+@import 'variables';
+
+.recipe-show {
+  @include wrapper;
+  @include flex-space;
+  @include background;
+
+   &__content {
+    width: 74%;
+
+  }
+
+  &__wrapper {
+    @include flex-space;
+    position: relative;
+
+  }
+
+  &__wrapper-left {
+    width: 40%;
+
+  }
+
+  &__img-wrapper {
+    margin-bottom: 10px;
+  }
+
+  &__img {
+    width: 96%;
+    height: 260px;
+  }
+
+  &__favorite {
+    position: absolute;
+    top: 213px;
+    left: 28%;
+
+    & a {
+      font-size: 1.0rem;
+    }
+  }
+
+  &__btn-wrapper {
+    @include flex-space;
+  }
+
+  &__destroy {
+    width: 50%;
+  }
+
+  &__edit {
+    width: 50%;
+  }
+
+  &__destroy-btn {
+    display: block;
+    width: 90%;
+    background: rgba(228, 39, 39, 0.7);
+    padding: 5px 0;
+    text-align: center;
+    color: #fff;
+    border-radius: 30px;
+
+    &:hover {
+      background: rgba(228, 39, 39, 1.0);
+    }
+
+  }
+
+  &__edit-btn {
+    display: block;
+    width: 90%;
+    background: rgba(219, 147, 117, 0.7);
+    padding: 5px 0;
+    text-align: center;
+    color: #fff;
+    border-radius: 30px;
+
+    &:hover {
+      background: rgba(219, 147, 117, 1.0);
+    }
+
+  }
+
+  &__wrapper-right {
+    width: 60%;
+  }
+
+  &__recipe-heading {
+    @include heading-border;
+    display: inline-block;
+    font-size: 1.2rem;
+  }
+
+  &__table {
+    border-collapse: collapse;
+  }
+
+  &__table-row {
+
+  }
+
+
+  &__recipe-items-tit {
+    width: 50%;
+     border-bottom: 1px solid black;
+     padding: 4px;
+
+  }
+
+  &__recipe-items {
+    width: 50%;
+     border-bottom: 1px solid black;
+  }
+
+  &__recipe-introduction {
+    margin-bottom: 30px;
+  }
+
+  &__introduction-area {
+    border: 1.8px dashed #f0cfa3;
+    height: 140px;
+    background: #fff;
+    border-radius: 5px;
+  }
+
+  &__chart-heading {
+    @include heading-border;
+    font-size: 1.2rem;
+    display: inline-block;
+  }
+
+  &__chart {
+    width: 65%;
+
+  }
+}

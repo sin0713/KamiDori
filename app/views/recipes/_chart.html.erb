@@ -1,0 +1,40 @@
+<div class="recipe-show__chart">
+      <h4 class="recipe-show__chart-heading">Taist chart</h4>
+      <canvas id="showRaderChart"></canvas>
+      <script>
+        var ctx = document.getElementById("showRaderChart");
+
+        var showRadarChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ["苦味", "酸味", "甘味", "香り", "コク"],
+                datasets: [{
+                    label: "テイスト",
+                    data: [<%= taist.bitter %>, <%= taist.sour %>, <%= taist.sweet %>, <%= taist.flavor %>, <%= taist.rich %>],
+                    backgroundColor: 'RGBA(210, 105, 30, 0.3)',
+                    borderColor: 'RGBA(210, 105, 30, 1)',
+                    borderWidth: 1,
+                    pointBackgroundColor: 'RGB(139,9,0)'
+                }]
+            },
+            options: {
+              title: {
+                  display: true,
+                  text: ''
+              },
+              scales: {
+                  r: {
+                  //グラフの最小値・最大値
+                      min: 0,
+                      max: 5,
+                      ticks: {
+                          beginAtZero: true,
+                          stepSize: 1
+                     },
+                },
+              }
+            }
+          });
+
+      </script>
+    </div>

@@ -1,0 +1,2 @@
+$(".profile__btn-wrapper").html("<%= j(render 'follow_btn', user: @user) %>");
+$("#followers-count").html("<%= @user.followers.count %>");

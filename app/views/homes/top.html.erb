@@ -1,0 +1,21 @@
+<div class="header-heading">
+  <h2 class="header-heading__title">Index</h2>
+</div>
+
+<div class="recipe-contents">
+  <div class="recipe-contents__wrapper">
+    <h2 class="recipe-contents__heading">ALL Recipes</h2>
+    <div class="recipe-contents__main">
+      <% @recipes.each do |recipe| %>
+        <%= render 'recipes/index', recipe: recipe %>
+        
+      <% end %>
+    </div>
+  </div>
+
+  <div class="recipe-contents__search-bar">
+   <%= render 'recipes/search_bar', beans: @beans, tools: @tools %>
+  </div>
+
+</div>
+

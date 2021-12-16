@@ -1,0 +1,26 @@
+ <h3 class="recipe-contents__search-heading">Search</h3>
+
+ <%= form_with url: search_recipes_path, method: :get, local: true do |f| %>
+   <%= f.text_field :keyword, placeholder: 'コーヒー豆産地 or 抽出器具',  required: true, class:"recipe-contents__search-field" %>
+   <%= f.submit 'Search', class:"recipe-contents__search-btn" %>
+ <% end %>
+
+ <h4 class="recipe-contents__search-sub-tit">Beans</h4>
+ <% beans.each do |bean| %>
+   <%= link_to bean, search_recipes_path(keyword: bean), method: :get,  class:"recipe-contents__search-link" %>
+ <% end %>
+ <h4 class="recipe-contents__search-sub-tit">Tools</h4>
+ <% tools.each do |tool| %>
+   <%= link_to tool, search_recipes_path(keyword: tool), method: :get,  class:"recipe-contents__search-link" %>
+ <% end %>
+ <h4 class="recipe-contents__search-sub-tit">Roasts</h4>
+ <!-- Recipe.roasts_i18n の中身は配列-->
+ <% Recipe.roasts_i18n.each do |roast| %>
+   <%= link_to roast[1], search_recipes_path(roast: roast[0]), method: :get,  class:"recipe-contents__search-link" %>
+ <% end %>
+
+<h4 class="recipe-contents__search-sub-tit">Grind Size</h4>
+ <!-- Recipe.roasts_i18n の中身は配列-->
+ <% Recipe.grind_sizes_i18n.each do |grind_size| %>
+   <%= link_to grind_size[1], search_recipes_path(grind_size: grind_size[0]), method: :get,  class:"recipe-contents__search-link" %>
+ <% end %>

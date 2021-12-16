@@ -1,0 +1,12 @@
+@import "variables";
+
+.header {
+  @include wrapper;
+  display: flex;
+  justify-content: space-between;
+
+  &__logo {
+    width: 210px;
+    margin-top: 14px;
+  }
+}

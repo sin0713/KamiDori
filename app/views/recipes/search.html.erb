@@ -1,0 +1,23 @@
+<div class="header-heading">
+  <h2 class="header-heading__title">Results</h2>
+</div>
+
+<div class="recipe-contents">
+  <div class="recipe-contents__wrapper">
+    <h2 class="recipe-contents__heading">Search Word: <%= @keyword %></h2>
+    <% if @recipes.count != 0 %>
+      <div class="recipe-contents__main">
+        <% @recipes.each do |recipe| %>
+          <%= render 'index', recipe: recipe %>
+        <% end %>
+      </div>
+    <% else %>
+      <h4 class="recipe-contents__alert">該当のレシピがありません。</h4>
+    <% end %>
+  </div>
+
+  <div class="recipe-contents__search-bar">
+   <%= render 'search_bar', beans: @beans, tools: @tools %>
+  </div>
+
+</div>

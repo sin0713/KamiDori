@@ -1,0 +1,108 @@
+@import 'variables';
+
+.user-form {
+    min-height: 100vh;
+    background: #6b5750;
+    padding: 60px;
+
+
+  &__form {
+    @include wrapper;
+    text-align: center;
+    background-color: #fff;
+
+  }
+
+  &__heading {
+    @include heading-border;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    padding-right: 0;
+    display: inline-block;
+
+  }
+
+  &__field {
+    margin-bottom: 10px;
+  }
+
+  &__input {
+    border-radius: 10px;
+    border: solid 2px #432;
+    width: 60%;
+    height: 35px;
+    @include focus;
+  }
+
+  &__sign-up {
+    @include submit-btn;
+    padding: 10px 40px;
+
+    margin-top: 20px;
+    width: 60%;
+
+     &:hover {
+      box-shadow: 0 2px 3px 2px #8e4319;
+    }
+  }
+
+  &__log-in-wrapper {
+    padding-bottom: 30px;
+  }
+
+  &__log-in-link {
+    color: #fff;
+    padding: 10px 40px;
+    background: linear-gradient(125deg, #cbd5ee, #eeeeee);
+    border-radius: 30px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 30px;
+  }
+
+  &__log-in-submit {
+    color: #fff;
+    padding: 10px 40px;
+    background: linear-gradient(125deg, #cbd5ee, #eeeeee);
+    border-radius: 30px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 30px;
+    width: 60%;
+  }
+
+  &__introduction {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 60%;
+    height: 200px;
+  }
+
+  &__img {
+    border: none;
+  }
+
+  &__submit-wrapper {
+    padding-bottom: 30px;
+  }
+
+  &__update {
+    @include submit-btn;
+    padding: 10px 40px;
+
+    margin-top: 20px;
+    width: 60%;
+
+     &:hover {
+      box-shadow: 0 2px 3px 2px #8e4319;
+    }
+  }
+
+
+}
+
+.devise-form-log-in {
+    min-height: 70vh;
+    background: #6b5750;
+    padding: 60px;
+}

@@ -1,0 +1,19 @@
+@import 'variables';
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 4%;
+  background: #432;
+  text-align: center;
+  padding: 15px 0;
+
+  &__copy {
+    color: #fff;
+    font-size: 0.875rem;
+  }
+}
+
+

@@ -1,0 +1,95 @@
+@import 'variables';
+
+.about-contents {
+  background: radial-gradient(#fad27e, #ffffff);
+    padding: 5% 5% 20%;
+    height: 100%;
+
+
+  &__wrapper {
+    width: 60%;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  &__heading {
+    font-size: 3.4rem;
+    margin-bottom: 30px;
+    color: #81450a;
+
+  }
+
+  &__span {
+    font-size: 1.5rem;
+  }
+
+  &__text {
+    font-size: 1.2rem;
+    color: #602a06;
+  }
+
+  &__img-wrapper {
+    display: flex;
+    gap: 1%;
+    margin-top: 100px;
+
+  }
+
+  &__img {
+    @include big-bg;
+    width: 7%;
+    height: 30px;
+
+
+  }
+
+  &__img:nth-child(1) {
+    background-image: image-url('coffee-beans3.jpg');
+  }
+
+   &__img:nth-child(2) {
+    background-image: image-url('coffee-cup-book.jpg');
+  }
+
+   &__img:nth-child(3) {
+    background-image: image-url('coffee-cup-brown.jpg');
+  }
+
+   &__img:nth-child(4) {
+    background-image: image-url('coffee-cup-glass');
+  }
+
+   &__img:nth-child(5) {
+    background-image: image-url('coffee-cup-pod.jpg');
+  }
+
+   &__img:nth-child(6) {
+    background-image: image-url('coffee-cup-red.jpg');
+  }
+
+   &__img:nth-child(7) {
+    background-image: image-url('coffee-cup1.jpg');
+  }
+
+   &__img:nth-child(8) {
+    background-image: image-url('coffee-cup2.jpg');
+  }
+
+   &__img:nth-child(9) {
+    background-image: image-url('coffee-grains.jpg');
+  }
+
+   &__img:nth-child(10) {
+    background-image: image-url('coffee-beans-hand.jpg');
+  }
+
+   &__img:nth-child(11) {
+    background-image: image-url('coffee-beans1.jpg');
+  }
+
+   &__img:nth-child(12) {
+    background-image: image-url('coffee-beans2.jpg');
+  }
+
+
+}

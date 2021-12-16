@@ -1,0 +1,15 @@
+<div class="header-heading">
+  <h2 class="header-heading__title">New</h2>
+</div>
+
+<div class="new-recipe">
+  <%= form_with model:@recipe, local: true, class:"new-recipe__form" do |f| %>
+    <div class="new-recipe__left-form">
+      <%= render 'form', recipe: @recipe, taist: @taist, f: f %>
+      <div class="new-recipe__submit-wrapper">
+        <%= f.submit 'Create Recipe', class:"new-recipe__form-submit" %>
+        <i class="fas fa-mug-hot new-recipe__icon"></i>
+      </div>
+    </div>
+<% end %>
+</div>

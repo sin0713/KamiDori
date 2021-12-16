@@ -1,0 +1,7 @@
+@import 'variables';
+
+.header-wrapper {
+  @include big-bg;
+  background-image: image-url('coffee-cup-book.jpg');
+  height: 270px;
+}

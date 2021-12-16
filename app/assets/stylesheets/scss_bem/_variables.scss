@@ -1,0 +1,62 @@
+@mixin wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 4%;
+}
+
+@mixin big-bg {
+  background-size: cover;
+  background-position: center;
+}
+
+@mixin title {
+  font-size: 5rem;
+  font-family: "Philosopher", serif;
+  text-transform: uppercase;
+  font-weight: normal;
+
+}
+
+@mixin heading-border {
+  border-bottom: 3px #cf6032 solid;
+  margin-bottom: 10px;
+  padding-right: 15%;
+}
+
+@mixin flex-space {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin focus {
+  &:focus {
+      box-shadow: 5px 5px 5px -5px #83310f;;
+      border: solid 2px #83310F;
+
+    }
+}
+
+@mixin background {
+  padding-top: 50px;
+  padding-bottom: 150px;
+  background-image: image-url('light-veneer.png');
+  background-size: cover;
+}
+
+@mixin submit-btn {
+  color: #fff;
+  background: linear-gradient(125deg, #db6d3e, #f1e9e9);
+  border-radius: 30px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+@mixin follow-btn {
+  background: #f0f0f0;
+  border-radius: 30px;
+  display: block;
+  text-align: center;
+  padding: 5px 0;
+  text-decoration: none;
+  font-size: 1.09rem;
+}

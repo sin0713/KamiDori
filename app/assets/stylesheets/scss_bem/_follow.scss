@@ -1,0 +1,52 @@
+@import 'variables';
+
+.follow {
+  @include wrapper;
+  @include flex-space;
+  @include background;
+
+
+
+  &__wrapper-wrapper {
+    width: 65%;
+  }
+
+  &__heading {
+    @include heading-border;
+    display: inline-block;
+    padding-right: 5%;
+  }
+
+  &__wrapper {
+     @include flex-space;
+     margin-top: 30px;
+
+  }
+
+  &__img-wrapper {
+    width: 25%;
+  }
+
+  &__img {
+    border-radius: 50%;
+    width: 80%;
+    height: 120px;
+  }
+
+  &__contents {
+    width: 70%;
+    margin-bottom: 20px;
+  }
+
+  &__contents-wrapper {
+    @include flex-space;
+  }
+
+  &__name-wrapper {
+    width: 40%;
+  }
+
+  &__details {
+    width: 55%;
+  }
+}

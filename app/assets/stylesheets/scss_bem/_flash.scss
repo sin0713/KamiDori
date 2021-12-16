@@ -1,0 +1,13 @@
+.flash {
+  &__notice {
+    color: #fff;
+    height: 30px;
+    background-color: #ec9a75;
+  }
+
+  &__alert {
+    color: #fff;
+    height: 30px;
+    background-color: red;
+  }
+}
