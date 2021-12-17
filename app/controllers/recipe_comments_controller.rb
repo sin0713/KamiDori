@@ -3,6 +3,7 @@ class RecipeCommentsController < ApplicationController
 
   def create
     @recipe = Recipe.find(params[:recipe_id])
+    @recipe_comments = @recipe.recipe_comments.includes(:user)
     comment = current_user.recipe_comments.new(recipe_comment_params)
     comment.recipe_id = @recipe.id
     comment.save
@@ -10,6 +11,7 @@ class RecipeCommentsController < ApplicationController
 
   def destroy
     @recipe = Recipe.find(params[:recipe_id])
+    @recipe_comments = @recipe.recipe_comments.includes(:user)
     RecipeComment.find_by(id: params[:id]).destroy
   end
 

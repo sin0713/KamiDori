@@ -29,6 +29,10 @@
     width: 75%;
   }
 
+  &__text {
+    word-break: break-word;
+  }
+
   &__text-area {
     border: 1px solid #f0cfa3;
     width: 100%;

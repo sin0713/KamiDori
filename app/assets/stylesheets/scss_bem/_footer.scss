@@ -10,6 +10,25 @@
   text-align: center;
   padding: 15px 0;
 
+
+  &__link-wrapper {
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+    margin: 5px auto 15px;
+  }
+
+  &__link {
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 2px 30px;
+
+    &:hover {
+      background: #fff;
+      color: #432;
+    }
+  }
+
   &__copy {
     color: #fff;
     font-size: 0.875rem;

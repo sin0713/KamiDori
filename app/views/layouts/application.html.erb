@@ -59,7 +59,17 @@
 
     <footer>
       <div class="footer">
-        <%= link_to 'Contact', new_contacts_path %>
+        <div class="footer__link-wrapper">
+          <div>
+            <%= link_to 'Contact', new_contacts_path, class:"footer__link" %>
+          </div>
+          <div>
+            <%= link_to 'About', new_contacts_path, class:"footer__link" %>
+          </div>
+          <div>
+            <%= link_to 'Top page', new_contacts_path, class:"footer__link" %>
+          </div>
+        </div>
         <p class="footer__copy"><small>Copyrights &copy; 2021 PourPour All Rights Reserved. </small></p>
       </div>
     </footer>
