@@ -1,0 +1,78 @@
+@import 'variables';
+
+.contact {
+    min-height: 100vh;
+    background: #6b5750;
+    padding: 60px;
+
+
+  &__form {
+    @include wrapper;
+    text-align: center;
+    background-color: #fff;
+  }
+
+  &__heading {
+    @include heading-border;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    padding-right: 0;
+    display: inline-block;
+  }
+
+  &__field {
+    margin-bottom: 10px;
+  }
+
+  &__input {
+    border-radius: 10px;
+    border: solid 2px #432;
+    width: 60%;
+    height: 35px;
+    @include focus;
+  }
+
+  &__confirm-item {
+    margin-left: 10px;
+  }
+
+  &__confirm-btn {
+    @include submit-btn;
+    background: linear-gradient(125deg, #322a27, #f1e9e9);
+    padding: 10px 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 60%;
+  }
+
+  &__message-label {
+    margin-bottom: 10px;
+  }
+
+  &__submit-btn {
+    @include submit-btn;
+    background: linear-gradient(125deg, #30aa63, #f1e9e9);
+    padding: 10px 40px;
+    margin-top: 20px;
+    width: 60%;
+  }
+
+  &__log-in-wrapper {
+    padding-bottom: 30px;
+  }
+
+
+  &__message {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 60%;
+    height: 200px;
+    display: inline-block;
+    text-align: left;
+  }
+
+  &__submit-wrapper {
+    padding-bottom: 30px;
+  }
+
+}
