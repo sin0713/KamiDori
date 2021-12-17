@@ -1,21 +1,19 @@
   <div class="recipe-contents__items">
     <%= link_to recipe_path(recipe) do %>
-      <%= attachment_image_tag recipe, :image, fallback: "coffee-cup-book2.jpg", class:"recipe-contents__img" %>
+      <%= attachment_image_tag recipe, :image, fallback: "coffee-cup-book2.jpg", class:"recipe-contents__recipe-img" %>
     <% end %>
+    <span class="recipe-contents__favorite-btn">
+      <%= render 'favorites/favorite_btn', recipe: recipe; %>
+    </span>
     <div class="recipe-contents__items-wrapper">
-      <div class="recipe-contents__tag">
-        <ul>
-          <li class="recipe-contents__list"><%= recipe.bean %></li>
-          <li class="recipe-contents__list"><%= recipe.tool %></li>
-          <li class="recipe-contents__list"><%= recipe.roast_i18n %></li>
-        </ul>
+      <div>
+        <%= attachment_image_tag recipe.user, :image, fallback: "coffee-cup-book2.jpg", class:"recipe-contents__user-img"%>
       </div>
-      <div class="recipe-contents__date-wrapper">
-        <p class="recipe-contents__date-month"><%= recipe.created_at.strftime('%m/%d') %><span class="recipe-contents__date-year"><%= recipe.created_at.strftime('%Y') %></span></p>
-
+      <div class="recipe-contents__items-container">
+        <p class="recipe-contents__bean-tit">Bean <span class="recipe-contents__bean"><%= recipe.bean %></span></p>
+        <div class="recipe-contents__tool"><%= recipe.tool %> <span class="recipe-contents__roast"><%= recipe.roast_i18n %></span></div>
+        <div class="recipe-contents__user-name">by <%= recipe.user.name %></div>
       </div>
-      <span id="favorite_btn-<%= recipe.id %>" class="recipe-contents__favorite-btn">
-        <%= render 'favorites/favorite_btn', recipe: recipe %>
-      </span>
+      <div class="recipe-contents__date"><%= recipe.created_at.strftime('%Y/%m/%d') %></div>
     </div>
   </div>

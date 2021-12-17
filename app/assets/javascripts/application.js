@@ -17,3 +17,12 @@
 //= require turbolinks
 //= require_tree .
 
+$(document).on('turbolinks:load', function() {
+  $(".recipe-contents__items").on("mouseover", function() {
+    $(".recipe-contents__bean-tit", this).css("color", "#fff");
+  }).on("mouseout", function() {
+    $(".recipe-contents__bean-tit", this).css("color", "black");
+  });
+});
+
+

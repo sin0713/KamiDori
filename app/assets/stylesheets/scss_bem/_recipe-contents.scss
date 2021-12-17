@@ -25,28 +25,18 @@
 
   &__items {
     width: 43%;
-    height: 400px;
-    padding: 3px;
-    background: linear-gradient(0deg, #deb892, #e8dcd1);
+    height: 430px;
+    background: #fff;
     position: relative;
+    color: #797a7e;
+    position: relative;
+    transition: 0.5s;
+    &:hover {
+      background: #895904;;
+      color: #fff;
+    }
   }
 
-  &__img {
-    width: 100%;
-    height: 230px;
-  }
-
-  &__items-wrapper {
-    @include flex-space
-  }
-
-  &__tag {
-    width: 60%;
-  }
-
-  &__list {
-    list-style: none;
-  }
 
   &__favorite-btn {
     position: absolute;
@@ -54,37 +44,66 @@
     left: 0;
   }
 
-  &__date-wrapper {
-    width: 38%;
-    position: relative;
+  &__recipe-img {
+    width: 100%;
+    height: 230px;
   }
 
-  &__date-month {
-    background: #fffffe;
-    border-radius: 50%;
-    color: #df7e3a;
-    width: 60%;
-    height: 72px;
-    font-size: 1.1rem;
-    text-align: center;
+  &__items-wrapper {
+
+
+  }
+
+  &__user-img {
     position: absolute;
-    top: 70px;
-    left: 26px;
+    top: 212px;
+    left: 70%;
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+}
+
+
+
+
+  &__items-container {
+    width: 80%;
+    margin: 20px auto 0;
+  }
+
+  &__bean-tit {
+    font-size: 2.1rem;
     font-family: 'Corinthia', cursive;
-    padding-top: 5px;
-    box-shadow: 1px 1px 1px 1px #d9d5e2;
+    color: black;
+    margin-bottom: 10px;
   }
 
-  &__date-year {
+  &__bean {
+    font-size: 1.1rem;
+    margin-left: 10px;
+    font-family: serif;
+  }
+
+  &__tool {
     font-size: 0.9rem;
-    border-top: 1px #d54108 solid;
-    display: block;
-    padding-top: 4px;
-    width: 60%;
-    margin: 0 auto;
+    margin-bottom: 15px;
+  }
+
+   &__roast {
+    font-size: 0.9rem;
+    margin-left: 5px;
   }
 
 
+  &__user-name {
+    font-size: 0.9rem;
+  }
+
+  &__date {
+    margin-left: auto;
+    width: 29%;
+    font-size: 0.9rem;
+  }
 
 
   &__search-bar {
