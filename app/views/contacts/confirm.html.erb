@@ -1,24 +1,38 @@
-<div>
-  <div>お名前</div>
-  <div><%= @contact.name %></div>
+<div class="contact">
+
+  <div class="contact__form">
+    <h2 class="contact__heading">入力内容確認</h2>
+    <div class="contact__field">
+       <div class="contact__confirm-item-wrapper">
+         お名前: <span class="contact__confirm-item"><%= @contact.name %></span>
+        </div>
+    </div>
+    <div class="contact__field">
+      <div class="contact__confirm-item-wrapper">
+        Eメール:<span class="contact__confirm-item"><%= @contact.email %></span>
+      </div>
+    </div>
+    <div class="contact__field">
+      <div class="contact__message-label">お問い合わせ内容</div>
+      <div class="contact__message"><%= @contact.message %></div>
+    </div>
+
+    <%= form_with model: @contact, url: contacts_path, method: :post,  local: true do |f| %>
+      <%= f.hidden_field :name, value: @contact.name %>
+      <%= f.hidden_field :email, value: @contact.email %>
+      <%= f.hidden_field :message, value: @contact.message %>
+      <%= f.submit '送信', class:"contact__submit-btn"%>
+    <% end %>
+
+    <%= form_with model: @contact, url: back_contacts_path, local: true do |f| %>
+      <%= f.hidden_field :name, value: @contact.name %>
+      <%= f.hidden_field :email, value: @contact.email %>
+      <%= f.hidden_field :message, value: @contact.message %>
+      <%= f.submit '入力画面に戻る', class:"contact__confirm-btn" %>
+    <% end %>
+  </div>
+
 </div>
 
-<div>
-  <div>メッセージ</div>
-  <div><%= @contact.message %></div>
-</div>
 
-<%= form_with model: @contact, url: contacts_path, method: :post,  local: true do |f| %>
-  <%= f.hidden_field :name, value: @contact.name %>
-  <%= f.hidden_field :email, value: @contact.email %>
-  <%= f.hidden_field :message, value: @contact.message %>
-  <%= f.submit '送信'%>
-<% end %>
-
-<%= form_with model: @contact, url: back_contacts_path, local: true do |f| %>
-  <%= f.hidden_field :name, value: @contact.name %>
-  <%= f.hidden_field :email, value: @contact.email %>
-  <%= f.hidden_field :message, value: @contact.message %>
-  <%= f.submit '入力画面に戻る'%>
-<% end %>
 

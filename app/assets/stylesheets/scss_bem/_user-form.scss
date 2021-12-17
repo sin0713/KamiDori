@@ -10,7 +10,6 @@
     @include wrapper;
     text-align: center;
     background-color: #fff;
-
   }
 
   &__heading {
@@ -19,7 +18,6 @@
     margin-bottom: 30px;
     padding-right: 0;
     display: inline-block;
-
   }
 
   &__field {
@@ -37,7 +35,6 @@
   &__sign-up {
     @include submit-btn;
     padding: 10px 40px;
-
     margin-top: 20px;
     width: 60%;
 
