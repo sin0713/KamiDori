@@ -26,7 +26,8 @@
         <%= link_to "Log in", new_session_path(resource_name), class:"user-form__log-in-link" %><br />
       <% end %>
     </div>
+    <% if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+      <%= link_to "パスワードをお忘れの方はこちらへ", new_password_path(resource_name), class:"user-form__reset-password-link" %><br />
+    <% end %>
   </div>
 </div>
-
-<%= render "devise/shared/links" %>

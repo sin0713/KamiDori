@@ -95,11 +95,20 @@
     }
   }
 
+  &__reset-password-link {
+    margin-bottom: 20px;
+    display: inline-block;
+    font-size: 0.9rem;
+    color: #4b4444;
 
+    &:hover {
+      color: #d05a1e;
+    }
+  }
 }
 
 .devise-form-log-in {
-    min-height: 70vh;
+    min-height: 85vh;
     background: #6b5750;
     padding: 60px;
 }

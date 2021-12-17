@@ -77,13 +77,15 @@
       <p class="recipe-show__introduction-area"><%= @recipe.introduction %></p>
     </div>
     <div class="comment">
-      <h4>このレシピにコメントする</h4>
-      <div class="comment__form">
-        <%= form_with(model:[@recipe, @recipe_comment], remote: true) do |f| %>
-          <%= f.text_area :comment, rows:'3', placeholder: "コメントをここに", required: true, class:"comment__text-area" %>
-          <%= f.submit "送信する", class:"comment__submit" %>
-        <% end %>
-      </div>
+      <% if user_signed_in? %>
+        <h4>このレシピにコメントする</h4>
+        <div class="comment__form">
+          <%= form_with(model:[@recipe, @recipe_comment], remote: true) do |f| %>
+            <%= f.text_area :comment, rows:'3', placeholder: "コメントをここに", required: true, class:"comment__text-area" %>
+            <%= f.submit "送信する", class:"comment__submit" %>
+          <% end %>
+        </div>
+      <% end %>
       <%= render 'layouts/error', model: @recipe_comment %>
       <h4 class="comment__count">コメント <%= @recipe.recipe_comments.count %>件</h4>
       <div id="comments_index" class="comment__index">

@@ -54,6 +54,8 @@ Rails.application.configure do
       authentication: 'plain'
   }
 
+  config.action_mailer.default_url_options = { host: ENV['LOCAL_HOST'] }
+
   config.action_mailer.perform_caching = false
 
   # Print deprecation notices to the Rails logger.
