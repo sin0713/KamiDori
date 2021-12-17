@@ -49,20 +49,20 @@ class RecipesController < ApplicationController
 
   def search
     @beans = ["モカ", "キリマンジャロ", "コロンビア", "コナ", "マンデリン", "グアテマラ", "ブラジル", "ケニア", "コスタリカ"]
-    @tools = ["ハリオ", "カリタ", "メリタ",]
+    @tools = ["ハリオ", "カリタ", "メリタ"]
 
     if params[:roast]
       @recipes = Recipe.where(roast: params[:roast])
       # ハッシュのキー（params[:roast]）でハッシュの値を取得
       @keyword = Recipe.roasts_i18n[params[:roast]]
-      unless @recipes.present?
+      if @recipes.blank?
         render 'search'
       end
     elsif params[:grind_size]
-       @recipes = Recipe.where(grind_size: params[:grind_size])
-       # ハッシュのキー（params[:roast]）でハッシュの値を取得
-        @keyword = Recipe.grind_sizes_i18n[params[:grind_size]]
-      unless @recipes.present?
+      @recipes = Recipe.where(grind_size: params[:grind_size])
+      # ハッシュのキー（params[:roast]）でハッシュの値を取得
+      @keyword = Recipe.grind_sizes_i18n[params[:grind_size]]
+      if @recipes.blank?
         render 'search'
       end
     else
@@ -90,6 +90,5 @@ class RecipesController < ApplicationController
       :user_id,
       taist_attributes: [:id, :recipe_id, :sour, :bitter, :sweet, :flavor, :rich]
     )
-
   end
 end

@@ -2,14 +2,13 @@
 
 require 'rails_helper'
 
-
 RSpec.describe 'Recipeモデルのテスト', type: :model do
   describe 'バリデーションのテスト' do
     subject { recipe.valid? }
-    
+
     let!(:user) { create(:user) }
     let!(:recipe) { create(:recipe, user_id: user.id) }
-  
+
     it 'beanカラムが空欄でないこと' do
       recipe.bean = ""
       is_expected.to eq false
@@ -50,36 +49,31 @@ RSpec.describe 'Recipeモデルのテスト', type: :model do
       recipe.amount_of_beans = ""
       is_expected.to eq false
     end
-    it 'beanカラムが空欄でないこと' do
-      recipe.bean = ""
-      is_expected.to eq false
-    end
-    it 'beanカラムが空欄でないこと' do
-      recipe.bean = ""
-      is_expected.to eq false
-    end
   end
-  
+
   describe 'アソシエーションのテスト' do
     context 'Userモデルとの関係' do
       it 'N:1となっている' do
         expect(Recipe.reflect_on_association(:user).macro).to eq :belongs_to
       end
-    end 
+    end
+
     context 'Taistモデルとの関係' do
       it '1:1となっている' do
         expect(Recipe.reflect_on_association(:taist).macro).to eq :has_one
       end
     end
+
     context 'RecipeCommentモデルとの関係' do
       it '1:Nとなっている' do
         expect(Recipe.reflect_on_association(:recipe_comments).macro).to eq :has_many
       end
     end
+
     context 'Favoriteモデルとの関係' do
       it '1:Nとなっている' do
         expect(Recipe.reflect_on_association(:favorites).macro).to eq :has_many
       end
     end
-  end 
-end 
+  end
+end

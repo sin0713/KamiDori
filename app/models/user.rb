@@ -19,7 +19,6 @@ class User < ApplicationRecord
 
   attachment :image
 
-
   def is_followed_by?(user)
     reverse_of_relationships.find_by(follow_id: user.id).present?
   end

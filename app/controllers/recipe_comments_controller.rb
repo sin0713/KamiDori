@@ -15,7 +15,6 @@ class RecipeCommentsController < ApplicationController
     RecipeComment.find_by(id: params[:id]).destroy
   end
 
-
   private
 
   def recipe_comment_params

@@ -3,7 +3,7 @@ class FavoritesController < ApplicationController
 
   def favorites
     @beans = ["モカ", "キリマンジャロ", "コロンビア", "コナ", "マンデリン", "グアテマラ", "ブラジル", "ケニア", "コスタリカ"]
-    @tools = ["ハリオ", "カリタ", "メリタ",]
+    @tools = ["ハリオ", "カリタ", "メリタ"]
   end
 
   def create
@@ -13,8 +13,8 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-     @recipe = Recipe.find(params[:recipe_id])
-     favorite = current_user.favorites.find_by(recipe_id: @recipe.id)
-     favorite.destroy
+    @recipe = Recipe.find(params[:recipe_id])
+    favorite = current_user.favorites.find_by(recipe_id: @recipe.id)
+    favorite.destroy
   end
 end
