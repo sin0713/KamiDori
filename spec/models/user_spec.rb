@@ -22,18 +22,6 @@ RSpec.describe 'Userモデルのテスト', type: :model do
     end
 
     context 'introductionカラム' do
-      it '空欄でないこと' do
-        user.introduction = ""
-        is_expected.to eq false
-      end
-      it '2文字以上であること: 1文字は×' do
-        user.introduction =  Faker::Lorem.characters(number: 1)
-        is_expected.to eq false
-      end
-      it '2文字以上であること: 2文字は〇' do
-        user.introduction =  Faker::Lorem.characters(number: 2)
-        is_expected.to eq true
-      end
       it '50文字以下であること: 51文字は×' do
         user.introduction = Faker::Lorem.characters(number: 51)
         is_expected.to eq false
@@ -41,20 +29,6 @@ RSpec.describe 'Userモデルのテスト', type: :model do
       it '50文字以下であること: 50文字は〇' do
         user.introduction = Faker::Lorem.characters(number: 50)
         is_expected.to eq true
-      end
-    end
-
-    context 'passwordカラム' do
-      it '空白でないこと' do
-        user.password = ""
-        is_expected.to eq false
-      end
-    end
-
-    context 'encrypted_passwordカラム' do
-      it '空白でないこと' do
-        user.encrypted_password = ""
-        is_expected.to eq false
       end
     end
   end

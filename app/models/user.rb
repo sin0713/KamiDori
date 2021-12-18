@@ -13,9 +13,8 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :follow
 
   validates :name, presence: true, length: { in: 2..20 }
-  validates :password, presence: true
-  validates :encrypted_password, presence: true
   validates :email, presence: true
+  validates :introduction, length: { maximum: 50 }
 
   attachment :image
 
