@@ -151,3 +151,70 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .new-recipe  {
+    &__header-heading {
+      left: 35%;
+    }
+
+    &__form {
+      display: block;
+    }
+
+    &__left-form {
+      width: 85%;
+      margin: 0 auto;
+    }
+
+    &__select-box {
+      margin-left: 10%;
+    }
+
+    &__select-form {
+      &::before {
+        left: 88%;
+      }
+    }
+
+    &__right-form {
+      width: 85%;
+      margin: 0 auto;
+    }
+
+    &__submit-wrapper {
+      margin-left: 0;
+    }
+
+    &__icon {
+      left: 70%;
+
+    }
+
+    &__form-submit {
+      margin-top: 10px;
+      width: 110%;
+    }
+
+    &__update-btn {
+       margin-top: 10px;
+      width: 110%;
+    }
+  }
+}
+
+@media screen and (max-width: 485px) {
+  .new-recipe {
+    &__taist-label {
+      text-align: center;
+      display: block;
+    }
+
+    &__select-form {
+      &::before {
+        left: 78%;
+        top: 65%;
+      }
+    }
+  }
+}

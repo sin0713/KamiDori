@@ -4,6 +4,7 @@
   @include wrapper;
   @include flex-space;
   @include background;
+  max-width: 1400px;
 
   &__wrapper {
     width: 74%;

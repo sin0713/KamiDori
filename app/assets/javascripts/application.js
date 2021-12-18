@@ -23,6 +23,13 @@ $(document).on('turbolinks:load', function() {
   }).on("mouseout", function() {
     $(".recipe-contents__bean-tit", this).css("color", "black");
   });
+
+  $('.header__menu-trigger').on('click', function(event) {
+    $(this).toggleClass('active');
+    $('.nav').fadeToggle();
+    event.preventDefault();
+  });
+
 });
 
 

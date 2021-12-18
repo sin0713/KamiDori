@@ -26,46 +26,80 @@
         <% end %>
       </div>
       <div class="recipe-show__wrapper-right">
-        <div class="recipe-show__recipe">
+        <div>
           <h4 class="recipe-show__recipe-heading">Recipe</h4>
-          <table class="recipe-show__table">
-            <tr class="recipe-show__table-row">
-              <td class="recipe-show__recipe-items-tit">産地</td>
-              <td class="recipe-show__recipe-items"><%= @recipe.bean %></td>
-            </tr>
-            <tr  class="recipe-show__table-row">
-              <td class="recipe-show__recipe-items-tit">焙煎度</td>
-              <td class="recipe-show__recipe-items"><%= @recipe.roast_i18n %></td>
-            </tr>
-            <tr class="recipe-show__table-row">
-              <td class="recipe-show__recipe-items-tit">粉量</td>
-              <td class="recipe-show__recipe-items"><%= @recipe.amount_of_beans %>g</td>
-            </tr>
-            <tr class="recipe-show__table-row">
-              <td class="recipe-show__recipe-items-tit">挽目</td>
-              <td class="recipe-show__recipe-items"><%= @recipe.grind_size_i18n %></td>
-            </tr>
-            <tr class="recipe-show__table-row">
-              <td class="recipe-show__recipe-items-tit">抽出器具</td>
-              <td class="recipe-show__recipe-items"><%= @recipe.tool %></td>
-            </tr>
-            <tr class="recipe-show__table-row">
-              <td class="recipe-show__recipe-items-tit">お湯の温度</td>
-              <td class="recipe-show__recipe-items"><%= @recipe.temperature %>℃</td>
-            </tr>
-            <tr class="recipe-show__table-row">
-              <td class="recipe-show__recipe-items-tit">蒸らし時間</td>
-              <td class="recipe-show__recipe-items"><%= @recipe.pre_infusion_time %>秒</td>
-            </tr>
-            <tr class="recipe-show__table-row">
-              <td class="recipe-show__recipe-items-tit">抽出時間</td>
-              <td class="recipe-show__recipe-items"><%= @recipe.extraction_time_minutes %>分 <%= @recipe.extraction_time_seconds %>秒</td>
-            </tr>
-            <tr class="recipe-show__table-row">
-              <td class="recipe-show__recipe-items-tit">抽出量</td>
-              <td class="recipe-show__recipe-items"><%= @recipe.amount_of_extraction %>cc</td>
-            </tr>
-          </table>
+          <div class="recipe-show__recipe-items-wrapper">
+            <div class="recipe-show__recipe-items-tit">
+              産地
+            </div>
+            <div class="recipe-show__recipe-items">
+              <%= @recipe.bean %>
+            </div>
+          </div>
+          <div class="recipe-show__recipe-items-wrapper">
+            <div class="recipe-show__recipe-items-tit">
+              焙煎度
+            </div>
+            <div class="recipe-show__recipe-items">
+              <%= @recipe.roast_i18n %>
+            </div>
+          </div>
+          <div class="recipe-show__recipe-items-wrapper">
+            <div class="recipe-show__recipe-items-tit">
+              粉量
+            </div>
+            <div class="recipe-show__recipe-items">
+              <%= @recipe.amount_of_beans %>g
+            </div>
+          </div>
+          <div class="recipe-show__recipe-items-wrapper">
+            <div class="recipe-show__recipe-items-tit">
+              挽目
+            </div>
+            <div class="recipe-show__recipe-items">
+              <%= @recipe.grind_size_i18n %>
+            </div>
+          </div>
+          <div class="recipe-show__recipe-items-wrapper">
+            <div class="recipe-show__recipe-items-tit">
+              抽出器具
+            </div>
+            <div class="recipe-show__recipe-items">
+              <%= @recipe.tool %>
+            </div>
+          </div>
+          <div class="recipe-show__recipe-items-wrapper">
+            <div class="recipe-show__recipe-items-tit">
+              お湯の温度
+            </div>
+            <div class="recipe-show__recipe-items">
+              <%= @recipe.temperature %>℃
+            </div>
+          </div>
+          <div class="recipe-show__recipe-items-wrapper">
+            <div class="recipe-show__recipe-items-tit">
+              蒸らし時間
+            </div>
+            <div class="recipe-show__recipe-items">
+              <%= @recipe.pre_infusion_time %>秒
+            </div>
+          </div>
+          <div class="recipe-show__recipe-items-wrapper">
+            <div class="recipe-show__recipe-items-tit">
+              抽出時間
+            </div>
+            <div class="recipe-show__recipe-items">
+              <%= @recipe.extraction_time_minutes %>分 <%= @recipe.extraction_time_seconds %>秒
+            </div>
+          </div>
+          <div class="recipe-show__recipe-items-wrapper">
+            <div class="recipe-show__recipe-items-tit">
+              抽出量
+            </div>
+            <div class="recipe-show__recipe-items">
+              <%= @recipe.amount_of_extraction %>cc
+            </div>
+          </div>
         </div>
       </div>
     </div>
