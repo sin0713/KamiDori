@@ -6,7 +6,7 @@
   <div class="recipe-contents__wrapper">
     <h2 class="recipe-contents__heading">Favorites Recipes</h2>
     <div class="recipe-contents__main">
-      <% current_user.favorites.each do |favorite| %>
+      <% @recipes.each do |favorite| %>
         <% recipe = Recipe.find(favorite.recipe_id) %>
         <%= render 'recipes/index', recipe: recipe %>
       <% end %>
@@ -16,6 +16,3 @@
     <%= render 'users/profile', user: current_user %>
   </div>
 </div>
-
-
-

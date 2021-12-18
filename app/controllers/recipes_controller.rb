@@ -52,23 +52,30 @@ class RecipesController < ApplicationController
     @tools = ["ハリオ", "カリタ", "メリタ"]
 
     if params[:roast]
-      @recipes = Recipe.where(roast: params[:roast])
+      @recipes = Recipe.includes(:user, :favorites).where(roast: params[:roast])
       # ハッシュのキー（params[:roast]）でハッシュの値を取得
       @keyword = Recipe.roasts_i18n[params[:roast]]
       if @recipes.blank?
         render 'search'
       end
     elsif params[:grind_size]
-      @recipes = Recipe.where(grind_size: params[:grind_size])
+      @recipes = Recipe.includes(:user, :favorites).where(grind_size: params[:grind_size])
       # ハッシュのキー（params[:roast]）でハッシュの値を取得
       @keyword = Recipe.grind_sizes_i18n[params[:grind_size]]
       if @recipes.blank?
         render 'search'
       end
     else
-      @recipes = Recipe.search(params[:keyword])
+      @recipes = Recipe.includes(:user, :favorites).search(params[:keyword])
       @keyword = params[:keyword]
     end
+  end
+
+
+  def favorites
+    @recipes = current_user.favorites
+    @beans = ["モカ", "キリマンジャロ", "コロンビア", "コナ", "マンデリン", "グアテマラ", "ブラジル", "ケニア", "コスタリカ"]
+    @tools = ["ハリオ", "カリタ", "メリタ"]
   end
 
   private

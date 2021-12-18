@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @recipes = @user.recipes.page(params[:page]).per(12)
+    @recipes = @user.recipes.includes(:favorites).page(params[:page]).per(12)
   end
 
   def edit

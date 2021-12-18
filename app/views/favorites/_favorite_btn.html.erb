@@ -2,14 +2,14 @@
   <% if user_signed_in? %>
     <% if recipe.favorited_by?(current_user) %>
         <%= link_to recipe_favorites_path(recipe), method: :delete, remote: true,  class:"favorite__link" do %>
-          <i class="fas fa-heart favorite__icon"></i><%= recipe.favorites.count %>
+          <i class="fas fa-heart favorite__icon"></i><%= recipe.favorites.to_a.size %>
         <% end %>
     <% else %>
         <%= link_to recipe_favorites_path(recipe), method: :post, remote: true,  class:"favorite__link" do %>
-          <i class="far fa-heart favorite__icon"></i><%= recipe.favorites.count %>
+          <i class="far fa-heart favorite__icon"></i><%= recipe.favorites.to_a.size %>
         <% end %>
     <% end %>
   <% else %>
-    <span class="favorite__link"><i class="far fa-heart favorite__icon"></i><%= recipe.favorites.count %></span>
+    <span class="favorite__link"><i class="far fa-heart favorite__icon"></i><%= recipe.favorites.to_a.size %></span>
   <% end %>
 </span>

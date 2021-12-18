@@ -86,7 +86,6 @@
           <% end %>
         </div>
       <% end %>
-      <%= render 'layouts/error', model: @recipe_comment %>
       <h4 class="comment__count">コメント <%= @recipe.recipe_comments.count %>件</h4>
       <div id="comments_index" class="comment__index">
         <%= render 'recipe_comments/comments_index', recipe_comments: @recipe_comments, recipe: @recipe %>
