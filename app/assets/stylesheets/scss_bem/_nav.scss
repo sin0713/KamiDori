@@ -13,6 +13,7 @@
 
   &__nav-link {
     color: #fff;
+    font-size: 1.1rem;
 
     &:hover {
       color: #cf6032;
@@ -24,16 +25,17 @@
 @media screen and (max-width: 768px) {
 
   .nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    width: 50%;
-    min-height: 100%;
-    display: none;
-    z-index: 9;
-    margin-top: 50px;
+   position: fixed;
+   top: 0;
+   left: 0;
+   background-color: rgba(0, 0, 0, 0.6);
+   color: #fff;
+   width: 40%;
+   min-height: 100%;
+   display: none;
+   z-index: 9;
+   padding-top: 30px;
+   text-align: center;
 
     &__main-nav {
       display: block;

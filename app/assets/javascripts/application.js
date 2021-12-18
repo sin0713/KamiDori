@@ -30,6 +30,18 @@ $(document).on('turbolinks:load', function() {
     event.preventDefault();
   });
 
+  $('.header__search').on('click', function(event) {
+    $('.recipe-contents__search-bar').toggleClass('active');
+    $('.header__overlay').toggleClass('open');
+  });
+
+  $('.header__overlay').on('click',function(){
+    if($(this).hasClass('open')){
+      $(this).removeClass('open');
+      $('.recipe-contents__search-bar').removeClass('active');
+    }
+  });
+
 });
 
 

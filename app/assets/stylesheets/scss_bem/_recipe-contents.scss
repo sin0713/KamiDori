@@ -6,6 +6,18 @@
   @include background;
   max-width: 1400px;
 
+  &__header-heading {
+    position: absolute;
+    top: 100px;
+    left: 25%;
+  }
+
+  &__heading-title {
+    @include title;
+    font-size: 4rem;
+    color: #fff;
+  }
+
   &__wrapper {
     width: 74%;
   }
@@ -136,14 +148,10 @@
     &:hover {
       background-color: rgba(133, 45, 15, 1);
     }
-
   }
-
-
 
   &__search-sub-tit {
     @include heading-border;
-
   }
 
   &__search-link {
@@ -157,5 +165,60 @@
 
   &__alert {
     color: red;
+  }
+}
+
+
+
+@media screen and (max-width: 1px) {
+ }
+
+
+ @media screen and (max-width: 768px) {
+ }
+
+
+@media screen and (max-width: 485px) {
+  .recipe-contents {
+    overflow: hidden;
+    display: block;
+    padding-bottom: 250px;
+
+    &__wrapper {
+      margin: 0 auto;
+      width: 90%;
+    }
+
+    &__main {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__items {
+      width: 100%;
+      text-align: center;
+    }
+
+    &__items-wrapper {
+
+    }
+
+    &__search-bar {
+      width: 50%;
+      background: #fff;
+      text-align: left;
+      height: 960px;
+      padding: 5px;
+      z-index: 999;
+      position: absolute;
+      top: 66px;
+      right: 0px;
+      transform: translate(300px);
+      transition: all .5s;
+      }
+
+    &__search-bar.active {
+      transform: translate(0);
+    }
   }
 }

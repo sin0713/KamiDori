@@ -26,3 +26,12 @@
     margin: 0 5px;
 }
 
+@media screen and (max-width: 485px) {
+  .kaminari {
+
+    &__wrapper {
+      margin: 0 auto;
+    }
+  }
+}
+
