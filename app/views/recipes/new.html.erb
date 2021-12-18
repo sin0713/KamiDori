@@ -1,8 +1,7 @@
-<div class="header-heading">
-  <h2 class="header-heading__title">New</h2>
-</div>
-
 <div class="new-recipe">
+  <div class="new-recipe__header-heading">
+    <h2 class="new-recipe__header-title">New</h2>
+  </div>
   <%= form_with model:@recipe, local: true, class:"new-recipe__form" do |f| %>
     <div class="new-recipe__left-form">
       <%= render 'form', recipe: @recipe, taist: @taist, f: f %>

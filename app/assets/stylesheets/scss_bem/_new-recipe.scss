@@ -8,6 +8,18 @@
     @include flex-space;
   }
 
+  &__header-heading {
+    position: absolute;
+    top: 100px;
+    left: 43%;
+  }
+
+  &__header-title {
+     @include title;
+     text-align: center;
+     color: #fff;
+  }
+
   &__form-heading {
     @include heading-border;
     display: inline-block;
