@@ -4,6 +4,7 @@
   @include wrapper;
   @include flex-space;
   @include background;
+  padding-bottom: 500px;
 
   &__header-heading {
     position: absolute;

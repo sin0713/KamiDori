@@ -71,17 +71,53 @@
 
     <footer>
       <div class="footer">
-        <div class="footer__link-wrapper">
-          <div>
-            <%= link_to 'Top',  root_path, class:"footer__link" %>
+        <div class="footer__phone-flex">
+          <div class="footer__phone-wrapper">
+            <div class="footer__phone-border">
+              <div>
+                <div class="footer__phone-round-wrapper">
+                  <div class="footer__small-round"></div>
+                  <div class="footer__line-round-wrapper">
+                    <div class="footer__line"></div>
+                  </div>
+
+                </div>
+                <div class="footer__phone-screen">
+                  <div class="footer__icon-wrapper">
+                    <div class="footer__signal"><i class="fas fa-signal"></i></div>
+                    <div class="footer__wifi"><i class="fas fa-wifi"></i></div>
+                    <div class="footer__battery"><i class="fas fa-battery-three-quarters"></i></div>
+                  </div>
+                  <div class="footer__site-img">
+
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div>
-            <%= link_to 'About', about_path, class:"footer__link" %>
-          </div>
-          <div>
-            <%= link_to 'Contact', new_contacts_path, class:"footer__link" %>
+
+          <div class="footer__phone-comment">
+            <h4 class="footer__comment-heading">For smartphone</h4>
+            <p class="footer__text">スマートフォンでも使いやすくなっています</p>
+            <p class="footer__text">ぜひご利用ください</p>
+            <div class="footer__title">KamiDori</div>
+            <div class="footer__link-wrapper">
+              <div>
+                <%= link_to 'Top',  root_path, class:"footer__link" %>
+              </div>
+              <div>
+                <%= link_to 'About', about_path, class:"footer__link" %>
+              </div>
+              <div>
+                <%= link_to 'Contact', new_contacts_path, class:"footer__link" %>
+              </div>
+            </div>
           </div>
         </div>
+
+
+
+
         <p class="footer__copy"><small>Copyrights &copy; 2021 PourPour All Rights Reserved. </small></p>
       </div>
     </footer>

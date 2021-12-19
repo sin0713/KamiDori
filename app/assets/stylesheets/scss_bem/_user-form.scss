@@ -1,7 +1,7 @@
 @import 'variables';
 
 .user-form {
-    min-height: 100vh;
+    min-height: 70vh;
     background: #6b5750;
     padding: 60px;
 
@@ -111,4 +111,22 @@
     min-height: 85vh;
     background: #6b5750;
     padding: 60px;
+}
+
+@media screen and (max-width: 425px) {
+  .user-form {
+    padding: 10px 10px 300px;
+
+    &__input {
+      width: 100%;
+    }
+
+    &__introduction {
+      width: 100%;
+    }
+
+    &__update {
+      width: 100%;
+    }
+  }
 }

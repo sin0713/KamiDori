@@ -4,6 +4,7 @@
   @include wrapper;
   @include flex-space;
   @include background;
+  padding-bottom: 500px;
   max-width: 1400px;
 
   &__search-icon-wrapper {

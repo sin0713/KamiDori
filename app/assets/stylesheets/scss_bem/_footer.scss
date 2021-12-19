@@ -13,9 +13,9 @@
 
   &__link-wrapper {
     display: flex;
-    justify-content: space-around;
-    width: 60%;
-    margin: 20px auto;
+    justify-content: space-between;
+    width: 100%;
+    margin: 30px auto 0;
   }
 
   &__link {
@@ -31,8 +31,117 @@
 
   &__copy {
     color: #fff;
-    font-size: 0.875rem;
+    font-size: 1.0rem;
+    margin-top: 10px;
   }
+
+  &__phone-flex {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__phone-wrapper {
+    width: 40%;
+  }
+
+  &__phone-border {
+    border: 2px solid black;
+    width: 175px;
+    height: 300px;
+    color: grey;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 10px;
+
+  }
+
+  &__small-round {
+    width: 5px;
+    height: 5px;
+    margin: 0 auto;
+    background: grey;
+    border-radius: 50%;
+    margin-top: 5px;
+  }
+
+  &__line-round-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+
+
+  &__line {
+    width: 30px;
+    height: 3px;
+    background: grey;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    position: relative;
+    &::after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: grey;
+      position: absolute;
+      left: -20px;
+      top: -4px;
+    }
+
+  }
+
+  &__phone-screen {
+    border: 2px solid;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  &__icon-wrapper {
+    display: flex;
+    font-size: 0.6rem;
+  }
+
+  &__battery {
+    margin-left: auto;
+  }
+
+  &__site-img {
+    width: 153px;
+    height: 245px;
+    background-position: center;
+    background-size: cover;
+    margin: 0 auto;
+    background-image: image-url('responsive.png');
+  }
+
+  &__phone-comment {
+    width: 40%;
+    color: #fff;
+    text-align: left;
+  }
+
+  &__comment-heading {
+    border: 1px solid;
+    display: inline-block;
+    padding: 3px 10px;
+    font-weight: normal;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+
+  &__text {
+    margin-bottom: 5px;
+  }
+
+  &__title {
+    text-align: right;
+    margin-top: 10px;
+    font-size: 3.0rem;
+    font-family: 'Corinthia', cursive;
+  }
+
+
 }
 
 @media screen and (max-width: 485px) {
