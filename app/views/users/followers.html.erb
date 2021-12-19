@@ -4,7 +4,6 @@
     <h3 class="follow__heading"><%= @user.name %>'s Followers</h3>
     <% if @users.count == 0 %>
       <p class="follow__alert">現在フォロワーはいません。</p>
-      <p>あなたのオリジナルレシピを<span><%= link_to '投稿', root_path, class:"follow__zero-link" %></span>してみませんか？</p>
     <% else %>
       <%= render 'relationships/follow_index', users: @users %>
     <% end %>

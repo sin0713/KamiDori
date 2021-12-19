@@ -3,13 +3,14 @@
 .user-form {
     min-height: 70vh;
     background: #6b5750;
-    padding: 60px;
+    padding: 60px 60px 500px;
 
 
   &__form {
     @include wrapper;
     text-align: center;
     background-color: #fff;
+    width: 60%;
   }
 
   &__heading {
@@ -113,9 +114,19 @@
     padding: 60px;
 }
 
+@media screen and (max-width: 768px) {
+  .user-form {
+    padding-bottom: 200px;
+
+    &__form {
+      width: 90%;
+    }
+  }
+}
+
 @media screen and (max-width: 425px) {
   .user-form {
-    padding: 10px 10px 300px;
+    padding: 30px 10px 300px;
 
     &__input {
       width: 100%;

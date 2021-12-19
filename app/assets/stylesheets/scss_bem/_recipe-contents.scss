@@ -134,6 +134,7 @@
 
    &__search-field {
      width: 100%;
+     background: #fff;
 
   }
 
@@ -187,6 +188,7 @@
 
  @media screen and (max-width: 768px) {
    .recipe-contents {
+     padding-bottom: 200px;
 
      &__items {
        width: 75%;
@@ -209,7 +211,7 @@
       font-size: 1.5rem;
       position: absolute;
       top: -50px;
-      left: -140px;
+      left: -160px;
     }
 
     &__header-heading {

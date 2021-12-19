@@ -2,8 +2,8 @@
 
 .about-contents {
   background: radial-gradient(#fad27e, #ffffff);
-    padding: 5% 5% 20%;
-    height: 100%;
+    padding: 5% 5% 600px;
+    min-height: 60vh;
 
 
   &__wrapper {
@@ -13,14 +13,15 @@
   }
 
   &__heading {
-    font-size: 3.4rem;
+    font-size: 5.5rem;
     margin-bottom: 30px;
     color: #81450a;
-
+    font-family: 'Corinthia', cursive;
   }
 
   &__span {
     font-size: 1.5rem;
+    font-family: sefif;
   }
 
   &__text {
@@ -39,6 +40,7 @@
     @include big-bg;
     width: 7%;
     height: 30px;
+    border-radius: 50%;
 
 
   }
@@ -92,4 +94,29 @@
   }
 
 
+}
+
+
+@media screen and (max-width: 768px) {
+  .about-contents {
+   padding-bottom: 200px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+   .about-contents {
+     padding-bottom: 400px;
+
+     &__wrapper {
+       width: 100%;
+    }
+
+     &__heading {
+       font-size: 3.0rem;
+    }
+
+    &__text {
+      font-size: 0.9rem;
+    }
+  }
 }

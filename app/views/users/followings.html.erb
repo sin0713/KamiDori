@@ -4,7 +4,6 @@
     <h3 class="follow__heading"><%= @user.name %>'s Follows</h3>
     <% if @users.count == 0 %>
       <p class="follow__alert">フォローしているユーザーがいません。</p>
-      <p>どんどん<span><%= link_to 'お気に入りのレシピ', root_path, , class:"follow__zero-link" %></span>を見つけてフォローしましょう</p>
     <% else %>
       <%= render 'relationships/follow_index', users: @users %>
     <% end %>

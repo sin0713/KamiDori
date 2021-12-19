@@ -4,7 +4,7 @@
   @include wrapper;
   @include flex-space;
   @include background;
-  padding-bottom: 320px;
+  padding-bottom: 500px;
 
 
 
@@ -81,15 +81,20 @@
   }
 }
 
+@media screen and (max-width: 768px) {
+  .follow {
+    padding-bottom: 200px;
+  }
+}
+
 @media screen and (max-width: 425px) {
   .follow {
     display: block;
+    padding-bottom: 300px;
 
 
     &__wrapper-wrapper {
       width: 100%;
     }
   }
-
-
 }

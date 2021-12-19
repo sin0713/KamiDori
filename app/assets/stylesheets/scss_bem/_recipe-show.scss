@@ -160,6 +160,9 @@
 
 @media screen and (max-width: 768px) {
   .recipe-show {
+    padding-bottom: 200px;
+
+
     &__wrapper {
       display: block;
     }
@@ -188,6 +191,29 @@
 @media screen and (max-width: 425px) {
   .recipe-show {
     display: block;
+    padding-bottom: 200px;
+
+    &__recipe-heading {
+      border-bottom: 3px #cf6032 solid;
+      margin-bottom: 10px;
+      display: block;
+      font-size: 1.8rem;
+      margin: 0 auto 20px;
+      width: 50%;
+      text-align: center;
+      padding: 0;
+    }
+
+    &__chart-heading {
+      border-bottom: 3px #cf6032 solid;
+      margin-bottom: 10px;
+      display: block;
+      font-size: 1.6rem;
+      margin: 20px auto;
+      width: 50%;
+      text-align: center;
+      padding: 0;
+    }
 
     &__header-heading {
       display: none;
@@ -234,7 +260,7 @@
     }
 
     &__chart {
-      width: 80%;
+      width: 100%;
       margin: 0 auto;
     }
 

@@ -144,8 +144,50 @@
 
 }
 
-@media screen and (max-width: 485px) {
+
+@media screen and (max-width: 768px) {
   .footer {
+      &__phone-wrapper {
+      display: none;
+    }
+
+    &__comment-heading {
+      display: none;
+    }
+
+    &__title {
+      display: none;
+    }
+
+    &__text {
+      display: none;
+    }
+
+    &__phone-comment {
+      width: 60%;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .footer {
+
+    &__phone-wrapper {
+      display: none;
+    }
+
+    &__comment-heading {
+      display: none;
+    }
+
+    &__title {
+      display: none;
+    }
+
+    &__text {
+      display: none;
+    }
+
     &__link-wrapper {
       flex-direction: column;
     }
