@@ -1,9 +1,9 @@
 @import 'variables';
 
 .contact {
-    min-height: 110vh;
+    min-height: 100vh;
     background: #6b5750;
-    padding: 60px;
+    padding: 60px 60px 500px;
 
 
   &__form {
@@ -75,4 +75,41 @@
     padding-bottom: 30px;
   }
 
+}
+
+@media screen and (max-width: 1024px) {
+  .contact {
+    min-height: 80vh;
+    padding-top: 115px;
+
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .contact {
+    padding-bottom: 300px;
+
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .contact {
+    padding: 60px 20px 300px;
+
+    &__input {
+      width: 100%;
+    }
+
+    &__message {
+      width: 100%;
+    }
+
+    &__confirm-btn {
+      width: 100%;
+    }
+
+    &__submit-btn {
+      width: 100%;
+    }
+  }
 }

@@ -3,15 +3,17 @@
 .confirmation {
   min-height: 100vh;
   background: #6b5750;
-  padding: 60px;
+  padding: 120px 60px 500px;
+
 
 
   &__wrapper {
-    @include wrapper;
-
-    padding: 5% 20%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10% 5%;
     text-align: center;
     background-color: #fff;
+    width: 60%;
   }
 
 
@@ -58,6 +60,41 @@
       background-color: rgba(32, 59, 140, 1.0);
     }
   }
+}
+
+@media screen and (max-width: 1024px) {
+  .confirmation {
+    min-height: 70vh;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  .confirmation {
+    padding-bottom: 300px;
+
+
+    &__wrapper {
+      width: 100%;
+    }
+  }
+
+}
+
+@media screen and (max-width: 425px) {
+  .confirmation {
+    padding: 60px 15px 300px;
+
+    &__wrapper {
+      width: 90%;
+      padding: 10% 0;
+    }
+
+    &__btn-wrapper {
+      width: 90%;
+    }
+  }
+
 }
 
 
