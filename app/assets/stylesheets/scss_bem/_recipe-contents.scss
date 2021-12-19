@@ -176,15 +176,6 @@
      &__header-heading {
        display: none;
      }
-   }
- }
-
-
- @media screen and (max-width: 768px) {
-   .recipe-contents {
-     &__header-heading {
-       display: none;
-     }
 
      &__items {
        width: 45%;
@@ -193,7 +184,17 @@
  }
 
 
-@media screen and (max-width: 485px) {
+ @media screen and (max-width: 768px) {
+   .recipe-contents {
+
+     &__items {
+       width: 75%;
+     }
+   }
+ }
+
+
+@media screen and (max-width: 425px) {
   .recipe-contents {
     overflow: hidden;
     display: block;

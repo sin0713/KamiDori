@@ -1,15 +1,13 @@
-<div class="header-heading">
-  <h2 class="header-heading__title">Followers</h2>
-</div>
-
-<div class="header-heading">
-  <h2 class="header-heading__title">Followers</h2>
-</div>
-
 <div class="follow">
+  <%= render 'users/profile-icon' %>
   <div class="follow__wrapper-wrapper">
     <h3 class="follow__heading"><%= @user.name %>'s Followers</h3>
-    <%= render 'relationships/follow_index', users: @users %>
+    <% if @users.count == 0 %>
+      <p class="follow__alert">現在フォロワーはいません。</p>
+      <p>あなたのオリジナルレシピを<span><%= link_to '投稿', root_path, class:"follow__zero-link" %></span>してみませんか？</p>
+    <% else %>
+      <%= render 'relationships/follow_index', users: @users %>
+    <% end %>
     <%= render 'layouts/kaminari', models: @users %>
   </div>
   <div class="profile">

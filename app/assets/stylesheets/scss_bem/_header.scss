@@ -65,6 +65,10 @@
       left: 30px;
     }
 
+    &__logo {
+      display: none;
+    }
+
     &__menu-trigger,
     &__menu-trigger span {
       display: inline-block;
