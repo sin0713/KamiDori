@@ -3,6 +3,11 @@
 .profile {
   width: 25%;
 
+  &__icon-wrapper {
+    display: none;
+  }
+
+
   &__heading {
     @include heading-border;
     display: inline-block;
@@ -103,5 +108,25 @@
     &:hover {
       background-color: rgba(255, 5, 5, 1.0);
     }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .profile {
+    display: none;
+    position: absolute;
+    top: 120px;
+    left: 62px;
+    background: #fff;
+    width: 70%;
+    box-shadow: 0 0 10px 20px #fff;
+    z-index: 9;
+    transition: all .5s;
+
+    &.active {
+      display: block;
+    }
+
+    
   }
 }

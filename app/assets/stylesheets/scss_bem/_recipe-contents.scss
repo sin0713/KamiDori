@@ -6,15 +6,19 @@
   @include background;
   max-width: 1400px;
 
+  &__search-icon-wrapper {
+    display: none;
+  }
+
   &__header-heading {
     position: absolute;
     top: 100px;
-    left: 25%;
+    left: 37%;
   }
 
   &__heading-title {
     @include title;
-    font-size: 4rem;
+    font-size: 5rem;
     color: #fff;
   }
 
@@ -76,9 +80,6 @@
     height: 62px;
     border-radius: 50%;
 }
-
-
-
 
   &__items-container {
     width: 80%;
@@ -170,11 +171,25 @@
 
 
 
-@media screen and (max-width: 1px) {
+@media screen and (max-width: 1024px) {
+   .recipe-contents {
+     &__header-heading {
+       display: none;
+     }
+   }
  }
 
 
  @media screen and (max-width: 768px) {
+   .recipe-contents {
+     &__header-heading {
+       display: none;
+     }
+
+     &__items {
+       width: 45%;
+     }
+   }
  }
 
 
@@ -183,6 +198,21 @@
     overflow: hidden;
     display: block;
     padding-bottom: 250px;
+
+
+    &__search-icon-wrapper {
+      display: block;
+      z-index: 10;
+      color: #fff;
+      font-size: 1.5rem;
+      position: absolute;
+      top: -50px;
+      left: -140px;
+    }
+
+    &__header-heading {
+      display: none;
+    }
 
     &__wrapper {
       margin: 0 auto;

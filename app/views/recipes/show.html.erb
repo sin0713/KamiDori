@@ -1,11 +1,15 @@
-<div class="header-heading">
-  <h2 class="header-heading__title">Recipe</h2>
+<div class="recipe-show__header-heading">
+  <h2 class="recipe-show__heading-title">Recipe</h2>
 </div>
 
 <div class="recipe-show">
+  <div class="recipe-show__profile-icon-wrapper">
+   <i class="fas fa-user-tag recipe-show__profile-icon"></i>
+  </div>
   <div class="recipe-show__content">
     <div class="recipe-show__wrapper">
       <div class="recipe-show__wrapper-left">
+        <h4 class="recipe-show__recipe-heading">Recipe</h4>
         <div class="recipe-show__img-wrapper">
           <%= attachment_image_tag @recipe, :image, fallback: "coffee-cup-book2.jpg", class:"recipe-show__img" %>
         </div>
@@ -27,7 +31,7 @@
       </div>
       <div class="recipe-show__wrapper-right">
         <div>
-          <h4 class="recipe-show__recipe-heading">Recipe</h4>
+          <h4 class="recipe-show__recipe-heading">Details</h4>
           <div class="recipe-show__recipe-items-wrapper">
             <div class="recipe-show__recipe-items-tit">
               産地
@@ -126,7 +130,7 @@
       </div>
     </div>
   </div>
-  <div class="profile">
+  <div id="profile" class="profile">
     <%= render 'users/profile', user: @user %>
   </div>
 </div>

@@ -25,11 +25,9 @@
             <span></span>
           </a>
         </div>
-        <div class="header__search">
-          <i class="fas fa-search header__search-icon"></i>
-        </div>
-        <div class="header__overlay"></div>
-        <h1>
+        <div class="header__overlay-search"></div>
+        <div class="header__overlay-profile"></div>
+        <h1 class="header__logo-wrapper">
           <%= link_to image_tag("coffee-ilust.png", size: "63x50"), root_path, class:"header__logo" %>
         </h1>
         <nav class="nav">
@@ -75,13 +73,13 @@
       <div class="footer">
         <div class="footer__link-wrapper">
           <div>
-            <%= link_to 'Contact', new_contacts_path, class:"footer__link" %>
+            <%= link_to 'Top',  root_path, class:"footer__link" %>
           </div>
           <div>
             <%= link_to 'About', about_path, class:"footer__link" %>
           </div>
           <div>
-            <%= link_to 'Top', root_path, class:"footer__link" %>
+            <%= link_to 'Contact', new_contacts_path, class:"footer__link" %>
           </div>
         </div>
         <p class="footer__copy"><small>Copyrights &copy; 2021 PourPour All Rights Reserved. </small></p>

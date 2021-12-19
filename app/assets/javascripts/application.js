@@ -30,18 +30,29 @@ $(document).on('turbolinks:load', function() {
     event.preventDefault();
   });
 
-  $('.header__search').on('click', function(event) {
+  $('.recipe-contents__search-icon-wrapper').on('click', function(event) {
     $('.recipe-contents__search-bar').toggleClass('active');
-    $('.header__overlay').toggleClass('open');
+    $('.header__overlay-search').toggleClass('open');
+     $('.recipe-contents__search-icon-wrapper').fadeOut();
   });
 
-  $('.header__overlay').on('click',function(){
+  $('.header__overlay-search').on('click',function(){
     if($(this).hasClass('open')){
       $(this).removeClass('open');
       $('.recipe-contents__search-bar').removeClass('active');
+      $('.recipe-contents__search-icon-wrapper').fadeIn();
     }
   });
 
+   $('.recipe-show__profile-icon-wrapper').on('click', function(event) {
+    $('.profile').toggleClass('active');
+    $('.header__overlay-profile').toggleClass('open');
+  });
+
+  $('.header__overlay-profile').on('click',function(){
+    if($(this).hasClass('open')){
+      $(this).removeClass('open');
+      $('.profile').removeClass('active');
+    }
+  });
 });
-
-
