@@ -1,0 +1,126 @@
+@import 'variables';
+
+.recipe-rank {
+  @include wrapper;
+  background: #a77228;
+  padding-bottom: 500px;
+  padding-top: 50px;
+  max-width: 1400px;
+
+
+
+  &__wrapper {
+    @include flex-space;
+    background: #fff;
+    margin-bottom: 50px;
+    padding: 2%;
+    box-shadow: 1px 1px 13px 4px #bebebe;
+  }
+
+  &__main-heading {
+    color: #fff;
+    margin: 0 auto 30px;
+    width: 200px;
+    font-size: 3.0rem;
+    border-bottom: 3px solid #fff;
+  }
+
+  &__icon {
+    font-size: 2.5rem;
+    text-align: center;
+    line-height: 71px;
+    margin-top: 80px;
+    width: 10%;
+  }
+
+  &__number {
+    margin: 0 auto;
+    border-radius: 0% 0% 40% 40%;
+    width: 50px;
+    height: 60px;
+    color: #fff;
+    font-size: 2.2rem;
+    text-align: center;
+    line-height: 55px;
+    background: #432;
+  }
+
+  &__icon-1 {
+    color: #efea86;
+  }
+
+
+  &__number-1 {
+    background-color: rgba(224, 214, 14, 0.5);
+  }
+
+  &__icon-2 {
+    color: #dfdfdf;
+  }
+
+   &__number-2 {
+    background-color: #dfdfdf;
+  }
+
+   &__icon-3 {
+    color: #814805;
+  }
+
+   &__number-3 {
+    background-color:  #814805;
+  }
+
+  &__number-forth {
+    background: black;
+  }
+
+
+  &__img-details-wrapper {
+    width: 40%;
+  }
+
+  &__details-flex {
+    @include flex-space;
+    color: #9c9ea4;
+  }
+
+  &__coffee-wrapper {
+    width: 45%;
+    font-size: 0.9rem;
+
+    & div {
+      margin-bottom: 5px;
+    }
+  }
+
+
+
+  &__user-wrapper {
+    width: 45%;
+  }
+
+  &__user-name {
+    margin-top: 30px;
+  }
+
+  &__favorite {
+    font-size: 1.3rem;
+    border: red 1px solid;
+    display: inline-block;
+    width: 40%;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  &__favorite-icon {
+    margin-right: 10px;
+  }
+
+  &__favorite-link {
+    color: red;
+  }
+
+  &__chart-wrapper {
+    width: 40%;
+  }
+}

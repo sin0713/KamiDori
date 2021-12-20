@@ -1,8 +1,8 @@
 <div class="recipe-show__chart">
       <h4 class="recipe-show__chart-heading">Taist chart</h4>
-      <canvas id="showRaderChart"></canvas>
+      <canvas id="showRaderChart-<%= recipe.id %>"></canvas>
       <script>
-        var ctx = document.getElementById("showRaderChart");
+        var ctx = document.getElementById("showRaderChart-<%= recipe.id %>");
 
         var showRadarChart = new Chart(ctx, {
             type: 'radar',

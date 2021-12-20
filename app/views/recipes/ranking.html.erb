@@ -1,0 +1,36 @@
+<div class="recipe-rank">
+  <h1 class="recipe-rank__main-heading">Ranking</h1>
+  <% @recipe_ranks.each.with_index(1) do |recipe, i| %>
+    <div class="recipe-rank__wrapper">
+      <div class="recipe-rank__icon recipe-rank__icon-<%= i %>">
+        <div><i class="fas fa-crown"></i></div>
+        <div class="recipe-rank__number recipe-rank__number-<%= i %>"><%= i %></div>
+      </div>
+      <div class="recipe-rank__img-details-wrapper">
+        <div>
+          <%= link_to recipe_path(recipe) do %>
+            <%= attachment_image_tag recipe, :image, class:"recipe-rank__top-img"%>
+          <% end %>
+        </div>
+        <div class="recipe-rank__details-wrapper">
+          <div class="recipe-rank__details-flex">
+            <div class="recipe-rank__coffee-wrapper">
+              <div><%= recipe.bean %></div>
+              <div><%= recipe.roast_i18n%></div>
+              <div><%= recipe.tool%></div>
+            </div>
+            <div class="recipe-rank__user-wrapper">
+              <div id="favorite_btn-<%= recipe.id %>" class="recipe-rank__favorite">
+                <%= render 'favorites/rank_favorite_btn', recipe: recipe %>
+              </div>
+              <div class="recipe-rank__user-name">by <%= recipe.user.name %></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="recipe-rank__chart-wrapper">
+        <%= render 'chart_rank', taist: recipe.taist, recipe: recipe %>
+      </div>
+    </div>
+  <% end %>
+</div>

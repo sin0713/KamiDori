@@ -30,6 +30,12 @@ $(document).on('turbolinks:load', function() {
     $(".recipe-order-new__bean-tit", this).css("color", "black");
   });
 
+  $(".recipe-rank-items__items").on("mouseover", function() {
+    $(".recipe-rank-items__bean-tit", this).css("color", "#fff");
+  }).on("mouseout", function() {
+    $(".recipe-rank-items__bean-tit", this).css("color", "black");
+  });
+
   $('.header__menu-trigger').on('click', function(event) {
     $(this).toggleClass('active');
     $('.nav').fadeToggle();

@@ -1,0 +1,23 @@
+<div class="recipe-rank-items__items recipe-rank-items__items-<%= i %>">
+    <%= link_to recipe_path(recipe) do %>
+      <%= attachment_image_tag recipe, :image, fallback: "coffee-cup-book2.jpg", class:"recipe-rank-items__recipe-img" %>
+    <% end %>
+    <span class="recipe-rank-items__favorite-btn" id="favorite_btn-<%= recipe.id %>">
+      <%= render 'favorites/favorite_btn', recipe: recipe %>
+    </span>
+    <div class="recipe-rank-items__items-wrapper">
+      <div>
+        <%= link_to user_path(recipe.user) do %>
+          <%= attachment_image_tag recipe.user, :image, fallback: "coffee-cup-book2.jpg", class:"recipe-rank-items__user-img"%>
+        <% end %>
+      </div>
+      <div class="recipe-rank-items__items-container">
+        <p class="recipe-rank-items__bean-tit">Bean <span class="recipe-rank-items__bean"><%= recipe.bean %></span></p>
+        <div class="recipe-rank-items__tool"><%= recipe.tool %> <span class="recipe-rank-items__roast"><%= recipe.roast_i18n %></span></div>
+        <div class="recipe-rank-items__user-name">by <%= recipe.user.name %></div>
+      </div>
+      <div class="recipe-rank-items__rank-icon-<%= i %>">
+        <i class="fas fa-crown"></i><span class="recipe-rank-items__number"><%= i %></span>
+      </div>
+    </div>
+  </div>

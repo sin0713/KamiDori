@@ -1,7 +1,6 @@
 @import 'variables';
 
-
-.recipe-order-new {
+.recipe-rank-items {
   background: #fff;
   width: 95%;
   padding-bottom: 10px;
@@ -27,7 +26,7 @@
 
   &__link {
     color: #fff;
-    background: #9d5638;
+    background: #d5b258;
     padding: 0 10px;
     border-radius: 20px;
     vertical-align: middle;
@@ -40,15 +39,34 @@
 
   &__items {
     width: 30%;
-    height: 430px;
+    height: 440px;
     background: #fff;
     position: relative;
     color: #797a7e;
     position: relative;
-    transition: 0.5s;
-    &:hover {
-      background: #895904;;
+    transition: all 0.5s;
+  }
+
+  &__items-1 {
+
+     &:hover {
       color: #fff;
+      background-color: rgba(224, 214, 14, 0.5);
+    }
+  }
+
+  &__items-2 {
+    &:hover {
+      color: #fff;
+      background-color: rgba(120, 115, 115, 0.5);
+    }
+
+  }
+
+  &__items-3 {
+    &:hover {
+      color: #fff;
+      background-color: rgba(180, 90, 3, 0.4);
     }
   }
 
@@ -108,17 +126,45 @@
     margin-left: 5px;
   }
 
-
-
-  &__date-wrapper {
+  &__rank-icon-1 {
+    color: gold;
+    position: relative;
+    font-size: 2.6rem;
     margin-left: auto;
-    margin-right: 5px;
-    width: 25%;
-    font-size: 0.8rem;
-    border: 2px solid;
-    text-align: center;
-    border-radius: 10px;
+    width: 80px;
   }
+
+  &__number {
+    position: absolute;
+    top: 28px;
+    left: 15px;
+    color: #8d8d8a;
+    font-size: 1.3rem;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    text-align: center;
+    line-height: 20px;
+  }
+
+   &__rank-icon-2 {
+     color: grey;
+     position: relative;
+     font-size: 2.6rem;
+     margin-left: auto;
+     width: 80px;
+
+  }
+   &__rank-icon-3 {
+     color: #b65b03;
+     position: relative;
+     font-size: 2.6rem;
+     margin-left: auto;
+     width: 80px;
+  }
+
+
 
 
 }

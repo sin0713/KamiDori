@@ -79,6 +79,7 @@ class RecipesController < ApplicationController
   end
 
   def ranking
+    @recipe_ranks = Recipe.includes(:user, :favorites, :taist).limit(20).find(Favorite.group(:recipe_id).order('count(recipe_id) desc').pluck(:recipe_id))
   end
 
   def new_order

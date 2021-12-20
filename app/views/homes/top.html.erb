@@ -4,6 +4,19 @@
 
 <div class="recipe-contents">
   <div class="recipe-contents__wrapper">
+    <div class="recipe-rank-items">
+      <div class="recipe-rank-items__title-wrapper">
+        <h2 class="recipe-rank-items__title">Ranking</h2>
+        <div class="recipe-rank-items__link-wrapper">
+          <%= link_to 'ランキングページへ >',  ranking_recipes_path, class:"recipe-rank-items__link" %>
+        </div>
+      </div>
+      <div class="recipe-rank-items__contents-wrapper">
+        <% @recipe_ranks.each.with_index(1) do |recipe, i| %>
+          <%= render 'recipes/recipe_rank_items', recipe: recipe, i: i %>
+        <% end %>
+      </div>
+    </div>
     <div class="recipe-order-new">
       <div class="recipe-order-new__title-wrapper">
         <h2 class="recipe-order-new__title">NEW</h2>
