@@ -1,7 +1,7 @@
 @import 'variables';
 
 
-.recipe-order-new {
+.recipe-new-top {
   background: #fff;
   width: 95%;
   padding-bottom: 10px;
@@ -121,9 +121,22 @@
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .recipe-new-top {
+    &__roast {
+      display: none;
+    }
+  }
+}
 
 @media screen and (max-width: 768px) {
-  .recipe-order-new {
+  .recipe-new-top {
+     &__contents-wrapper {
+      & .recipe-new-top__items:nth-last-of-type(1) {
+        display: none;
+      }
+    }
+
     &__items {
       width: 45%;
     }
@@ -131,15 +144,7 @@
 }
 
 @media screen and (max-width: 425px) {
-  .recipe-order-new {
-    &__items {
-      width: 90%;
-      height: 440px;
-      margin: 0 auto;
-    }
+  .recipe-new-top {
 
-    &__date-wrapper {
-      margin-right: 15px;
-    }
   }
 }

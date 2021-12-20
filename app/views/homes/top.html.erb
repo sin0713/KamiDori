@@ -17,16 +17,16 @@
         <% end %>
       </div>
     </div>
-    <div class="recipe-order-new">
-      <div class="recipe-order-new__title-wrapper">
-        <h2 class="recipe-order-new__title">NEW</h2>
-        <div class="recipe-order-new__link-wrapper">
-          <%= link_to '新着レシピ一覧へ >',  new_order_recipes_path, class:"recipe-order-new__link" %>
+    <div class="recipe-new-top">
+      <div class="recipe-new-top__title-wrapper">
+        <h2 class="recipe-new-top__title">NEW</h2>
+        <div class="recipe-new-top__link-wrapper">
+          <%= link_to '新着レシピ一覧へ >',  new_order_recipes_path, class:"recipe-new-top__link" %>
         </div>
       </div>
-      <div class="recipe-order-new__contents-wrapper">
+      <div class="recipe-new-top__contents-wrapper">
         <% @new_recipes.each do |new_recipe| %>
-          <%= render 'recipes/new_recipe_items', recipe: new_recipe %>
+          <%= render 'recipes/recipe_new_top', recipe: new_recipe %>
         <% end %>
       </div>
     </div>
