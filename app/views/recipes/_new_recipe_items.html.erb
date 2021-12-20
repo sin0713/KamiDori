@@ -1,0 +1,24 @@
+<div class="recipe-order-new__items">
+  <%= link_to recipe_path(recipe) do %>
+    <%= attachment_image_tag recipe, :image, fallback: "coffee-cup-book2.jpg", class:"recipe-order-new__recipe-img" %>
+  <% end %>
+  <span class="recipe-order-new__favorite-btn" id="favorite_btn-<%= recipe.id %>">
+    <%= render 'favorites/favorite_btn', recipe: recipe; %>
+  </span>
+  <div class="recipe-order-new__items-wrapper">
+    <div>
+      <%= link_to user_path(recipe.user) do %>
+        <%= attachment_image_tag recipe.user, :image, fallback: "coffee-cup-book2.jpg", class:"recipe-order-new__user-img"%>
+      <% end %>
+    </div>
+    <div class="recipe-order-new__items-container">
+      <p class="recipe-order-new__bean-tit">Bean <span class="recipe-order-new__bean"><%= recipe.bean %></span></p>
+      <div class="recipe-order-new__tool"><%= recipe.tool %> <span class="recipe-order-new__roast"><%= recipe.roast_i18n %></span></div>
+      <div class="recipe-order-new__user-name">by <%= recipe.user.name %></div>
+    </div>
+    <div class="recipe-order-new__date-wrapper">
+      <div class="recipe-order-new__day"><%= recipe.created_at.strftime('%d') %></div>
+      <div class="recipe-order-new__day-of-week"><%= recipe.created_at.strftime('%a') %></div>
+    </div>
+  </div>
+</div>

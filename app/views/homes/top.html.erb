@@ -4,6 +4,19 @@
 
 <div class="recipe-contents">
   <div class="recipe-contents__wrapper">
+    <div class="recipe-order-new">
+      <div class="recipe-order-new__title-wrapper">
+        <h2 class="recipe-order-new__title">NEW</h2>
+        <div class="recipe-order-new__link-wrapper">
+          <%= link_to '新着レシピ一覧へ >',  new_order_recipes_path, class:"recipe-order-new__link" %>
+        </div>
+      </div>
+      <div class="recipe-order-new__contents-wrapper">
+        <% @new_recipes.each do |new_recipe| %>
+          <%= render 'recipes/new_recipe_items', recipe: new_recipe %>
+        <% end %>
+      </div>
+    </div>
     <h2 class="recipe-contents__heading">ALL Recipes</h2>
     <div class="recipe-contents__main">
       <% @recipes.each do |recipe| %>
@@ -16,4 +29,3 @@
    <%= render 'recipes/search_bar', beans: @beans, tools: @tools %>
   </div>
 </div>
-

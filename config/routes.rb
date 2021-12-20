@@ -18,11 +18,11 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy, :index]
     collection do
       get :favorites
+      get :search
+      get :ranking
+      get :new_order
     end
     resources :recipe_comments, only: [:create, :destroy]
-    collection do
-      get :search
-    end
   end
 
   resource :contacts, only: [:new, :create] do

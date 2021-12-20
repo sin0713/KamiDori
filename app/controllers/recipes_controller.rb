@@ -12,7 +12,7 @@ class RecipesController < ApplicationController
       flash[:notice] = '新しいレシピを投稿しました'
       redirect_to recipe_path(@recipe)
     else
-      render 'new'
+      redirect_to new_recipe_path
     end
   end
 
@@ -76,6 +76,15 @@ class RecipesController < ApplicationController
     @recipes = current_user.favorites
     @beans = ["モカ", "キリマンジャロ", "コロンビア", "コナ", "マンデリン", "グアテマラ", "ブラジル", "ケニア", "コスタリカ"]
     @tools = ["ハリオ", "カリタ", "メリタ"]
+  end
+
+  def ranking
+  end
+
+  def new_order
+    @beans = ["モカ", "キリマンジャロ", "コロンビア", "コナ", "マンデリン", "グアテマラ", "ブラジル", "ケニア"]
+    @tools = ["ハリオ", "カリタ", "メリタ"]
+    @new_recipes = Recipe.includes(:user, :favorites).order(created_at: :desc).page(params[:page]).per(12)
   end
 
   private

@@ -1,0 +1,20 @@
+<div class="recipe-contents__header-heading">
+  <h2 class="recipe-contents__heading-title">Recipes</h2>
+</div>
+
+<div class="recipe-contents">
+  <div class="recipe-contents__wrapper">
+    <h2 class="recipe-contents__heading">New Recipes</h2>
+    <div class="recipe-contents__main">
+      <% @new_recipes.each do |new_recipe| %>
+        <%= render 'recipes/new_recipe_items', recipe: new_recipe %>
+      <% end %>
+      <%= render 'layouts/kaminari', models: @new_recipes %>
+    </div>
+  </div>
+
+  <div class="recipe-contents__search-bar">
+   <%= render 'search_bar', beans: @beans, tools: @tools %>
+  </div>
+
+</div>
