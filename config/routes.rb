@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :recipes, only: [:new, :create, :edit, :update, :show, :destroy] do
+  resources :recipes do
     resource :favorites, only: [:create, :destroy, :index]
     collection do
       get :favorites

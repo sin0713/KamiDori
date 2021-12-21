@@ -12,7 +12,6 @@ class RecipesController < ApplicationController
       flash[:notice] = '新しいレシピを投稿しました'
       redirect_to recipe_path(@recipe)
     else
-
       render :new
     end
   end
@@ -23,6 +22,14 @@ class RecipesController < ApplicationController
     @taist = Taist.find_by(recipe_id: params[:id])
     @recipe_comment = RecipeComment.new
     @recipe_comments = @recipe.recipe_comments.includes(:user)
+  end
+
+  def index
+    @recipes = Recipe.includes(:user, :favorites).page(params[:page]).per(12)
+    @beans = ["モカ", "キリマンジャロ", "コロンビア", "コナ", "マンデリン", "グアテマラ", "ブラジル", "ケニア"]
+    @tools = ["ハリオ", "カリタ", "メリタ"]
+    @new_recipes = Recipe.includes(:user, :favorites).order(created_at: :desc).limit(3)
+    @recipe_ranks = Recipe.includes(:user, :favorites).find(Favorite.group(:recipe_id).order('count(recipe_id) desc').limit(3).pluck(:recipe_id))
   end
 
   def edit

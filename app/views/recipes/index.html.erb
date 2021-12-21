@@ -1,0 +1,44 @@
+<div class="recipe-contents__header-heading">
+  <h2 class="recipe-contents__heading-title">Recipes</h2>
+</div>
+
+<div class="recipe-contents">
+  <div class="recipe-contents__wrapper">
+    <div class="recipe-rank-items">
+      <div class="recipe-rank-items__title-wrapper">
+        <h2 class="recipe-rank-items__title">Ranking</h2>
+        <div class="recipe-rank-items__link-wrapper">
+          <%= link_to 'ランキングページへ >',  ranking_recipes_path, class:"recipe-rank-items__link" %>
+        </div>
+      </div>
+      <div class="recipe-rank-items__contents-wrapper">
+        <% @recipe_ranks.each.with_index(1) do |recipe, i| %>
+          <%= render 'recipes/recipe_rank_items', recipe: recipe, i: i %>
+        <% end %>
+      </div>
+    </div>
+    <div class="recipe-new-top">
+      <div class="recipe-new-top__title-wrapper">
+        <h2 class="recipe-new-top__title">NEW</h2>
+        <div class="recipe-new-top__link-wrapper">
+          <%= link_to '新着レシピ一覧へ >',  new_order_recipes_path, class:"recipe-new-top__link" %>
+        </div>
+      </div>
+      <div class="recipe-new-top__contents-wrapper">
+        <% @new_recipes.each do |new_recipe| %>
+          <%= render 'recipes/recipe_new_top', recipe: new_recipe %>
+        <% end %>
+      </div>
+    </div>
+    <h2 class="recipe-contents__heading">ALL Recipes</h2>
+    <div class="recipe-contents__main">
+      <% @recipes.each do |recipe| %>
+        <%= render 'recipes/index', recipe: recipe %>
+      <% end %>
+      <%= render 'layouts/kaminari', models: @recipes %>
+    </div>
+  </div>
+  <div class="recipe-contents__search-bar">
+   <%= render 'recipes/search_bar', beans: @beans, tools: @tools %>
+  </div>
+</div>
