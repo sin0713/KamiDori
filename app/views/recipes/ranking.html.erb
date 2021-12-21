@@ -20,7 +20,7 @@
               <div><%= recipe.tool%></div>
             </div>
             <div class="recipe-rank__user-wrapper">
-              <div id="favorite_btn-<%= recipe.id %>" class="recipe-rank__favorite">
+              <div class="recipe-rank__favorite favorite_btn-<%= recipe.id %>">
                 <%= render 'favorites/rank_favorite_btn', recipe: recipe %>
               </div>
               <div class="recipe-rank__user-name">by <%= recipe.user.name %></div>
