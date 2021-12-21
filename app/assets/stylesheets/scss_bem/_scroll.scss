@@ -1,0 +1,38 @@
+.scroll {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+
+  &__link {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    color: white;
+    background: #8785857d;
+    text-align: center;
+    border-radius: 50%;
+    display: block;
+
+  }
+
+  &__icon {
+
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .scroll {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .scroll {
+    display: block;
+    bottom: 57px;
+    right: 46%;
+
+  }
+}

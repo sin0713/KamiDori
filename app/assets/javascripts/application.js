@@ -67,4 +67,20 @@ $(document).on('turbolinks:load', function() {
       $('.profile').removeClass('active');
     }
   });
+
+  $('#back a').on('click', function(event) {
+    $('body, html').animate({
+      scrollTop:0
+      }, 600);
+      event.preventDefault();
+  });
+
+  if (window.matchMedia('(max-width: 425px)').matches) {
+    $('#back a').on('click', function(event) {
+      $('body, html').animate({
+        scrollTop:0
+        }, 600);
+        event.preventDefault();
+    });
+  }
 });
