@@ -12,7 +12,7 @@ class RecipesController < ApplicationController
       flash[:notice] = '新しいレシピを投稿しました'
       redirect_to recipe_path(@recipe)
     else
-      
+
       render :new
     end
   end
@@ -104,7 +104,7 @@ class RecipesController < ApplicationController
       :amount_of_beans,
       :amount_of_extraction,
       :introduction,
-      :image_id,
+      :image,
       :user_id,
       taist_attributes: [:id, :recipe_id, :sour, :bitter, :sweet, :flavor, :rich]
     )

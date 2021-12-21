@@ -3,7 +3,7 @@
     <h2 class="new-recipe__header-title">New</h2>
   </div>
   <%= render 'layouts/error', model: @recipe %>
-  <%= form_with model:@recipe, local: true, class:"new-recipe__form" do |f| %>
+  <%= form_with model: @recipe, local: true, class:"new-recipe__form" do |f| %>
     <div class="new-recipe__left-form">
       <%= render 'form', recipe: @recipe, taist: @taist, f: f %>
       <div class="new-recipe__submit-wrapper">
