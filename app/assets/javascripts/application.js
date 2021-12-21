@@ -24,7 +24,13 @@ $(document).on('turbolinks:load', function() {
     $(".recipe-contents__bean-tit", this).css("color", "black");
   });
 
-  $(".recipe-order-new__items").on("mouseover", function() {
+  $(".recipe-new-top__items").on("mouseover", function() {
+    $(".recipe-new-top__bean-tit", this).css("color", "#fff");
+  }).on("mouseout", function() {
+    $(".recipe-new-top__bean-tit", this).css("color", "black");
+  });
+
+   $(".recipe-order-new__items").on("mouseover", function() {
     $(".recipe-order-new__bean-tit", this).css("color", "#fff");
   }).on("mouseout", function() {
     $(".recipe-order-new__bean-tit", this).css("color", "black");
