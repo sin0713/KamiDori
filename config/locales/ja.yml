@@ -23,3 +23,24 @@ ja:
       last: <i class="fas fa-angle-double-right"></i>
       previous: <i class="fas fa-angle-left"></i>
       next: <i class="fas fa-angle-right"></i>
+
+  activerecord:
+    models:
+      recipe:
+      taist:
+    attributes:
+      recipe:
+        bean: 産地
+        tool: 抽出器具
+        extraction_time_minutes: 抽出時間(分)
+        extraction_time_seconds: 抽出時間(秒)
+        pre_infusion_time: 蒸らし時間
+        temperature: お湯の温度
+        amount_of_extraction: 抽出量
+        amount_of_beans: コーヒー粉量
+      taist:
+        sour: 酸味
+        bitter: 苦味
+        sweet: 甘味
+        rich: コク
+        flavor: 香り

@@ -12,7 +12,8 @@ class RecipesController < ApplicationController
       flash[:notice] = '新しいレシピを投稿しました'
       redirect_to recipe_path(@recipe)
     else
-      redirect_to new_recipe_path
+      
+      render :new
     end
   end
 

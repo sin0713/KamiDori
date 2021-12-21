@@ -16,7 +16,8 @@
   &__title {
     @include heading-border;
     padding-right: 5%;
-    display: inline-block
+    display: inline-block;
+    font-family: serif;
   }
 
   &__link-wrapper {
@@ -39,7 +40,7 @@
 
   &__items {
     width: 30%;
-    height: 440px;
+    height: 420px;
     background: #fff;
     position: relative;
     color: #797a7e;
@@ -111,14 +112,22 @@
     font-family: serif;
   }
 
+  &__tool-icon-wrapper {
+    @include flex-space;
+  }
+
+  &__coffee-details {
+    width: 70%;
+  }
+
+
   &__tool {
     font-size: 0.7rem;
-    margin-bottom: 15px;
   }
 
    &__roast {
     font-size: 0.7rem;
-    margin-left: 5px;
+    margin-bottom: 15px;
   }
 
    &__user-name {
@@ -126,12 +135,16 @@
     margin-left: 5px;
   }
 
+  &__rank-icon {
+     width: 20%;
+  }
+
   &__rank-icon-1 {
     color: gold;
     position: relative;
     font-size: 2.6rem;
     margin-left: auto;
-    width: 80px;
+
   }
 
   &__number {
@@ -153,17 +166,15 @@
      position: relative;
      font-size: 2.6rem;
      margin-left: auto;
-     width: 80px;
+   }
 
-  }
    &__rank-icon-3 {
      color: #b65b03;
      position: relative;
      font-size: 2.6rem;
      margin-left: auto;
-     width: 80px;
-  }
-}
+   }
+ }
 
 @media screen and (max-width: 1024px) {
   .recipe-rank-items {
@@ -189,12 +200,12 @@
 
 @media screen and (max-width: 768px) {
   .recipe-rank-items {
-    width: 100%;
-    
+    width: 95%;
+
     &__items {
       width: 48%;
     }
-    
+
     &__user-img {
       left: 60%;
       width: 48px;

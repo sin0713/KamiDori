@@ -17,7 +17,8 @@
   &__title {
     @include heading-border;
     padding-right: 5%;
-    display: inline-block
+    display: inline-block;
+    font-family: serif;
   }
 
   &__link-wrapper {
@@ -40,7 +41,7 @@
 
   &__items {
     width: 30%;
-    height: 430px;
+    height: 420px;
     background: #fff;
     position: relative;
     color: #797a7e;
@@ -87,6 +88,16 @@
     margin-bottom: 10px;
   }
 
+   &__tool-icon-wrapper {
+    @include flex-space;
+  }
+
+  &__coffee-details {
+    width: 70%;
+  }
+
+
+
   &__bean {
     font-size: 1.0rem;
     margin-left: 10px;
@@ -95,12 +106,11 @@
 
   &__tool {
     font-size: 0.7rem;
-    margin-bottom: 15px;
   }
 
    &__roast {
     font-size: 0.7rem;
-    margin-left: 5px;
+    margin-bottom: 15px;
   }
 
    &__user-name {
@@ -111,8 +121,8 @@
 
 
   &__date-wrapper {
-    margin-left: auto;
-    margin-right: 5px;
+    margin-top: 25px;
+    height: 50px;
     width: 25%;
     font-size: 0.8rem;
     border: 2px solid;

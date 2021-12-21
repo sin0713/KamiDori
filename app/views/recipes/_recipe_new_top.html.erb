@@ -13,12 +13,17 @@
     </div>
     <div class="recipe-new-top__items-container">
       <p class="recipe-new-top__bean-tit">Bean <span class="recipe-new-top__bean"><%= recipe.bean %></span></p>
-      <div class="recipe-new-top__tool"><%= recipe.tool %> <span class="recipe-new-top__roast"><%= recipe.roast_i18n %></span></div>
-      <div class="recipe-new-top__user-name">by <%= recipe.user.name %></div>
-    </div>
-    <div class="recipe-new-top__date-wrapper">
-      <div class="recipe-new-top__day"><%= recipe.created_at.strftime('%d') %></div>
-      <div class="recipe-new-top__day-of-week"><%= recipe.created_at.strftime('%a') %></div>
+      <div class="recipe-new-top__tool-icon-wrapper">
+        <div class="recipe-new-top__coffee-details">
+          <div class="recipe-new-top__tool"><%= recipe.tool %></div>
+          <div class="recipe-new-top__roast"><%= recipe.roast_i18n %></div>
+          <div class="recipe-new-top__user-name">by <%= recipe.user.name %></div>
+        </div>
+        <div class="recipe-new-top__date-wrapper">
+          <div class="recipe-new-top__day"><%= recipe.created_at.strftime('%d') %></div>
+          <div class="recipe-new-top__day-of-week"><%= recipe.created_at.strftime('%a') %></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

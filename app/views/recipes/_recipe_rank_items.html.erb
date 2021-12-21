@@ -13,11 +13,16 @@
       </div>
       <div class="recipe-rank-items__items-container">
         <p class="recipe-rank-items__bean-tit">Bean <span class="recipe-rank-items__bean"><%= recipe.bean %></span></p>
-        <div class="recipe-rank-items__tool"><%= recipe.tool %> <span class="recipe-rank-items__roast"><%= recipe.roast_i18n %></span></div>
-        <div class="recipe-rank-items__user-name">by <%= recipe.user.name %></div>
-      </div>
-      <div class="recipe-rank-items__rank-icon-<%= i %>">
-        <i class="fas fa-crown"></i><span class="recipe-rank-items__number"><%= i %></span>
+        <div class="recipe-rank-items__tool-icon-wrapper">
+          <div class="recipe-rank-items__coffee-details">
+            <div class="recipe-rank-items__tool"><%= recipe.tool %></div>
+            <div class="recipe-rank-items__roast"><%= recipe.roast_i18n %></div>
+            <div class="recipe-rank-items__user-name">by <%= recipe.user.name %></div>
+          </div>
+          <div class="recipe-rank-items__rank-icon recipe-rank-items__rank-icon-<%= i %>">
+            <i class="fas fa-crown"></i><span class="recipe-rank-items__number"><%= i %></span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
