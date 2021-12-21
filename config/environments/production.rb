@@ -78,7 +78,7 @@ Rails.application.configure do
       authentication: 'plain'
   }
 
-  config.action_mailer.default_url_options = { :host => 'http://54.92.43.6 ' }
+  config.action_mailer.default_url_options = { :host => 'http://54.92.43.6' }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
