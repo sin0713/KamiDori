@@ -1,6 +1,6 @@
   <div class="recipe-contents__items">
     <%= link_to recipe_path(recipe) do %>
-      <%= attachment_image_tag recipe, :image, fallback: "coffee-cup-red.jpg", class:"recipe-contents__recipe-img" %>
+      <%= attachment_image_tag recipe, :image, fallback: "coffee-cup-book2.jpg", class:"recipe-contents__recipe-img" %>
     <% end %>
     <span class="recipe-contents__favorite-btn favorite_btn-<%= recipe.id %>">
       <%= render 'favorites/favorite_btn', recipe: recipe; %>
