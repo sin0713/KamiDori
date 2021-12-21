@@ -9,7 +9,7 @@
       <div class="recipe-rank__img-details-wrapper">
         <div>
           <%= link_to recipe_path(recipe) do %>
-            <%= attachment_image_tag recipe, :image, fallback: 'coffee-cup-red.jpg' class:"recipe-rank__top-img"%>
+            <%= attachment_image_tag recipe, :image, fallback: 'coffee-cup-red.jpg', class:"recipe-rank__top-img"%>
           <% end %>
         </div>
         <div class="recipe-rank__details-wrapper">
