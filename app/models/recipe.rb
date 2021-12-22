@@ -28,6 +28,7 @@ class Recipe < ApplicationRecord
     french_roast: 6,
     italian_roast: 7,
   }
+
   enum grind_size: {
     fine: 0,
     medium_fine: 1,
@@ -36,8 +37,18 @@ class Recipe < ApplicationRecord
     coarse: 4,
   }
 
+  enum status: {
+    public_recipe: 0,
+    private_recipe: 1
+  }
+
+
   def self.search(keyword)
     where(["bean like? OR tool like?", "%#{keyword}%", "%#{keyword}%"])
+  end
+
+  def self.excluded
+    where.not(status: 1)
   end
 
   def favorited_by?(user)

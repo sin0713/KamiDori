@@ -1,36 +1,43 @@
 
-    <div class="new-recipe__img-form">
-      <h4 class="new-recipe__form-heading">Image</h4>
-      <div><%= f.label :image, "Image"%></div>
-      <%= f.attachment_field :image, placeholder: "ファイルを選択", class:"new-recipe__img-field"%>
-    </div>
-    <div class="new-recipe__taist-form">
-      <h4 class="new-recipe__form-heading">Taists</h4>
-      <%= f.fields_for :taist do |s| %>
-      <div class="new-recipe__select-form">
-        <%= s.label :sour, "酸味", class:"new-recipe__taist-label" %>
-        <%= s.number_field :sour,  in: 1..5, placeholder: "1~5で評価してください", class: "new-recipe__select-box" %>
-      </div>
-      <div class="new-recipe__select-form">
-        <%= s.label :bitter, "苦味", class:"new-recipe__taist-label"%>
-        <%= s.number_field :bitter, in: 1..5, placeholder: "1~5で評価してください", class: "new-recipe__select-box" %>
-      </div>
-      <div class="new-recipe__select-form">
-        <%= s.label :sweet, "甘味", class:"new-recipe__taist-label"%>
-        <%= s.number_field :sweet, in: 1..5, placeholder: "1~5で評価してください", class: "new-recipe__select-box" %>
-      </div>
-      <div class="new-recipe__select-form">
-        <%= s.label :flavor, "香り", class:"new-recipe__taist-label"%>
-        <%= s.number_field :flavor, in: 1..5, placeholder: "1~5で評価してください", class: "new-recipe__select-box" %>
-      </div>
-      <div class="new-recipe__select-form">
-        <%= s.label :rich, "コク", class:"new-recipe__taist-label"%>
-        <%= s.number_field :rich, in: 1..5, placeholder: "1~5で評価してください", class: "new-recipe__select-box" %>
-      </div>
-        <%= s.hidden_field :recipe_id, value: recipe.id, class:"new-recipe__recipe-id" %>
-      <% end %>
+  <div class="new-recipe__img-form">
+    <h4 class="new-recipe__form-heading">Image</h4>
+    <div><%= f.label :image, "Image"%></div>
+    <%= f.attachment_field :image, placeholder: "ファイルを選択", class:"new-recipe__img-field"%>
+  </div>
+  <div class="new-recipe__status-wrapper">
+    <h4 class="new-recipe__form-heading">Status</h4>
+    <div>
+      <%= f.collection_radio_buttons :status, Recipe.statuses_i18n, :first, :last, {checked: recipe.status ||= "public_recipe"}, class:"new-recipe__radio-buttons" %>
     </div>
   </div>
+  <div class="new-recipe__taist-form">
+    <h4 class="new-recipe__form-heading">Taists</h4>
+    <%= f.fields_for :taist do |s| %>
+    <div class="new-recipe__select-form">
+      <%= s.label :sour, "酸味", class:"new-recipe__taist-label" %>
+      <%= s.number_field :sour,  in: 1..5, placeholder: "1~5で評価してください", class: "new-recipe__select-box" %>
+    </div>
+    <div class="new-recipe__select-form">
+      <%= s.label :bitter, "苦味", class:"new-recipe__taist-label"%>
+      <%= s.number_field :bitter, in: 1..5, placeholder: "1~5で評価してください", class: "new-recipe__select-box" %>
+    </div>
+    <div class="new-recipe__select-form">
+      <%= s.label :sweet, "甘味", class:"new-recipe__taist-label"%>
+      <%= s.number_field :sweet, in: 1..5, placeholder: "1~5で評価してください", class: "new-recipe__select-box" %>
+    </div>
+    <div class="new-recipe__select-form">
+      <%= s.label :flavor, "香り", class:"new-recipe__taist-label"%>
+      <%= s.number_field :flavor, in: 1..5, placeholder: "1~5で評価してください", class: "new-recipe__select-box" %>
+    </div>
+    <div class="new-recipe__select-form">
+      <%= s.label :rich, "コク", class:"new-recipe__taist-label"%>
+      <%= s.number_field :rich, in: 1..5, placeholder: "1~5で評価してください", class: "new-recipe__select-box" %>
+    </div>
+      <%= s.hidden_field :recipe_id, value: recipe.id, class:"new-recipe__recipe-id" %>
+    <% end %>
+  </div>
+</div>
+
   <div class="new-recipe__right-form">
     <h4 class="new-recipe__form-heading">Recipe</h4>
     <div class="new-recipe__form-wrapper">
@@ -50,7 +57,7 @@
       <%= f.collection_select(:grind_size, Recipe.grind_sizes_i18n, :first, :last, {selected: recipe.grind_size}, {class: "new-recipe__form-content new-recipe__form-grind-size"}) %>
     </div>
     <div class="new-recipe__form-wrapper">
-      <%= f.label :tool, "抽出器具", class:"new-recipe__recipe-label" %>
+      <%= f.label :tool, "ドリッパー", class:"new-recipe__recipe-label" %>
       <%= f.text_field :tool, class:"new-recipe__form-content" %>
     </div>
     <div class="new-recipe__form-wrapper">
