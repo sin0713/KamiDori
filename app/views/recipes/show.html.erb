@@ -12,7 +12,7 @@
           <%= attachment_image_tag @recipe, :image, fallback: "coffee-cup-book2.jpg", class:"recipe-show__img" %>
         </div>
         <% if current_user.present? %>
-          <div id="favorite_btn-<%= @recipe.id%>" class="recipe-show__favorite">
+          <div class="recipe-show__favorite favorite_btn-<%= @recipe.id%>">
             <%= render 'favorites/favorite_btn', recipe: @recipe %>
           </div>
         <% end %>

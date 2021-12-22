@@ -123,7 +123,7 @@
   }
 
   &__search-heading {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     @include heading-border;
   }
 
@@ -150,6 +150,7 @@
 
   &__search-sub-tit {
     @include heading-border;
+    margin-top: 20px;
   }
 
   &__search-link {

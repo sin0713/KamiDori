@@ -31,6 +31,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         respond_with resource, location: after_inactive_sign_up_path_for(resource)
       end
     else
+      flash[:alert] = "入力に誤りがあります。もう一度ご入力ください。"
       redirect_to new_user_registration_path
     end
   end

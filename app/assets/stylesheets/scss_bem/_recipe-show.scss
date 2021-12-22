@@ -49,8 +49,8 @@
 
   &__favorite {
     position: absolute;
-    top: 265px;
-    left: 42%;
+    top: 330px;
+    left: 37%;
 
     & a {
       font-size: 1.0rem;
@@ -161,6 +161,11 @@
 @media screen and (max-width: 768px) {
   .recipe-show {
     padding-bottom: 200px;
+
+    &__content {
+      width: 65%;
+      margin: 0 auto;
+    }
 
 
     &__wrapper {

@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :search]
+  before_action :authenticate_user!, except: [:show, :search, :ranking, :new_order]
 
   def new
     @recipe = Recipe.new
@@ -35,6 +35,12 @@ class RecipesController < ApplicationController
   def edit
     @recipe = Recipe.find(params[:id])
     @taist = Taist.find_by(recipe_id: params[:id])
+
+    unless @recipe.id == current_user.id
+      flash[:alert] = "アクセス権限はありません。"
+      redirect_to root_path
+    end
+
   end
 
   def update
@@ -50,7 +56,7 @@ class RecipesController < ApplicationController
   def destroy
     @recipe = Recipe.find(params[:id])
     if @recipe.destroy
-      flash[:notice] = 'レシピを削除しました'
+      flash[:alert] = 'レシピを削除しました'
       redirect_to user_path(current_user)
     end
   end

@@ -3,6 +3,7 @@
 </div>
 
 <div class="new-recipe">
+  <%= render 'layouts/error', model: @recipe %>
   <%= form_with model:@recipe, local: true, class:"new-recipe__form" do |f| %>
     <div class="new-recipe__left-form">
       <%= render 'form', recipe: @recipe, taist: @taist, f: f %>

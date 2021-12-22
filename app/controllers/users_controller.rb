@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only: [:edit, :confirmation]
   def show
     @user = User.find(params[:id])
     @recipes = @user.recipes.includes(:favorites).page(params[:page]).per(12)
@@ -6,6 +7,10 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    unless @user.id == current_user.id
+      flash[:alert] = "アクセス権限がありません。"
+      redirect_to root_path
+    end
   end
 
   def update
@@ -14,7 +19,10 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       flash[:notice] = 'プロフィールを更新しました'
       redirect_to user_path(@user)
+    else
+      render :edit
     end
+
   end
 
   def followings
@@ -29,6 +37,10 @@ class UsersController < ApplicationController
 
   def confirmation
     @user = User.find(params[:id])
+    unless @user.id == current_user.id
+      flash[:alert] = "アクセス権限がありません。"
+      redirect_to root_path
+    end
   end
 
   def destroy

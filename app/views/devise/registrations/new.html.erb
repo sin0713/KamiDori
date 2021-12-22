@@ -4,7 +4,6 @@
     <h2 class="user-form__heading">Sign Up</h2>
 
     <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
       <div class="devise-form__field">
         <%= f.label :name %><br />
         <%= f.text_field :name, autofocus: true, required: true, class:"user-form__input" %>

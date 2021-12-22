@@ -121,11 +121,27 @@
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .recipe-order-new {
+     &__bean-tit {
+      font-size: 1.5rem;
+    }
+
+     &__bean {
+      font-size: 0.8rem;
+    }
+  }
+}
+
 
 @media screen and (max-width: 768px) {
   .recipe-order-new {
     &__items {
       width: 45%;
+    }
+
+    &__bean {
+      font-size: 0.7rem;
     }
   }
 }
