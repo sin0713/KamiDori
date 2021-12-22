@@ -1,7 +1,4 @@
  <h3 class="recipe-contents__search-heading">Search</h3>
- <div class="recipe-contents__search-icon-wrapper">
-   <i class="fas fa-search recipe-contents__search-icon"></i>
- </div>
 
  <%= form_with url: search_recipes_path, method: :get, local: true do |f| %>
    <%= f.text_field :keyword, placeholder: 'コーヒー豆産地 or 抽出器具',  required: true, class:"recipe-contents__search-field" %>

@@ -49,7 +49,9 @@ $(document).on('turbolinks:load', function() {
   });
 
   $('.recipe-contents__search-icon-wrapper').on('click', function(event) {
-    $('.recipe-contents__search-bar').toggleClass('active');
+    $('.recipe-contents__search-bar').fadeToggle();
+    $('.recipe-contents__search-bar').css('height', '960px');
+    $('.recipe-contents__search-bar').css('width', '60%');
     $('.header__overlay-search').toggleClass('open');
      $('.recipe-contents__search-icon-wrapper').fadeOut();
   });
@@ -57,7 +59,9 @@ $(document).on('turbolinks:load', function() {
   $('.header__overlay-search').on('click',function(){
     if($(this).hasClass('open')){
       $(this).removeClass('open');
-      $('.recipe-contents__search-bar').removeClass('active');
+      $('.recipe-contents__search-bar').css('height', '0');
+      $('.recipe-contents__search-bar').css('width', '0');
+      $('.recipe-contents__search-bar').fadeOut();
       $('.recipe-contents__search-icon-wrapper').fadeIn();
     }
   });

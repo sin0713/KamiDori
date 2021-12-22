@@ -204,8 +204,8 @@
       color: #fff;
       font-size: 1.5rem;
       position: absolute;
-      top: -50px;
-      left: -160px;
+      top: 15px;
+      left: 320px;
     }
 
     &__header-heading {
@@ -268,21 +268,18 @@
     }
 
     &__search-bar {
-      width: 50%;
+      display: none;
+      width: 0;
+      height: 0;
+      padding: 10px;
       background: #fff;
       text-align: left;
-      height: 960px;
-      padding: 5px;
+      border-radius: 15px;
       z-index: 999;
       position: absolute;
       top: 66px;
       right: 0px;
-      transform: translate(300px);
       transition: all .5s;
       }
-
-    &__search-bar.active {
-      transform: translate(0);
-    }
   }
 }
