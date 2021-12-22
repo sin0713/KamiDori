@@ -9,7 +9,7 @@
  <% beans.each do |bean| %>
    <%= link_to bean, search_recipes_path(keyword: bean), method: :get,  class:"recipe-contents__search-link" %>
  <% end %>
- <h4 class="recipe-contents__search-sub-tit">Tools</h4>
+ <h4 class="recipe-contents__search-sub-tit">Drippers</h4>
  <% tools.each do |tool| %>
    <%= link_to tool, search_recipes_path(keyword: tool), method: :get,  class:"recipe-contents__search-link" %>
  <% end %>

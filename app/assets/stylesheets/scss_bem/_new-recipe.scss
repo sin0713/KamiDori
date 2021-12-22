@@ -55,6 +55,16 @@
     @include focus;
   }
 
+  &__status-wrapper {
+    margin-top: 50px;
+
+    & input:last-of-type {
+      margin-left: 20px;
+
+    }
+
+  }
+
   &__right-form {
     width: 50%;
   }

@@ -16,6 +16,9 @@ ja:
         medium: "中細挽き"
         medium_coarse: "中挽き"
         coarse: "粗挽き"
+      status:
+        public_recipe: "公開レシピ"
+        private_recipe: "非公開レシピ"
 
   views:
     pagination:

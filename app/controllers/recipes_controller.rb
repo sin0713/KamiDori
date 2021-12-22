@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!, except: [:show, :search, :ranking, :new_order]
+  before_action :set_beans_tools, only: [:new_order, :search, :index, :favorites]
 
   def new
     @recipe = Recipe.new
@@ -25,11 +26,9 @@ class RecipesController < ApplicationController
   end
 
   def index
-    @recipes = Recipe.includes(:user, :favorites).page(params[:page]).per(12)
-    @beans = ["モカ", "キリマンジャロ", "コロンビア", "コナ", "マンデリン", "グアテマラ", "ブラジル", "ケニア"]
-    @tools = ["ハリオ", "カリタ", "メリタ"]
-    @new_recipes = Recipe.includes(:user, :favorites).order(created_at: :desc).limit(3)
-    @recipe_ranks = Recipe.includes(:user, :favorites).find(Favorite.group(:recipe_id).order('count(recipe_id) desc').limit(3).pluck(:recipe_id))
+    @recipes = Recipe.includes(:user, :favorites).excluded.page(params[:page]).per(12)
+    @new_recipes = Recipe.includes(:user, :favorites).excluded.order(created_at: :desc).limit(3)
+    @recipe_ranks = Recipe.includes(:user, :favorites).excluded.find(Favorite.group(:recipe_id).order('count(recipe_id) desc').limit(3).pluck(:recipe_id))
   end
 
   def edit
@@ -62,25 +61,23 @@ class RecipesController < ApplicationController
   end
 
   def search
-    @beans = ["モカ", "キリマンジャロ", "コロンビア", "コナ", "マンデリン", "グアテマラ", "ブラジル", "ケニア", "コスタリカ"]
-    @tools = ["ハリオ", "カリタ", "メリタ"]
 
     if params[:roast]
-      @recipes = Recipe.includes(:user, :favorites).where(roast: params[:roast])
+      @recipes = Recipe.includes(:user, :favorites).excluded.where(roast: params[:roast])
       # ハッシュのキー（params[:roast]）でハッシュの値を取得
       @keyword = Recipe.roasts_i18n[params[:roast]]
       if @recipes.blank?
         render 'search'
       end
     elsif params[:grind_size]
-      @recipes = Recipe.includes(:user, :favorites).where(grind_size: params[:grind_size])
+      @recipes = Recipe.includes(:user, :favorites).excluded.where(grind_size: params[:grind_size])
       # ハッシュのキー（params[:roast]）でハッシュの値を取得
       @keyword = Recipe.grind_sizes_i18n[params[:grind_size]]
       if @recipes.blank?
         render 'search'
       end
     else
-      @recipes = Recipe.includes(:user, :favorites).search(params[:keyword])
+      @recipes = Recipe.includes(:user, :favorites).excluded.search(params[:keyword])
       @keyword = params[:keyword]
     end
   end
@@ -88,18 +85,14 @@ class RecipesController < ApplicationController
 
   def favorites
     @recipes = current_user.favorites
-    @beans = ["モカ", "キリマンジャロ", "コロンビア", "コナ", "マンデリン", "グアテマラ", "ブラジル", "ケニア", "コスタリカ"]
-    @tools = ["ハリオ", "カリタ", "メリタ"]
   end
 
   def ranking
-    @recipe_ranks = Recipe.includes(:user, :favorites, :taist).limit(20).find(Favorite.group(:recipe_id).order('count(recipe_id) desc').pluck(:recipe_id))
+    @recipe_ranks = Recipe.includes(:user, :favorites, :taist).excluded.limit(20).find(Favorite.group(:recipe_id).order('count(recipe_id) desc').pluck(:recipe_id))
   end
 
   def new_order
-    @beans = ["モカ", "キリマンジャロ", "コロンビア", "コナ", "マンデリン", "グアテマラ", "ブラジル", "ケニア"]
-    @tools = ["ハリオ", "カリタ", "メリタ"]
-    @new_recipes = Recipe.includes(:user, :favorites).order(created_at: :desc).page(params[:page]).per(12)
+    @new_recipes = Recipe.includes(:user, :favorites).excluded.order(created_at: :desc).page(params[:page]).per(12)
   end
 
   private
@@ -119,7 +112,13 @@ class RecipesController < ApplicationController
       :introduction,
       :image,
       :user_id,
+      :status,
       taist_attributes: [:id, :recipe_id, :sour, :bitter, :sweet, :flavor, :rich]
     )
+  end
+
+  def set_beans_tools
+    @beans = ["モカ", "キリマンジャロ", "コロンビア", "コナ", "マンデリン", "グアテマラ", "ブラジル", "ケニア"]
+    @tools = ["ハリオ", "カリタ", "メリタ"]
   end
 end
