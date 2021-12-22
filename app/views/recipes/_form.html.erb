@@ -9,23 +9,23 @@
       <%= f.fields_for :taist do |s| %>
       <div class="new-recipe__select-form">
         <%= s.label :sour, "酸味", class:"new-recipe__taist-label" %>
-        <%= s.select :sour, options_for_select(1..5), {prompt: "選択してください", required: true}, {class: "new-recipe__select-box"}%>
+        <%= s.number_field :sour,  in: 1..5, placeholder: "1~5で評価してください", class: "new-recipe__select-box" %>
       </div>
       <div class="new-recipe__select-form">
         <%= s.label :bitter, "苦味", class:"new-recipe__taist-label"%>
-        <%= s.select :bitter, options_for_select(1..5), {prompt: "選択してください"}, {class: "new-recipe__select-box"}%>
+        <%= s.number_field :bitter, in: 1..5, placeholder: "1~5で評価してください", class: "new-recipe__select-box" %>
       </div>
       <div class="new-recipe__select-form">
         <%= s.label :sweet, "甘味", class:"new-recipe__taist-label"%>
-        <%= s.select :sweet, options_for_select(1..5), {prompt: "選択してください"}, {class: "new-recipe__select-box"}%>
+        <%= s.number_field :sweet, in: 1..5, placeholder: "1~5で評価してください", class: "new-recipe__select-box" %>
       </div>
       <div class="new-recipe__select-form">
         <%= s.label :flavor, "香り", class:"new-recipe__taist-label"%>
-        <%= s.select :flavor, options_for_select(1..5), {prompt: "選択してください"}, {class: "new-recipe__select-box"}%>
+        <%= s.number_field :flavor, in: 1..5, placeholder: "1~5で評価してください", class: "new-recipe__select-box" %>
       </div>
       <div class="new-recipe__select-form">
         <%= s.label :rich, "コク", class:"new-recipe__taist-label"%>
-        <%= s.select :rich, options_for_select(1..5), {prompt: "選択してください"}, {class: "new-recipe__select-box"}%>
+        <%= s.number_field :rich, in: 1..5, placeholder: "1~5で評価してください", class: "new-recipe__select-box" %>
       </div>
         <%= s.hidden_field :recipe_id, value: recipe.id, class:"new-recipe__recipe-id" %>
       <% end %>
@@ -39,7 +39,7 @@
     </div>
     <div class="new-recipe__form-wrapper new-recipe__select-tag">
       <%= f.label :roast, "焙煎度", class:"new-recipe__recipe-label" %>
-      <%= f.collection_select(:roast, Recipe.roasts_i18n, :first, :last, {selected: recipe.roast, required: true}, {class: "new-recipe__form-content new-recipe__form-roast"}) %>
+      <%= f.collection_select(:roast, Recipe.roasts_i18n, :first, :last, {selected: recipe.roast}, {class: "new-recipe__form-content new-recipe__form-roast"}) %>
     </div>
     <div class="new-recipe__form-wrapper">
       <%= f.label :amount_of_beans, "コーヒー粉量(g)", class:"new-recipe__recipe-label" %>

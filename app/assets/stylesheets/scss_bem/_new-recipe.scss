@@ -43,28 +43,13 @@
   &__select-form {
     position: relative;
     margin-bottom: 20px;
-
-    &::before {
-    	position: absolute;
-    	top: 40%;
-    	left: 81%;
-    	width: 0;
-    	height: 0;
-    	padding: 0;
-    	content: '';
-    	border-left: 6px solid transparent;
-    	border-right: 6px solid transparent;
-    	border-top: 6px solid #666666;
-    	pointer-events: none;
-    }
   }
 
   &__select-box {
     border: 2px solid #432;
     border-radius: 10px;
     width: 80%;
-    padding-left: 10px;
-    padding-right: 10%;
+    margin-left: 10px;
     background: #fff;
     text-align: center;
     @include focus;

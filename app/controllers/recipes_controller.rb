@@ -36,7 +36,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @taist = Taist.find_by(recipe_id: params[:id])
 
-    unless @recipe.id == current_user.id
+    unless @recipe.user_id == current_user.id
       flash[:alert] = "アクセス権限はありません。"
       redirect_to root_path
     end
