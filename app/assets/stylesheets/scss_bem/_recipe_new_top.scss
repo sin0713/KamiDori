@@ -115,7 +115,6 @@
 
    &__user-name {
     font-size: 0.8rem;
-    margin-left: 5px;
   }
 
 
@@ -133,18 +132,30 @@
 
 @media screen and (max-width: 1024px) {
   .recipe-new-top {
+
+    &__items {
+      width: 35%;
+    }
+
     &__roast {
       display: none;
+    }
+
+    .recipe-new-top {
+     &__contents-wrapper {
+        & .recipe-new-top__items:nth-last-of-type(1) {
+          display: none;
+        }
+      }
     }
   }
 }
 
 @media screen and (max-width: 768px) {
   .recipe-new-top {
-     &__contents-wrapper {
-      & .recipe-new-top__items:nth-last-of-type(1) {
-        display: none;
-      }
+    
+     &__roast {
+      display: none;
     }
 
     &__items {
@@ -155,13 +166,45 @@
 
 @media screen and (max-width: 425px) {
   .recipe-new-top {
-    width: 100%;
+    width: 95%;
+    margin: 20px auto;
+
+    &__items {
+      height: 350px
+    }
+
+    &__recipe-img {
+      height: 180px;
+    }
 
     &__user-img {
-      left: 65%;
-      width: 50px;
+      top: 167px;
+      left: 60%;
+      width: 48px;
       height: 50px;
     }
+
+    &__bean-tit {
+      font-size: 1.5rem;
+    }
+
+    &__bean {
+      display: block;
+      font-size: 0.8rem;
+      margin-left: 0;
+      margin-bottom: 15px;
+    }
+
+    &__date-wrapper {
+      margin-top: 0px;
+      height: 40px;
+      width: 30%;
+      font-size: 0.7rem;
+    }
+
+
+
+
 
   }
 }

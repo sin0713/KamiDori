@@ -122,17 +122,16 @@
 
 
   &__tool {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
 
    &__roast {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     margin-bottom: 15px;
   }
 
    &__user-name {
-    font-size: 0.8rem;
-    margin-left: 5px;
+    font-size: 0.9rem;
   }
 
   &__rank-icon {
@@ -178,38 +177,79 @@
 
 @media screen and (max-width: 1024px) {
   .recipe-rank-items {
-    &__roast {
+
+     &__contents-wrapper {
+        & .recipe-rank-items__items:nth-last-of-type(1) {
+          display: none;
+        }
+      }
+
+     &__items {
+      width: 35%;
+    }
+
+
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .recipe-rank-items {
+
+    &__items {
+      width: 45%;
+    }
+
+     &__roast {
       display: none;
     }
   }
 }
 
-@media screen and (max-width: 768px) {
-  .recipe-rank-items {
-    &__contents-wrapper {
-      & .recipe-rank-items__items:nth-last-of-type(1) {
-        display: none;
-      }
-    }
-
-    &__items {
-      width: 45%;
-    }
-  }
-}
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 425px) {
   .recipe-rank-items {
     width: 95%;
+    margin: 0 auto 20px;
 
     &__items {
       width: 48%;
+      height: 350px;
+    }
+
+    &__recipe-img {
+      height: 180px;
     }
 
     &__user-img {
+      top: 167px;
       left: 60%;
       width: 48px;
       height: 50px;
+    }
+
+
+    &__bean-tit {
+      font-size: 1.5rem;
+    }
+
+    &__bean {
+      display: block;
+      font-size: 0.8rem;
+      margin-left: 0;
+      margin-bottom: 15px;
+    }
+
+    &__rank-icon {
+      font-size: 2.0em;
+      width: 25%;
+    }
+
+    &__number {
+      top: 21px;
+      left: 10px;
+      font-size: 1.0rem;
+      width: 18px;
+      height: 18px;
+      line-height: 18px;
     }
   }
 }
