@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :confirmation]
   def show
     @user = User.find(params[:id])
-    if @user.id == current_user.id
+    if user_signed_in? && @user.id == current_user.id
       @recipes = @user.recipes.includes(:favorites, :taist).page(params[:page]).per(12)
     else
        @recipes = @user.recipes.includes(:favorites, :taist).excluded.page(params[:page]).per(12)
