@@ -3,9 +3,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     if @user.id == current_user.id
-      @recipes = @user.recipes.includes(:favorites).page(params[:page]).per(12)
+      @recipes = @user.recipes.includes(:favorites, :taist).page(params[:page]).per(12)
     else
-       @recipes = @user.recipes.includes(:favorites).excluded.page(params[:page]).per(12)
+       @recipes = @user.recipes.includes(:favorites, :taist).excluded.page(params[:page]).per(12)
     end
   end
 

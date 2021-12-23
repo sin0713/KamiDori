@@ -1,18 +1,104 @@
-<div class="recipe-contents__header-heading">
-  <h2 class="recipe-contents__heading-title">Recipes</h2>
-</div>
-
-<div class="recipe-contents">
-  <%= render 'users/profile-icon' %>
-  <div class="recipe-contents__wrapper">
-    <h2 class="recipe-contents__heading"><%= @user.name %>'s Recipes</h2>
-    <div class="recipe-contents__main">
-      <% @recipes.each do |recipe| %>
-        <%= render 'recipes/index', recipe: recipe %>
+<div class="user-show">
+  <div class="user-show__left-contents">
+    <h3 class="user-show__heading"><%= @user.name %>'s <span class="user-show__share-heading">recipe book</span></h3>
+    <p class="user-show__status-explanation"><i class="fas fa-key"></i> :  非公開レシピ</p>
+    <div class="user-show__recipe-contents">
+      <% @recipes.each do |recipe|%>
+        <div class="user-show__recipe-wrapper">
+          <% if recipe.status == "private_recipe" %>
+            <div class="user-show__key-icon"><i class="fas fa-key"></i></div>
+          <% end %>
+          <div class="user-show__favorite favorite_btn-<%= recipe.id %>">
+            <%= render 'favorites/favorite_btn', recipe: recipe %>
+          </div>
+          <div class="user-show__chart-wrapper">
+            <%= link_to recipe_path(recipe) do %>
+              <%= render 'recipes/chart_rank', taist: recipe.taist, recipe: recipe %>
+            <% end %>
+          </div>
+          <div class="user-show__details-wrapper">
+            <div>
+              <h4 class="user-show__recipe-heading">Details</h4>
+              <div class="user-show__recipe-items-wrapper">
+                <div class="user-show__recipe-items-tit">
+                  産地
+                </div>
+                <div class="user-show__recipe-items">
+                  <%= recipe.bean %>
+                </div>
+              </div>
+              <div class="user-show__recipe-items-wrapper">
+                <div class="user-show__recipe-items-tit">
+                  焙煎度
+                </div>
+                <div class="user-show__recipe-items">
+                  <%= recipe.roast_i18n %>
+                </div>
+              </div>
+              <div class="user-show__recipe-items-wrapper">
+                <div class="user-show__recipe-items-tit">
+                  粉量
+                </div>
+                <div class="user-show__recipe-items">
+                  <%= recipe.amount_of_beans %>g
+                </div>
+              </div>
+              <div class="user-show__recipe-items-wrapper">
+                <div class="user-show__recipe-items-tit">
+                  挽目
+                </div>
+                <div class="user-show__recipe-items">
+                  <%= recipe.grind_size_i18n %>
+                </div>
+              </div>
+              <div class="user-show__recipe-items-wrapper">
+                <div class="user-show__recipe-items-tit">
+                  ドリッパー
+                </div>
+                <div class="user-show__recipe-items">
+                  <%= recipe.tool %>
+                </div>
+              </div>
+              <div class="user-show__recipe-items-wrapper">
+                <div class="user-show__recipe-items-tit">
+                  お湯の温度
+                </div>
+                <div class="user-show__recipe-items">
+                  <%= recipe.temperature %>℃
+                </div>
+              </div>
+              <div class="user-show__recipe-items-wrapper">
+                <div class="user-show__recipe-items-tit">
+                  蒸らし時間
+                </div>
+                <div class="user-show__recipe-items">
+                  <%= recipe.pre_infusion_time %>秒
+                </div>
+              </div>
+              <div class="user-show__recipe-items-wrapper">
+                <div class="recipe-show__recipe-items-tit">
+                  抽出時間
+                </div>
+                <div class="user-show__recipe-items">
+                  <%= recipe.extraction_time_minutes %>分 <%= recipe.extraction_time_seconds %>秒
+                </div>
+              </div>
+              <div class="user-show__recipe-items-wrapper">
+                <div class="user-show__recipe-items-tit">
+                  抽出量
+                </div>
+                <div class="user-show__recipe-items">
+                  <%= recipe.amount_of_extraction %>cc
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       <% end %>
       <%= render 'layouts/kaminari', models: @recipes %>
     </div>
   </div>
+
   <div class="profile">
     <%= render 'users/profile', user: @user %>
     <% if user_signed_in? && current_user.id == @user.id %>
@@ -20,4 +106,3 @@
     <% end %>
   </div>
 </div>
-
