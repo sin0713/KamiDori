@@ -166,20 +166,6 @@ RSpec.describe "Recipe", type: :system do
       end
     end
 
-    context '良いね機能のテスト', js: true do
-      before do
-        find('a.favorite__link').click
-        visit current_path
-      end
-
-      it '正しくいいねが保存されるか', js: true do
-        expect(other_recipe.favorites.count).to eq 1
-      end
-      it '正しくいいねが削除されるか' do
-        find('a.favorite__link').click
-        visit current_path
-        expect(other_recipe.favorites.count).to eq 0
-      end
-    end
+  
   end
 end
