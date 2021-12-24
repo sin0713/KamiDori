@@ -133,24 +133,7 @@ RSpec.describe "Recipe", type: :system do
       end
     end
 
-    context 'followのテスト', js: true do
-      before do
-        Relationship.create(follow_id: user.id, followed_id: other_user.id)
-        visit current_path
-        click_link 'Unfollow'
-      end
-
-      it '正しくUnfollowされるか' do
-        expect { user.followings.count }.to change(user.followings, :count).by(0)
-      end
-      it '正しくFollowされるか', js: true do
-        visit current_path
-        expect do
-          find('a.profile__follow-btn').click
-          sleep(3)
-        end.to change { user.followings.count }.by(1)
-      end
-    end
+   
 
     context 'コメント機能のテスト', js: true do
       before do
