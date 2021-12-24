@@ -10,7 +10,7 @@ RSpec.describe "Recipe", type: :system do
     click_button 'Log in'
   end
 
-  describe 'フォロー一覧画面のテスト' do
+  describe '自分のフォロー一覧画面のテスト' do
     before do
       Relationship.create(follow_id: user.id, followed_id: other_user.id)
       visit followings_user_path(user)
@@ -23,6 +23,9 @@ RSpec.describe "Recipe", type: :system do
       it 'フォローしたユーザーの名前が表示されているか' do
         expect(page).to have_content other_user.name
       end
+      it 'タイトルに自分の名前があるか' do
+        expect(page).to have_selector 'h3', text: "#{user.name}'s Follows"
+      end
       it 'レシピ投稿数は表示されているか' do
         expect(page).to have_content other_user.recipes.count
       end
@@ -31,6 +34,10 @@ RSpec.describe "Recipe", type: :system do
       end
       it 'フォロー数は表示されているか' do
         expect(page).to have_content other_user.followers.count
+      end
+      it 'ユーザー画像のリンク確認' do
+        link = find_all('a')[6]
+        expect(link[:href]).to eq user_path(other_user)
       end
     end
 
@@ -59,5 +66,9 @@ RSpec.describe "Recipe", type: :system do
         expect(page).to have_link 'プロフィール編集', href: edit_user_path(user)
       end
     end
+  end
+
+  describe 'フォロワー一覧画面のテスト' do
+
   end
 end

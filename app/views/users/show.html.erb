@@ -1,7 +1,9 @@
 <div class="user-show">
   <div class="user-show__left-contents">
     <h3 class="user-show__heading"><%= @user.name %>'s <span class="user-show__share-heading">recipe book</span></h3>
-    <p class="user-show__status-explanation"><i class="fas fa-key"></i> :  非公開レシピ</p>
+    <% if user_signed_in? && current_user.id == @user.id %>
+      <p class="user-show__status-explanation"><i class="fas fa-key"></i> :  非公開レシピ</p>
+    <% end %>
     <div class="user-show__recipe-contents">
       <% @recipes.each do |recipe|%>
         <div class="user-show__recipe-wrapper">
