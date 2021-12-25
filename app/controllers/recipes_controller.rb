@@ -28,7 +28,7 @@ class RecipesController < ApplicationController
   def index
     @recipes = Recipe.includes(:user, :favorites).excluded.page(params[:page]).per(12)
     @new_recipes = Recipe.includes(:user, :favorites).excluded.order(created_at: :desc).limit(3)
-    @recipe_ranks = Recipe.includes(:user, :favorites).excluded.find(Favorite.group(:recipe_id).order('count(recipe_id) desc').limit(3).pluck(:recipe_id))
+    @recipe_ranks = Recipe.includes(:user, :favorites).excluded.order_by_favorites(3)
   end
 
   def edit
@@ -39,7 +39,6 @@ class RecipesController < ApplicationController
       flash[:alert] = "アクセス権限はありません。"
       redirect_to root_path
     end
-
   end
 
   def update
@@ -81,13 +80,12 @@ class RecipesController < ApplicationController
     end
   end
 
-
   def favorites
     @recipes = current_user.favorites
   end
 
   def ranking
-    @recipe_ranks = Recipe.includes(:user, :favorites, :taist).excluded.limit(20).find(Favorite.group(:recipe_id).order('count(recipe_id) desc').pluck(:recipe_id))
+    @recipe_ranks = Recipe.includes(:user, :favorites, :taist).excluded.order_by_favorites(20)
   end
 
   def new_order

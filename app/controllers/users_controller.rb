@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     if user_signed_in? && @user.id == current_user.id
       @recipes = @user.recipes.includes(:favorites, :taist).page(params[:page]).per(12)
     else
-       @recipes = @user.recipes.includes(:favorites, :taist).excluded.page(params[:page]).per(12)
+      @recipes = @user.recipes.includes(:favorites, :taist).excluded.page(params[:page]).per(12)
     end
   end
 
@@ -26,7 +26,6 @@ class UsersController < ApplicationController
     else
       render :edit
     end
-
   end
 
   def followings

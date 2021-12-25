@@ -1,16 +1,14 @@
 require 'rails_helper'
 RSpec.describe "Recipe", type: :system do
   let!(:user) { create(:user) }
-  
-  
+
   before do
     visit new_user_session_path
     fill_in 'user[email]', with: user.email
     fill_in 'user[password]', with: user.password
     click_button 'Log in'
   end
-  
-  
+
   describe 'レシピ新規投稿画面のテスト(フォームの表示は編集画面のテストにて確認済み)' do
     before do
       visit new_recipe_path
@@ -69,4 +67,4 @@ RSpec.describe "Recipe", type: :system do
       end
     end
   end
-end 
+end

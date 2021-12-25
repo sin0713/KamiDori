@@ -84,6 +84,7 @@ RSpec.describe "Recipe", type: :system do
         expect(page).to have_link 'プロフィール編集', href: edit_user_path(user)
       end
     end
+
     context 'レシピ削除のテスト' do
       before do
         click_link 'Delete'
@@ -97,7 +98,6 @@ RSpec.describe "Recipe", type: :system do
       end
     end
   end
-
 
   describe '他人のレシピ詳細画面のテスト(自分のレシピ詳細画面と共通部分は除く)' do
     before do
@@ -133,8 +133,6 @@ RSpec.describe "Recipe", type: :system do
       end
     end
 
-   
-
     context 'コメント機能のテスト', js: true do
       before do
         fill_in 'recipe_comment[comment]', with: "コメントテスト"
@@ -165,7 +163,5 @@ RSpec.describe "Recipe", type: :system do
         end.to change { RecipeComment.count }.by(-1)
       end
     end
-
-  
   end
 end

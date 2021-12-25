@@ -14,8 +14,7 @@ RSpec.describe "Recipe", type: :system do
     click_button 'Log in'
   end
 
-
-  shared_context :favorite_btn_test, js:true do
+  shared_context 'favorite btn test', js: true do
     before do
       find_all("a.favorite__link-#{other_recipe.id}")[0].click
       sleep(1)
@@ -38,7 +37,7 @@ RSpec.describe "Recipe", type: :system do
       visit root_path
     end
 
-    include_context :favorite_btn_test
+    include_context 'favorite btn test'
   end
 
   describe 'レシピ詳細画面' do
@@ -46,7 +45,7 @@ RSpec.describe "Recipe", type: :system do
       visit recipe_path(other_recipe)
     end
 
-    include_context :favorite_btn_test
+    include_context 'favorite btn test'
   end
 
   describe 'ユーザー詳細画面' do
@@ -54,7 +53,7 @@ RSpec.describe "Recipe", type: :system do
       visit user_path(other_user)
     end
 
-    include_context :favorite_btn_test
+    include_context 'favorite btn test'
   end
 
   describe '新着レシピ一覧画面' do
@@ -62,7 +61,7 @@ RSpec.describe "Recipe", type: :system do
       visit new_order_recipes_path
     end
 
-    include_context :favorite_btn_test
+    include_context 'favorite btn test'
   end
 
   describe 'レシピランキング画面' do
@@ -72,7 +71,8 @@ RSpec.describe "Recipe", type: :system do
       find_all("a.favorite__link-#{other_recipe.id}")[0].click
       sleep(1)
     end
-    include_context :favorite_btn_test
+
+    include_context 'favorite btn test'
   end
 
   describe 'お気に入り一覧画面' do
@@ -83,7 +83,7 @@ RSpec.describe "Recipe", type: :system do
       sleep(1)
     end
 
-    context :favorite_btn_test, js:true do
+    context :favorite_btn_test, js: true do
       before do
         find_all("a.favorite__link-#{recipe.id}")[0].click
         sleep(1)

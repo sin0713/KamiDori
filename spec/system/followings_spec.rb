@@ -69,6 +69,5 @@ RSpec.describe "Recipe", type: :system do
   end
 
   describe 'フォロワー一覧画面のテスト' do
-
   end
 end

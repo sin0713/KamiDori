@@ -48,7 +48,6 @@ RSpec.describe "Recipe", type: :system do
         link = find('.user-show__recipe-path')
         expect(link[:href]).to eq recipe_path(recipe)
       end
-
     end
 
     context 'サイドバーの確認' do

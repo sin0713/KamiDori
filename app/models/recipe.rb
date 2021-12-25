@@ -39,9 +39,8 @@ class Recipe < ApplicationRecord
 
   enum status: {
     public_recipe: 0,
-    private_recipe: 1
+    private_recipe: 1,
   }
-
 
   def self.search(keyword)
     where(["bean like? OR tool like?", "%#{keyword}%", "%#{keyword}%"])
@@ -53,5 +52,9 @@ class Recipe < ApplicationRecord
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
+  end
+
+  def self.order_by_favorites(n)
+    self.find(Favorite.group(:recipe_id).order('count(recipe_id) desc').limit(n).pluck(:recipe_id))
   end
 end

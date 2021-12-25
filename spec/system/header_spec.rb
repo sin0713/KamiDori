@@ -2,7 +2,6 @@ require 'rails_helper'
 RSpec.describe "Recipe", type: :system do
   let!(:user) { create(:user) }
 
-
   describe 'ログイン前のヘッダーテスト' do
     before do
       visit root_path

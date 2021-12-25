@@ -21,7 +21,7 @@ RSpec.describe "Top", type: :system do
     click_button 'Log in'
   end
 
- describe 'トップ画面のテスト' do
+  describe 'トップ画面のテスト' do
     before do
       visit root_path
     end

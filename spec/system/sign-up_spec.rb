@@ -1,6 +1,5 @@
 require 'rails_helper'
 RSpec.describe "before_sign_in", type: :system do
-
   describe '新規登録画面のテスト' do
     before do
       visit new_user_registration_path
@@ -44,4 +43,4 @@ RSpec.describe "before_sign_in", type: :system do
       end
     end
   end
-end 
+end
