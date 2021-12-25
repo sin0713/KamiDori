@@ -14,7 +14,7 @@
             <%= render 'favorites/favorite_btn', recipe: recipe %>
           </div>
           <div class="user-show__chart-wrapper">
-            <%= link_to recipe_path(recipe) do %>
+            <%= link_to recipe_path(recipe), class:"user-show__recipe-path" do  %>
               <%= render 'recipes/chart_rank', taist: recipe.taist, recipe: recipe %>
             <% end %>
           </div>

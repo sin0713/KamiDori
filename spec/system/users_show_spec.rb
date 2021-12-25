@@ -1,6 +1,8 @@
 require 'rails_helper'
 RSpec.describe "Recipe", type: :system do
   let!(:user) { create(:user) }
+  let!(:recipe) { create(:recipe, user: user) }
+  let!(:taist) { create(:taist, recipe: recipe) }
 
   before do
     visit new_user_session_path
@@ -9,7 +11,7 @@ RSpec.describe "Recipe", type: :system do
     click_button 'Log in'
   end
 
-  describe 'ユーザー詳細画面のテスト' do
+  describe '自分のユーザー詳細画面のテスト' do
     before do
       visit user_path(user)
     end
@@ -19,12 +21,34 @@ RSpec.describe "Recipe", type: :system do
         expect(current_path).to eq("/users/#{user.id}")
       end
       it '名前の表示はあるか' do
-        expect(page).to have_content "#{user.name}'s Recipes"
+        expect(page).to have_content "#{user.name}'s recipe book"
       end
       it '自分の投稿が正しく表示されているか' do
         @count = user.recipes.count
-        expect(all('.recipe-contents__items').count).to eq @count
+        expect(all('.user-show__recipe-wrapper').count).to eq @count
       end
+      it 'レシピのチャートが正しく表示されているか' do
+        expect(page).to have_selector 'canvas'
+      end
+      it 'レシピの項目がすべて表示されているか' do
+        expect(page).to have_content recipe.bean
+        expect(page).to have_content recipe.roast_i18n
+        expect(page).to have_content recipe.extraction_time_minutes
+        expect(page).to have_content recipe.extraction_time_seconds
+        expect(page).to have_content recipe.pre_infusion_time
+        expect(page).to have_content recipe.temperature
+        expect(page).to have_content recipe.grind_size_i18n
+        expect(page).to have_content recipe.amount_of_beans
+        expect(page).to have_content recipe.amount_of_extraction
+      end
+      it 'レシピのタイトルは表示されるか' do
+        expect(page).to have_content 'Details'
+      end
+      it 'チャートのリンク先は正しいか' do
+        link = find('.user-show__recipe-path')
+        expect(link[:href]).to eq recipe_path(recipe)
+      end
+
     end
 
     context 'サイドバーの確認' do
