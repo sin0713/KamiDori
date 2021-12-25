@@ -1,4 +1,5 @@
 <div class="user-show">
+  <%= render 'users/profile-icon' %>
   <div class="user-show__left-contents">
     <h3 class="user-show__heading"><%= @user.name %>'s <span class="user-show__share-heading">recipe book</span></h3>
     <% if user_signed_in? && current_user.id == @user.id %>
