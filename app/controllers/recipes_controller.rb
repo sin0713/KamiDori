@@ -61,7 +61,6 @@ class RecipesController < ApplicationController
   end
 
   def search
-
     if params[:roast]
       @recipes = Recipe.includes(:user, :favorites).excluded.where(roast: params[:roast])
       # ハッシュのキー（params[:roast]）でハッシュの値を取得

@@ -40,8 +40,8 @@
   }
 
   &__items {
-    width: 30%;
-    height: 420px;
+    width: 25%;
+    height: 510px;
     background: #fff;
     position: relative;
     color: #797a7e;
@@ -82,7 +82,7 @@
   }
 
   &__bean-tit {
-    font-size: 1.9rem;
+    font-size: 2.0rem;
     font-family: 'Corinthia', cursive;
     color: black;
     margin-bottom: 10px;
@@ -94,6 +94,8 @@
 
   &__coffee-details {
     width: 70%;
+    font-size: 0.9rem;
+    margin-top: 10px;
   }
 
 
@@ -104,26 +106,22 @@
     font-family: serif;
   }
 
-  &__tool {
-    font-size: 0.7rem;
-  }
 
    &__roast {
-    font-size: 0.7rem;
-    margin-bottom: 15px;
+    margin-bottom: 40px;
   }
 
    &__user-name {
-    font-size: 0.8rem;
+    font-size: 1.0rem;
   }
 
 
 
   &__date-wrapper {
-    margin-top: 25px;
-    height: 50px;
-    width: 25%;
-    font-size: 0.8rem;
+    margin-top: 70px;
+    height: 55px;
+    width: 30%;
+    font-size: 0.9rem;
     border: 2px solid;
     text-align: center;
     border-radius: 10px;
@@ -153,10 +151,6 @@
 
 @media screen and (max-width: 768px) {
   .recipe-new-top {
-    
-     &__roast {
-      display: none;
-    }
 
     &__items {
       width: 45%;
@@ -166,8 +160,7 @@
 
 @media screen and (max-width: 425px) {
   .recipe-new-top {
-    width: 95%;
-    margin: 20px auto;
+    width: 100%;
 
     &__items {
       height: 350px
@@ -186,17 +179,35 @@
 
     &__bean-tit {
       font-size: 1.5rem;
+      margin-bottom: 0;
     }
 
     &__bean {
       display: block;
       font-size: 0.8rem;
       margin-left: 0;
-      margin-bottom: 15px;
     }
 
+    &__coffee-details {
+      margin-top: 0;
+    }
+
+    &__roast {
+      display: none;
+    }
+
+    &__tool {
+      margin-bottom: 10px;
+    }
+
+    &__user-name {
+      font-size: 0.8rem;
+    }
+
+
+
     &__date-wrapper {
-      margin-top: 0px;
+      margin-top: 20px;
       height: 40px;
       width: 30%;
       font-size: 0.7rem;
