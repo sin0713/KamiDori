@@ -33,14 +33,14 @@
 
 <div class="recipe-contents">
   <div class="recipe-contents__wrapper">
-    
+
     <h2 class="recipe-contents__heading">ALL Recipes</h2>
     <div class="recipe-contents__main">
       <% @recipes.each do |recipe| %>
         <%= render 'recipes/index', recipe: recipe %>
       <% end %>
-      <%= render 'layouts/kaminari', models: @recipes %>
     </div>
+     <%= render 'layouts/kaminari', models: @recipes %>
   </div>
   <div class="recipe-contents__search-bar">
    <%= render 'recipes/search_bar', beans: @beans, tools: @tools %>
