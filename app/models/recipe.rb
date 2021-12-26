@@ -55,6 +55,6 @@ class Recipe < ApplicationRecord
   end
 
   def self.order_by_favorites(n)
-    self.find(Favorite.group(:recipe_id).order('count(recipe_id) desc').limit(n).pluck(:recipe_id))
+    find(Favorite.group(:recipe_id).order('count(recipe_id) desc').limit(n).pluck(:recipe_id))
   end
 end

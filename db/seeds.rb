@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 user_names = [
+  "shin",
   "ryu",
   "sugar",
   "isshy",
-  "shin",
   "satoshi",
   "takashi",
   "toru",
@@ -26,8 +26,8 @@ user_names = [
 
   user_names.each.with_index(1) do |user_name, i|
     User.create!(
-      email: "coffee#{ i }@email.com",
-      password: "111111",
+      email: "coffee#{i}@email.com",
+      password: "kamidori#{i}",
       name: user_name,
       introduction: "hello"
     )
