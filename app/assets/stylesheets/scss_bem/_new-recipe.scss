@@ -150,11 +150,12 @@
 
 @media screen and (max-width: 768px) {
   .new-recipe  {
-    padding-bottom: 300px;
 
-    &__header-heading {
-      left: 35%;
+     &__header-heading {
+      left: 41%;
     }
+
+    padding-bottom: 300px;
 
     &__form {
       display: block;
@@ -203,6 +204,12 @@
 
 @media screen and (max-width: 425px) {
   .new-recipe {
+
+    &__header-heading {
+      display: none;
+    }
+
+
     &__taist-label {
       text-align: center;
       display: block;

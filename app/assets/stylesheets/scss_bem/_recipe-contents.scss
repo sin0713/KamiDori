@@ -184,15 +184,11 @@
 @media screen and (max-width: 1024px) {
    .recipe-contents {
      &__header-heading {
-       display: none;
+       left: 36%;
      }
 
       &__favorite-heading {
-        display: none;
-      }
-
-      &__edit-heading {
-        display: none;
+        left: 32%;
       }
 
      &__items {
@@ -205,6 +201,19 @@
  @media screen and (max-width: 768px) {
    .recipe-contents {
      padding-bottom: 200px;
+
+     &__header-heading {
+       left: 31%;
+     }
+
+     &__favorite-heading {
+        left: 23%;
+      }
+
+
+      &__edit-heading {
+        left: 40%;
+      }
 
      &__items {
        width: 45%;
@@ -233,6 +242,14 @@
     &__header-heading {
       display: none;
     }
+
+     &__favorite-heading {
+        display: none;
+      }
+
+     &__edit-heading {
+        display: none;
+      }
 
     &__wrapper {
       width: 100%;

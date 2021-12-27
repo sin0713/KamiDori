@@ -159,9 +159,26 @@
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .recipe-show {
+     &__header-heading {
+      left: 39%;
+    }
+
+  }
+}
+
+
+
 @media screen and (max-width: 768px) {
   .recipe-show {
     padding-bottom: 200px;
+
+     &__header-heading {
+      left: 35%;
+    }
+
+
 
     &__content {
       width: 65%;
