@@ -37,11 +37,11 @@ RSpec.describe "Recipe", type: :system do
         expect(page).to have_field 'recipe[image]'
       end
       it 'テイストテーブルのフォームが表示されてるか' do
-        expect(page).to have_select '酸味'
-        expect(page).to have_select '苦味'
-        expect(page).to have_select '甘味'
-        expect(page).to have_select 'コク'
-        expect(page).to have_select '香り'
+        expect(page).to have_field '酸味'
+        expect(page).to have_field '苦味'
+        expect(page).to have_field '甘味'
+        expect(page).to have_field 'コク'
+        expect(page).to have_field '香り'
       end
       it 'Updateボタンが表示されてるか' do
         expect(page).to have_button 'Update Recipe'
@@ -55,7 +55,7 @@ RSpec.describe "Recipe", type: :system do
         @taist_old_sour = taist.sour
         fill_in 'recipe[bean]', with: Faker::Lorem.characters(number: 4)
         fill_in 'recipe[temperature]', with: 100
-        select 5, from: '酸味'
+        fill_in 'recipe[taist_attributes][sour]', with: 5
         click_button 'Update'
       end
 
