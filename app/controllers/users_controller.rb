@@ -46,6 +46,8 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
+    current_user?
+    
     @user.destroy
     flash[:alert] = '正常に退会できました'
     redirect_to root_path
