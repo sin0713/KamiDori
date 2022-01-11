@@ -14,9 +14,11 @@
   &__nav-link {
     color: #fff;
     font-size: 1.3rem;
+    text-shadow: 2px 2px 2px black;
 
     &:hover {
       color: #cf6032;
+      text-shadow: none;
     }
   }
 }
