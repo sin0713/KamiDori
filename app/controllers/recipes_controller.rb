@@ -34,15 +34,13 @@ class RecipesController < ApplicationController
   def edit
     @recipe = Recipe.find(params[:id])
     @taist = Taist.find_by(recipe_id: params[:id])
-
-    unless @recipe.user_id == current_user.id
-      flash[:alert] = "アクセス権限はありません。"
-      redirect_to root_path
-    end
+    current_user?
   end
 
   def update
     @recipe = Recipe.find(params[:id])
+    current_user?
+    
     if @recipe.update(recipe_params)
       flash[:notice] = "レシピを更新しました"
       redirect_to recipe_path(@recipe)
@@ -53,6 +51,8 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipe = Recipe.find(params[:id])
+    current_user?
+    
     if @recipe.destroy
       flash[:alert] = 'レシピを削除しました'
       redirect_to user_path(current_user)
@@ -118,4 +118,11 @@ class RecipesController < ApplicationController
     @beans = ["モカ", "キリマンジャロ", "コロンビア", "コナ", "マンデリン", "グアテマラ", "ブラジル", "ケニア"]
     @tools = ["ハリオ", "カリタ", "メリタ"]
   end
+  
+  def current_user?
+    unless @recipe.user_id == current_user.id
+     flash[:alert] = "アクセス権限はありません。"
+     redirect_to root_path
+    end
+  end 
 end

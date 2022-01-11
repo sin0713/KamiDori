@@ -11,14 +11,12 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    unless @user.id == current_user.id
-      flash[:alert] = "アクセス権限がありません。"
-      redirect_to root_path
-    end
+    current_user?
   end
 
   def update
     @user = User.find(params[:id])
+    current_user?
 
     if @user.update(user_params)
       flash[:notice] = 'プロフィールを更新しました'
@@ -57,5 +55,12 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :image, :introduction)
+  end
+  
+  def current_user?
+    unless @user.id == current_user.id
+     flash[:alert] = "アクセス権限はありません。"
+     redirect_to root_path
+    end
   end
 end
